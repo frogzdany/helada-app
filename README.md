@@ -213,6 +213,12 @@ The same code that runs on a laptop is deployed serverless, as two stages (`dev`
 - **Durable data**: every row goes to DynamoDB and every media file to S3 before a response is sent; a new instance loads them back.
 - **Delivery**: a merge to `main` deploys to `dev`; production starts only on request, for a commit `dev` already runs.
 
+Both stages as they stand in the AWS account (console captures, 4 October 2026): nine CloudFormation stacks, four for each stage and one for the pipelines, and the two pipelines with their latest run.
+
+<img src="docs/img/aws-cloudformation-stacks.png" alt="CloudFormation console: the nine Helada stacks, all complete. Data, backend, edge and observability for prod and for dev, and the pipeline stack" width="820">
+
+<img src="docs/img/aws-codepipeline.png" alt="CodePipeline console: the helada-prod and helada-dev pipelines, latest run succeeded" width="320">
+
 Design, limits and cost: [`docs/aws-architecture.md`](docs/aws-architecture.md). Commands: [`infra/README.md`](infra/README.md). The diagram's source is [`docs/helada-aws-architecture.drawio`](docs/helada-aws-architecture.drawio).
 
 ## Repository map
