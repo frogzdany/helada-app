@@ -1,0 +1,317 @@
+{
+ "label": "Réplica de una noche real: 14 → 15 de noviembre de 2025",
+ "night_date": "2025-11-14",
+ "observation_date": "2025-11-15",
+ "forecast_source": "Open-Meteo Previous Runs API, model ecmwf_ifs025, day-1 run (the model's training input); CC BY 4.0",
+ "observation_source": "CONAGUA/SMN daily climatology, 08:00 manual reading dated 2025-11-15",
+ "holdout_note": "La réplica usa helada_model variant='holdout_2025_26' (entrenado solo con noches hasta sep 2025, calibración de 2024-25): el modelo no vio esta noche. «holdout» = la predicción del backtest para la estación, idéntica a lo que muestra la réplica.",
+ "night_summary": {
+  "stations": 32,
+  "frost_stations": 12,
+  "frost_with_forecast_above_1c": 12,
+  "caught_p_ge_0_3": 7,
+  "false_alarms_p_ge_0_3": 1
+ },
+ "parcels": {
+  "P01": {
+   "forecast": {
+    "grid_tmin_c": 9.2,
+    "dew_c": 0.29,
+    "cloud_cover": 10.7,
+    "wind_kmh": 2.73,
+    "wind_ms": 0.76,
+    "tmax_prev_c": 21.5,
+    "grid_elev_m": 2673.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at SMN 15282"
+   },
+   "station": {
+    "id": "15282",
+    "name": "Tres Barrancas",
+    "lat": 19.34083333,
+    "lon": -99.79833333,
+    "alt_m": 2682.0
+   },
+   "observed_tmin_c": -3.0,
+   "holdout": {
+    "tmin_c": 0.48,
+    "tmin_lo_c": -2.69,
+    "tmin_hi_c": 4.06,
+    "p_frost": 0.541,
+    "outcome": "hit"
+   }
+  },
+  "P02": {
+   "forecast": {
+    "grid_tmin_c": 4.0,
+    "dew_c": 0.54,
+    "cloud_cover": 8.1,
+    "wind_kmh": 3.64,
+    "wind_ms": 1.01,
+    "tmax_prev_c": 23.9,
+    "grid_elev_m": 2553.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at SMN 15010"
+   },
+   "station": {
+    "id": "15010",
+    "name": "Atotonilco",
+    "lat": 19.46222222,
+    "lon": -99.77555556,
+    "alt_m": 2557.0
+   },
+   "observed_tmin_c": -3.0,
+   "holdout": {
+    "tmin_c": -1.96,
+    "tmin_lo_c": -5.14,
+    "tmin_hi_c": 1.62,
+    "p_frost": 0.863,
+    "outcome": "hit"
+   }
+  },
+  "P03": {
+   "forecast": {
+    "grid_tmin_c": 3.7,
+    "dew_c": 0.31,
+    "cloud_cover": 8.1,
+    "wind_kmh": 3.64,
+    "wind_ms": 1.01,
+    "tmax_prev_c": 23.7,
+    "grid_elev_m": 2591.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at SMN 15086"
+   },
+   "station": {
+    "id": "15086",
+    "name": "San Bernabé",
+    "lat": 19.47611111,
+    "lon": -99.71444444,
+    "alt_m": 2560.0
+   },
+   "observed_tmin_c": -3.0,
+   "holdout": {
+    "tmin_c": -1.59,
+    "tmin_lo_c": -4.77,
+    "tmin_hi_c": 1.99,
+    "p_frost": 0.848,
+    "outcome": "hit"
+   }
+  },
+  "P04": {
+   "forecast": {
+    "grid_tmin_c": 3.8,
+    "dew_c": 0.38,
+    "cloud_cover": 8.1,
+    "wind_kmh": 3.64,
+    "wind_ms": 1.01,
+    "tmax_prev_c": 23.8,
+    "grid_elev_m": 2580.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at SMN 15201"
+   },
+   "station": {
+    "id": "15201",
+    "name": "Trojes",
+    "lat": 19.42805556,
+    "lon": -99.6125,
+    "alt_m": 2583.0
+   },
+   "observed_tmin_c": 4.0,
+   "holdout": {
+    "tmin_c": 2.26,
+    "tmin_lo_c": -1.46,
+    "tmin_hi_c": 4.7,
+    "p_frost": 0.221,
+    "outcome": "correct_negative"
+   }
+  },
+  "P05": {
+   "forecast": {
+    "grid_tmin_c": 8.5,
+    "dew_c": -3.72,
+    "cloud_cover": 11.5,
+    "wind_kmh": 3.86,
+    "wind_ms": 1.07,
+    "tmax_prev_c": 20.4,
+    "grid_elev_m": 2780.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at the parcel"
+   },
+   "station": null,
+   "observed_tmin_c": null,
+   "holdout": null
+  },
+  "P06": {
+   "forecast": {
+    "grid_tmin_c": 8.9,
+    "dew_c": -0.01,
+    "cloud_cover": 10.7,
+    "wind_kmh": 2.73,
+    "wind_ms": 0.76,
+    "tmax_prev_c": 21.2,
+    "grid_elev_m": 2723.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at SMN 15126"
+   },
+   "station": {
+    "id": "15126",
+    "name": "Toluca (Observatorio)",
+    "lat": 19.29111111,
+    "lon": -99.71416667,
+    "alt_m": 2726.0
+   },
+   "observed_tmin_c": -1.1,
+   "holdout": {
+    "tmin_c": 2.69,
+    "tmin_lo_c": -1.03,
+    "tmin_hi_c": 5.12,
+    "p_frost": 0.192,
+    "outcome": "miss"
+   }
+  },
+  "P07": {
+   "forecast": {
+    "grid_tmin_c": 4.0,
+    "dew_c": 0.57,
+    "cloud_cover": 8.1,
+    "wind_kmh": 3.64,
+    "wind_ms": 1.01,
+    "tmax_prev_c": 24.0,
+    "grid_elev_m": 2548.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at SMN 15372"
+   },
+   "station": {
+    "id": "15372",
+    "name": "Ixtlahuaca (DGE)",
+    "lat": 19.56888889,
+    "lon": -99.76694444,
+    "alt_m": 2540.0
+   },
+   "observed_tmin_c": -0.5,
+   "holdout": {
+    "tmin_c": 0.43,
+    "tmin_lo_c": -2.75,
+    "tmin_hi_c": 4.01,
+    "p_frost": 0.55,
+    "outcome": "hit"
+   }
+  },
+  "P08": {
+   "forecast": {
+    "grid_tmin_c": 3.8,
+    "dew_c": 0.32,
+    "cloud_cover": 8.1,
+    "wind_kmh": 3.64,
+    "wind_ms": 1.01,
+    "tmax_prev_c": 23.7,
+    "grid_elev_m": 2590.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at SMN 15085"
+   },
+   "station": {
+    "id": "15085",
+    "name": "San Bartolo del Llano",
+    "lat": 19.52444444,
+    "lon": -99.74138889,
+    "alt_m": 2587.0
+   },
+   "observed_tmin_c": -2.0,
+   "holdout": {
+    "tmin_c": 1.05,
+    "tmin_lo_c": -2.67,
+    "tmin_hi_c": 3.48,
+    "p_frost": 0.359,
+    "outcome": "hit"
+   }
+  },
+  "P09": {
+   "forecast": {
+    "grid_tmin_c": 3.6,
+    "dew_c": 0.17,
+    "cloud_cover": 8.1,
+    "wind_kmh": 3.64,
+    "wind_ms": 1.01,
+    "tmax_prev_c": 23.5,
+    "grid_elev_m": 2614.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at SMN 15238"
+   },
+   "station": {
+    "id": "15238",
+    "name": "Santa María del Llano",
+    "lat": 19.51472222,
+    "lon": -99.72861111,
+    "alt_m": 2618.0
+   },
+   "observed_tmin_c": 3.0,
+   "holdout": {
+    "tmin_c": -0.14,
+    "tmin_lo_c": -3.32,
+    "tmin_hi_c": 3.44,
+    "p_frost": 0.655,
+    "outcome": "false_alarm"
+   }
+  },
+  "P10": {
+   "forecast": {
+    "grid_tmin_c": 5.2,
+    "dew_c": -1.21,
+    "cloud_cover": 6.3,
+    "wind_kmh": 2.0,
+    "wind_ms": 0.56,
+    "tmax_prev_c": 21.3,
+    "grid_elev_m": 2703.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at the parcel"
+   },
+   "station": null,
+   "observed_tmin_c": null,
+   "holdout": null
+  },
+  "P11": {
+   "forecast": {
+    "grid_tmin_c": 4.9,
+    "dew_c": 1.43,
+    "cloud_cover": 6.5,
+    "wind_kmh": 3.18,
+    "wind_ms": 0.88,
+    "tmax_prev_c": 21.7,
+    "grid_elev_m": 2573.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at SMN 15251"
+   },
+   "station": {
+    "id": "15251",
+    "name": "Atlacomulco II (DGE)",
+    "lat": 19.7975,
+    "lon": -99.87444444,
+    "alt_m": 2574.0
+   },
+   "observed_tmin_c": 2.0,
+   "holdout": {
+    "tmin_c": 2.61,
+    "tmin_lo_c": -1.11,
+    "tmin_hi_c": 5.04,
+    "p_frost": 0.2,
+    "outcome": "correct_negative"
+   }
+  },
+  "P12": {
+   "forecast": {
+    "grid_tmin_c": 4.0,
+    "dew_c": 0.54,
+    "cloud_cover": 8.1,
+    "wind_kmh": 3.64,
+    "wind_ms": 1.01,
+    "tmax_prev_c": 23.9,
+    "grid_elev_m": 2553.0,
+    "source": "replay: Open-Meteo ecmwf_ifs025 day-1 (archived) at SMN 15026"
+   },
+   "station": {
+    "id": "15026",
+    "name": "Enyeje",
+    "lat": 19.56388889,
+    "lon": -99.85,
+    "alt_m": 2550.0
+   },
+   "observed_tmin_c": 1.0,
+   "holdout": {
+    "tmin_c": 1.93,
+    "tmin_lo_c": -1.79,
+    "tmin_hi_c": 4.37,
+    "p_frost": 0.226,
+    "outcome": "correct_negative"
+   }
+  }
+ }
+}

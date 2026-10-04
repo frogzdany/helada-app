@@ -1,0 +1,58 @@
+# English reading aid for reviewers. NOT the product text: farmers receive the Spanish in advisory.yaml,
+# and that Spanish table is what an agronomist signs. Same crops, same stage order, same action order.
+unsigned_label: "Draft, not yet signed by an agronomist"
+crops:
+  maiz_temporal:
+    name: "rainfed maize"
+    stages:
+      - stage: "emergence"
+        actions:
+          - "If your maize has just come up, frost can burn the leaves, but it often sprouts again. Do not replant right away: wait 3 to 5 days."
+          - "Write down the date of the frost: it helps you choose the planting date and variety next year."
+      - stage: "seedling and growth"
+        actions:
+          - "Do not replant right away. Wait 3 to 5 days and cut a stem at the base: if it is white and firm, the plant is still alive."
+          - "If there is damage, you have 10 days to notify the local office (Delegación). Send me audio and photos and I will help you."
+      - stage: "flowering and grain filling"
+        actions:
+          - "At this stage there is not much to do tonight. Tomorrow morning, check the tassel, the young ears and the grain."
+          - "If there is damage, do not cut or burn the plants before taking photos. You have 10 days to notify the local office."
+      - stage: "grain filling or maturity"
+        actions:
+          - "If the grain is already hard, frost hardly lowers the harvest. If it is still milky or doughy, you can lose grain."
+          - "If there is damage, do not cut or burn the plants before taking photos. You have 10 days to notify the local office."
+      - stage: "off season"
+        actions:
+          - "For the next planting: if your plot freezes often, ask your extension officer about an earlier-maturing variety."
+  papa:
+    name: "potato"
+    stages:
+      - stage: "any stage"
+        actions:
+          - "If your potato is sprouting, cover the rows or hill them up before dark."
+          - "If you have water, irrigate lightly this afternoon: moist soil holds more heat."
+  avena:
+    name: "oats"
+    stages:
+      - stage: "any stage"
+        actions:
+          - "Young oats withstand a lot of cold, but at flowering and grain filling they do get damaged. Tomorrow, check the head."
+          - "If there is damage, take photos before cutting. You have 10 days to notify the local office."
+  haba:
+    name: "faba bean"
+    stages:
+      - stage: "any stage"
+        actions:
+          - "Tomorrow morning, check the flowers and the pods. If there is damage, take photos before cutting."
+  flores_campo_abierto:
+    name: "flowers (open field)"
+    stages:
+      - stage: "no verified threshold"
+        actions:
+          - "Frost risk: protect outdoor beds and nurseries."
+  _default:
+    name: "crop"
+    stages:
+      - stage: "any stage"
+        actions:
+          - "Tomorrow morning, check your plot. If there is damage, take photos before cutting or clearing. You have 10 days to notify the local office."

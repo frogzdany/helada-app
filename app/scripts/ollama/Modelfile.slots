@@ -1,0 +1,7 @@
+# Helada slot filler: 1-2B model, CPU only, 2k context, greedy decoding.
+# Used by scripts/setup_local_ai.sh (the FROM line is replaced with $LLM_BASE).
+FROM qwen3:1.7b
+PARAMETER num_ctx 2048
+PARAMETER num_gpu 0
+PARAMETER num_thread 4
+PARAMETER temperature 0

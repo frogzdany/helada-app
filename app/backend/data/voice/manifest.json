@@ -1,0 +1,38 @@
+{
+ "made_with": "ElevenLabs eleven_multilingual_v2",
+ "note": "recorded ahead for the demo; the app's own voice is piper",
+ "files": {
+  "0ea0efcdf9b8739af27bb038.ogg": {
+   "voice": "Gabriela - Warm, Rich and Balanced",
+   "text": "Buenas tardes, don Aurelio. Aviso de Helada para su parcela en Almoloya de Juárez. Esta noche la probabilidad de helada es de 5 de cada 10, y su parcela puede bajar a cero grados. Si el grano ya está duro, la helada casi no le baja la cosecha. Responda uno para más información."
+  },
+  "4c30358074ca7be73deb91fa.ogg": {
+   "voice": "Gabriela - Warm, Rich and Balanced",
+   "text": "Buenas tardes, doña Teresa. Aviso de Helada para su parcela en Almoloya de Juárez. Esta noche la probabilidad de helada es de 9 de cada 10, y su parcela puede bajar a 2 grados bajo cero. Si el grano ya está duro, la helada casi no le baja la cosecha. Responda uno para más información."
+  },
+  "0cd5b18be5645a81a99a4779.ogg": {
+   "voice": "Gabriela - Warm, Rich and Balanced",
+   "text": "Buenas tardes, don Rufino. Aviso de Helada para su parcela en Temoaya. Esta noche la probabilidad de helada es de 8 de cada 10, y su parcela puede bajar a 2 grados bajo cero. Si el grano ya está duro, la helada casi no le baja la cosecha. Responda uno para más información."
+  },
+  "dde0f18b35f947289217f697.ogg": {
+   "voice": "Gabriela - Warm, Rich and Balanced",
+   "text": "Buenas tardes, don Isidro. Aviso de Helada para su parcela en Ixtlahuaca. Esta noche la probabilidad de helada es de 6 de cada 10, y su parcela puede bajar a cero grados. Si el grano ya está duro, la helada casi no le baja la cosecha. Responda uno para más información."
+  },
+  "2070145f0bbe86305e26b0c5.ogg": {
+   "voice": "Gabriela - Warm, Rich and Balanced",
+   "text": "Buenas tardes, doña Felipa. Aviso de Helada para su parcela en Ixtlahuaca. Esta noche la probabilidad de helada es de 4 de cada 10, y su parcela puede bajar a un grado. Si el grano ya está duro, la helada casi no le baja la cosecha. Responda uno para más información."
+  },
+  "f413e08193c377fa6f295c1e.ogg": {
+   "voice": "Gabriela - Warm, Rich and Balanced",
+   "text": "Buenas tardes, don Anastasio. Aviso de Helada para su parcela en Ixtlahuaca. Esta noche la probabilidad de helada es de 7 de cada 10, y su parcela puede bajar a cero grados. La avena chica aguanta mucho frío, pero en floración y llenado de grano sí se daña. Responda uno para más información."
+  },
+  "dbe4457915bef475507fd0cc.ogg": {
+   "voice": "Gabriela - Warm, Rich and Balanced",
+   "text": "Don Aurelio, para su parcela en Almoloya de Juárez: la primera helada de otoño puede llegar, en uno de cada diez años, desde el 3 de octubre. Si siembra con humedad en abril, le conviene el ciclo corto, sembrado a más tardar el 26 de abril. Si siembra hasta junio, con las lluvias, ni el ciclo corto madura seguro: 6 de cada diez años helaría antes de que madure. Pregunte a su técnico por la variedad más precoz. La fecha depende de cuándo lleguen las lluvias. Le mando la tabla por escrito."
+  },
+  "sample_farmer.ogg": {
+   "voice": "Mem - Enveloping, Warm and Serene",
+   "text": "Sí, se quemó la milpa, como una hectárea. Fue anoche, con la helada."
+  }
+ }
+}

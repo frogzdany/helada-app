@@ -1,0 +1,36 @@
+# PASACME rules used by the packet checklist (config, not code).
+# Source: Lineamientos y Mecánica Operativa del Programa Atención de Siniestros
+# Agroclimáticos en el Campo Mexiquense, Gaceta del Gobierno, Tomo CCXVII No. 114,
+# 25-jun-2024 (see docs/pasacme.md, verified 2026-09-29).
+# The checklist only reports "Documentos completos" / "Falta: X". It never decides.
+program: "Programa Atención de Siniestros Agroclimáticos en el Campo Mexiquense (PASACME)"
+instrument: "Lineamientos y Mecánica Operativa (Gaceta del Gobierno, 25-jun-2024)"
+max_ha: 3                  # 9.2 / 8.3 (2026: 4 ha anunciado, no publicado [V])
+amount_per_ha: 4000        # 8.3, reference only, subject to budget; never shown as an entitlement
+min_damage_pct: 60         # 9.3.1 e, 9.3.3
+notice_days: 10            # 9.3.1 c: aviso a la Delegación Regional en 10 días naturales
+min_photos: 4              # 9.1 c
+causes: [helada, granizo, sequia, inundacion, nevada, tornado]   # glosario "siniestro agroclimático"
+causes_also_listed: [lluvias, viento]                          # objetivos; confirm with Delegación [V]
+version_note: "Lineamientos PASACME 2024 (vigentes, verificados). 2026: 4 ha / $5,000 por ha anunciado en prensa, no publicado [V]."
+delegaciones:              # 10.1
+  "Almoloya de Juárez": "III Metepec"
+  "Zinacantepec": "III Metepec"
+  "Temoaya": "III Metepec (extensión)"
+  "Ixtlahuaca": "I Atlacomulco"
+  "San Felipe del Progreso": "I Atlacomulco"
+ventanilla_docs:           # 9.1 — the farmer brings these; Helada never receives them
+  - "Pre-registro en el formulario PASACME (9.1 a)"
+  - "FUR, Formato Único de Registro (Anexo 2), se llena en ventanilla (9.1 b)"
+  - "Identificación oficial vigente: INE, pasaporte, cartilla o cédula (9.1 d)"
+  - "CURP actualizada (9.1 e)"
+  - "Comprobante de domicilio de no más de 3 meses (9.1 f)"
+  - "Constancia de productor agrícola (comisariado, delegado o ayuntamiento), de los últimos 6 meses (9.1 g)"
+  - "Documento de propiedad o posesión de la parcela (título, certificado parcelario, constancia de posesión, contrato con dos testigos, etc.) (9.1 h)"
+rule_9_1: "No se tendrá por formulada la solicitud si no se presentan todos y cada uno de los documentos."
+process: "Inspección en sitio por la Delegación con Acta de verificación (Anexo 3) › dictamen › notificación › pago por orden electrónica › cobrar en la fecha asignada (10 días hábiles)."
+footer_lines:
+  - "Este documento organiza información; no es una solicitud ni una resolución."
+  - "La Secretaría del Campo verifica en campo; este paquete no sustituye la inspección."
+  - "Lo decide la Secretaría del Campo."
+legend_sec14: "Este programa es público, ajeno a cualquier partido político. Queda prohibido el uso para fines distintos a los establecidos en el programa."

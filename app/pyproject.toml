@@ -1,0 +1,35 @@
+[project]
+name = "helada-app"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.142.0",
+    "helada-model",
+    "httpx>=0.28.1",
+    "pillow>=12.3.0",
+    "python-multipart>=0.0.32",
+    "pyyaml>=6.0.3",
+    "reportlab>=5.0.1",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.optional-dependencies]
+asr = [
+    "faster-whisper>=1.2.1",
+]
+tts = [
+    "piper-tts>=1.3.0",
+]
+
+[dependency-groups]
+dev = [
+    "pypdf>=6.19.0",
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.uv.sources]
+helada-model = { path = "../model", editable = true }

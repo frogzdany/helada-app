@@ -1,0 +1,2408 @@
+{
+ "site": {
+  "station": "15390",
+  "label": "Registrador de ejemplo en E.T.A. 013 Jocotitlán",
+  "lat": 19.71111,
+  "lon": -99.78889,
+  "alt_m": 2650,
+  "municipality": "Jocotitlán"
+ },
+ "note": "Ejemplo con datos reales: las mínimas diarias de la estación SMN 15390 (E.T.A. 013 Jocotitlán), que el modelo nunca vio, hacen de registrador. Una sola estación y una temporada: ilustra, no prueba. La evidencia es la curva medida en 80 estaciones (model/README.md).",
+ "source": {
+  "observations": "CONAGUA/SMN daily climatology, 08:00 manual reading (night = evening before)",
+  "forecasts": "Open-Meteo Previous Runs API, ecmwf_ifs025 day-1 (CC BY 4.0), at the station coordinates",
+  "model_variant": "holdout_2025_26"
+ },
+ "replay_night": "2025-11-14",
+ "observations": [
+  {
+   "night_date": "2025-10-01",
+   "tmin_c": 9.0
+  },
+  {
+   "night_date": "2025-10-02",
+   "tmin_c": 11.0
+  },
+  {
+   "night_date": "2025-10-03",
+   "tmin_c": 11.0
+  },
+  {
+   "night_date": "2025-10-04",
+   "tmin_c": 10.0
+  },
+  {
+   "night_date": "2025-10-05",
+   "tmin_c": 12.0
+  },
+  {
+   "night_date": "2025-10-06",
+   "tmin_c": 12.0
+  },
+  {
+   "night_date": "2025-10-07",
+   "tmin_c": 13.0
+  },
+  {
+   "night_date": "2025-10-08",
+   "tmin_c": 12.0
+  },
+  {
+   "night_date": "2025-10-09",
+   "tmin_c": 13.0
+  },
+  {
+   "night_date": "2025-10-10",
+   "tmin_c": 10.0
+  },
+  {
+   "night_date": "2025-10-11",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-10-12",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-10-13",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2025-10-14",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2025-10-15",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2025-10-16",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2025-10-17",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2025-10-18",
+   "tmin_c": 9.0
+  },
+  {
+   "night_date": "2025-10-19",
+   "tmin_c": 10.0
+  },
+  {
+   "night_date": "2025-10-20",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-10-21",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2025-10-22",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2025-10-23",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-10-24",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-10-25",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-10-26",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-10-27",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-10-28",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2025-10-29",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2025-10-30",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-10-31",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2025-11-01",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2025-11-02",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-11-03",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-11-04",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2025-11-05",
+   "tmin_c": 1.0
+  },
+  {
+   "night_date": "2025-11-06",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-11-07",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-11-08",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-11-09",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2025-11-10",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-11-11",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-11-12",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2025-11-13",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-11-14",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-11-15",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-11-16",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-11-17",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-11-18",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-11-19",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-11-20",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-11-21",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-11-22",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-11-23",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2025-11-24",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2025-11-25",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-11-26",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-11-27",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2025-11-28",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2025-11-29",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-11-30",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-12-01",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-12-02",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2025-12-03",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2025-12-04",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-12-05",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-12-06",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2025-12-07",
+   "tmin_c": 11.0
+  },
+  {
+   "night_date": "2025-12-08",
+   "tmin_c": 9.0
+  },
+  {
+   "night_date": "2025-12-09",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2025-12-10",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-12-11",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-12-12",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2025-12-13",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2025-12-14",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2025-12-15",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-12-16",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2025-12-17",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-12-18",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2025-12-19",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2025-12-20",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-12-21",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-12-22",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-12-23",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2025-12-24",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2025-12-25",
+   "tmin_c": 1.0
+  },
+  {
+   "night_date": "2025-12-26",
+   "tmin_c": 1.0
+  },
+  {
+   "night_date": "2025-12-27",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-12-28",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-12-29",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-12-30",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2025-12-31",
+   "tmin_c": 1.0
+  },
+  {
+   "night_date": "2026-01-01",
+   "tmin_c": 1.0
+  },
+  {
+   "night_date": "2026-01-02",
+   "tmin_c": 1.0
+  },
+  {
+   "night_date": "2026-01-03",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-01-04",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-01-05",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-01-06",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-01-07",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-01-08",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-01-09",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-01-10",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-01-11",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-01-12",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-01-13",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-01-14",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-01-15",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-01-16",
+   "tmin_c": 9.0
+  },
+  {
+   "night_date": "2026-01-17",
+   "tmin_c": 8.0
+  },
+  {
+   "night_date": "2026-01-18",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-01-19",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2026-01-20",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2026-01-21",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-01-22",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-01-23",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-01-24",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-01-25",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-01-26",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-01-27",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-01-28",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-01-29",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-01-30",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-01-31",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-02-01",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-02-02",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-02-03",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-02-04",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-02-05",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-02-06",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-02-07",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-02-08",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-02-09",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-02-10",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-02-11",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-02-12",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-02-13",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2026-02-14",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-02-15",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-02-16",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-02-17",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-02-18",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-02-19",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-02-20",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-02-21",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-02-22",
+   "tmin_c": 1.0
+  },
+  {
+   "night_date": "2026-02-23",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-02-24",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-02-25",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-02-26",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-02-27",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-02-28",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-03-01",
+   "tmin_c": 1.0
+  },
+  {
+   "night_date": "2026-03-02",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-03-03",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-03-04",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-03-05",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-03-06",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-03-07",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2026-03-08",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2026-03-09",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2026-03-10",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2026-03-11",
+   "tmin_c": 7.0
+  },
+  {
+   "night_date": "2026-03-12",
+   "tmin_c": 4.5
+  },
+  {
+   "night_date": "2026-03-13",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2026-03-14",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2026-03-15",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-03-16",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2026-03-17",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-03-18",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-03-19",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-03-20",
+   "tmin_c": 0.0
+  },
+  {
+   "night_date": "2026-03-21",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-03-22",
+   "tmin_c": 4.0
+  },
+  {
+   "night_date": "2026-03-23",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-03-24",
+   "tmin_c": 2.0
+  },
+  {
+   "night_date": "2026-03-25",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-03-26",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-03-27",
+   "tmin_c": 5.0
+  },
+  {
+   "night_date": "2026-03-28",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2026-03-29",
+   "tmin_c": 6.0
+  },
+  {
+   "night_date": "2026-03-30",
+   "tmin_c": 3.0
+  },
+  {
+   "night_date": "2026-03-31",
+   "tmin_c": 5.0
+  }
+ ],
+ "forecasts": {
+  "2025-10-01": {
+   "tmin_c": 10.3,
+   "dew_c": 9.567,
+   "cloud_pct": 52.867,
+   "wind_kmh": 8.62,
+   "tmax_prev_c": 18.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-02": {
+   "tmin_c": 11.1,
+   "dew_c": 10.373,
+   "cloud_pct": 81.133,
+   "wind_kmh": 8.46,
+   "tmax_prev_c": 17.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-03": {
+   "tmin_c": 6.8,
+   "dew_c": 8.26,
+   "cloud_pct": 58.4,
+   "wind_kmh": 6.827,
+   "tmax_prev_c": 17.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-04": {
+   "tmin_c": 8.7,
+   "dew_c": 10.107,
+   "cloud_pct": 80.6,
+   "wind_kmh": 2.833,
+   "tmax_prev_c": 18.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-05": {
+   "tmin_c": 8.9,
+   "dew_c": 10.527,
+   "cloud_pct": 84.2,
+   "wind_kmh": 1.713,
+   "tmax_prev_c": 17.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-06": {
+   "tmin_c": 11.2,
+   "dew_c": 11.553,
+   "cloud_pct": 83.733,
+   "wind_kmh": 3.267,
+   "tmax_prev_c": 18.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-07": {
+   "tmin_c": 10.8,
+   "dew_c": 10.433,
+   "cloud_pct": 76.6,
+   "wind_kmh": 9.967,
+   "tmax_prev_c": 19.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-08": {
+   "tmin_c": 12.1,
+   "dew_c": 11.573,
+   "cloud_pct": 91.467,
+   "wind_kmh": 14.073,
+   "tmax_prev_c": 15.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-09": {
+   "tmin_c": 11.4,
+   "dew_c": 11.647,
+   "cloud_pct": 95.067,
+   "wind_kmh": 10.967,
+   "tmax_prev_c": 15.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-10": {
+   "tmin_c": 10.2,
+   "dew_c": 10.86,
+   "cloud_pct": 83.067,
+   "wind_kmh": 6.653,
+   "tmax_prev_c": 18.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-11": {
+   "tmin_c": 8.9,
+   "dew_c": 10.667,
+   "cloud_pct": 84.333,
+   "wind_kmh": 3.16,
+   "tmax_prev_c": 18.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-12": {
+   "tmin_c": 6.5,
+   "dew_c": 7.467,
+   "cloud_pct": 19.733,
+   "wind_kmh": 2.293,
+   "tmax_prev_c": 19.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-13": {
+   "tmin_c": 7.6,
+   "dew_c": 9.32,
+   "cloud_pct": 67.2,
+   "wind_kmh": 6.24,
+   "tmax_prev_c": 21.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-14": {
+   "tmin_c": 8.1,
+   "dew_c": 8.113,
+   "cloud_pct": 59.667,
+   "wind_kmh": 9.34,
+   "tmax_prev_c": 18.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-15": {
+   "tmin_c": 5.0,
+   "dew_c": 6.893,
+   "cloud_pct": 76.933,
+   "wind_kmh": 4.12,
+   "tmax_prev_c": 17.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-16": {
+   "tmin_c": 7.3,
+   "dew_c": 8.48,
+   "cloud_pct": 64.067,
+   "wind_kmh": 1.58,
+   "tmax_prev_c": 18.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-17": {
+   "tmin_c": 9.0,
+   "dew_c": 9.54,
+   "cloud_pct": 68.0,
+   "wind_kmh": 2.193,
+   "tmax_prev_c": 20.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-18": {
+   "tmin_c": 5.2,
+   "dew_c": 7.553,
+   "cloud_pct": 58.933,
+   "wind_kmh": 4.62,
+   "tmax_prev_c": 20.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-19": {
+   "tmin_c": 8.4,
+   "dew_c": 9.28,
+   "cloud_pct": 77.4,
+   "wind_kmh": 8.693,
+   "tmax_prev_c": 19.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-20": {
+   "tmin_c": 4.0,
+   "dew_c": 6.547,
+   "cloud_pct": 50.667,
+   "wind_kmh": 5.353,
+   "tmax_prev_c": 19.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-21": {
+   "tmin_c": 8.9,
+   "dew_c": 9.54,
+   "cloud_pct": 67.6,
+   "wind_kmh": 9.107,
+   "tmax_prev_c": 20.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-22": {
+   "tmin_c": 8.0,
+   "dew_c": 9.867,
+   "cloud_pct": 71.067,
+   "wind_kmh": 6.52,
+   "tmax_prev_c": 19.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-23": {
+   "tmin_c": 5.5,
+   "dew_c": 7.393,
+   "cloud_pct": 53.667,
+   "wind_kmh": 4.027,
+   "tmax_prev_c": 20.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-24": {
+   "tmin_c": 6.2,
+   "dew_c": 6.1,
+   "cloud_pct": 23.133,
+   "wind_kmh": 2.713,
+   "tmax_prev_c": 21.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-25": {
+   "tmin_c": 7.1,
+   "dew_c": 6.167,
+   "cloud_pct": 8.533,
+   "wind_kmh": 2.76,
+   "tmax_prev_c": 21.8,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-26": {
+   "tmin_c": 4.8,
+   "dew_c": 6.147,
+   "cloud_pct": 24.6,
+   "wind_kmh": 5.053,
+   "tmax_prev_c": 21.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-27": {
+   "tmin_c": 5.7,
+   "dew_c": 5.733,
+   "cloud_pct": 12.4,
+   "wind_kmh": 3.907,
+   "tmax_prev_c": 21.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-28": {
+   "tmin_c": 5.4,
+   "dew_c": 3.473,
+   "cloud_pct": 3.333,
+   "wind_kmh": 8.133,
+   "tmax_prev_c": 21.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-29": {
+   "tmin_c": 4.7,
+   "dew_c": 6.52,
+   "cloud_pct": 63.8,
+   "wind_kmh": 5.4,
+   "tmax_prev_c": 16.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-30": {
+   "tmin_c": 4.5,
+   "dew_c": 3.667,
+   "cloud_pct": 6.133,
+   "wind_kmh": 3.007,
+   "tmax_prev_c": 19.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-10-31": {
+   "tmin_c": 4.9,
+   "dew_c": 4.447,
+   "cloud_pct": 18.467,
+   "wind_kmh": 2.533,
+   "tmax_prev_c": 20.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-01": {
+   "tmin_c": 5.6,
+   "dew_c": 4.94,
+   "cloud_pct": 24.467,
+   "wind_kmh": 4.853,
+   "tmax_prev_c": 19.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-02": {
+   "tmin_c": 4.8,
+   "dew_c": 6.0,
+   "cloud_pct": 62.2,
+   "wind_kmh": 6.987,
+   "tmax_prev_c": 17.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-03": {
+   "tmin_c": 3.3,
+   "dew_c": 5.087,
+   "cloud_pct": 60.0,
+   "wind_kmh": 5.987,
+   "tmax_prev_c": 17.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-04": {
+   "tmin_c": 3.8,
+   "dew_c": 5.14,
+   "cloud_pct": 54.0,
+   "wind_kmh": 3.66,
+   "tmax_prev_c": 19.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-05": {
+   "tmin_c": 2.2,
+   "dew_c": 2.0,
+   "cloud_pct": 4.267,
+   "wind_kmh": 4.64,
+   "tmax_prev_c": 19.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-06": {
+   "tmin_c": 4.1,
+   "dew_c": 0.433,
+   "cloud_pct": 1.4,
+   "wind_kmh": 2.973,
+   "tmax_prev_c": 20.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-07": {
+   "tmin_c": 4.9,
+   "dew_c": 2.533,
+   "cloud_pct": 25.2,
+   "wind_kmh": 1.467,
+   "tmax_prev_c": 21.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-08": {
+   "tmin_c": 5.2,
+   "dew_c": 0.68,
+   "cloud_pct": 7.0,
+   "wind_kmh": 3.333,
+   "tmax_prev_c": 20.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-09": {
+   "tmin_c": 5.7,
+   "dew_c": 3.9,
+   "cloud_pct": 57.267,
+   "wind_kmh": 14.567,
+   "tmax_prev_c": 19.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-10": {
+   "tmin_c": 4.1,
+   "dew_c": 4.24,
+   "cloud_pct": 67.467,
+   "wind_kmh": 12.76,
+   "tmax_prev_c": 10.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-11": {
+   "tmin_c": 5.5,
+   "dew_c": 5.12,
+   "cloud_pct": 49.667,
+   "wind_kmh": 2.433,
+   "tmax_prev_c": 17.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-12": {
+   "tmin_c": 4.3,
+   "dew_c": 4.573,
+   "cloud_pct": 31.2,
+   "wind_kmh": 3.467,
+   "tmax_prev_c": 19.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-13": {
+   "tmin_c": 4.1,
+   "dew_c": 2.94,
+   "cloud_pct": 22.0,
+   "wind_kmh": 3.8,
+   "tmax_prev_c": 20.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-14": {
+   "tmin_c": 4.3,
+   "dew_c": 0.833,
+   "cloud_pct": 6.467,
+   "wind_kmh": 3.18,
+   "tmax_prev_c": 21.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-15": {
+   "tmin_c": 5.6,
+   "dew_c": 0.82,
+   "cloud_pct": 0.0,
+   "wind_kmh": 2.093,
+   "tmax_prev_c": 21.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-16": {
+   "tmin_c": 6.2,
+   "dew_c": 1.747,
+   "cloud_pct": 0.0,
+   "wind_kmh": 2.56,
+   "tmax_prev_c": 21.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-17": {
+   "tmin_c": 5.2,
+   "dew_c": 2.093,
+   "cloud_pct": 15.2,
+   "wind_kmh": 1.76,
+   "tmax_prev_c": 21.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-18": {
+   "tmin_c": 5.9,
+   "dew_c": 3.42,
+   "cloud_pct": 16.933,
+   "wind_kmh": 3.673,
+   "tmax_prev_c": 21.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-19": {
+   "tmin_c": 4.5,
+   "dew_c": 5.607,
+   "cloud_pct": 43.933,
+   "wind_kmh": 2.74,
+   "tmax_prev_c": 21.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-20": {
+   "tmin_c": 6.2,
+   "dew_c": 6.367,
+   "cloud_pct": 11.2,
+   "wind_kmh": 1.967,
+   "tmax_prev_c": 20.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-21": {
+   "tmin_c": 4.6,
+   "dew_c": 6.713,
+   "cloud_pct": 24.6,
+   "wind_kmh": 4.873,
+   "tmax_prev_c": 20.8,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-22": {
+   "tmin_c": 7.6,
+   "dew_c": 7.7,
+   "cloud_pct": 72.933,
+   "wind_kmh": 6.133,
+   "tmax_prev_c": 19.8,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-23": {
+   "tmin_c": 4.2,
+   "dew_c": 5.56,
+   "cloud_pct": 29.933,
+   "wind_kmh": 3.767,
+   "tmax_prev_c": 20.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-24": {
+   "tmin_c": 5.4,
+   "dew_c": 5.433,
+   "cloud_pct": 19.6,
+   "wind_kmh": 1.68,
+   "tmax_prev_c": 19.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-25": {
+   "tmin_c": 5.9,
+   "dew_c": 6.667,
+   "cloud_pct": 83.6,
+   "wind_kmh": 4.473,
+   "tmax_prev_c": 20.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-26": {
+   "tmin_c": 9.3,
+   "dew_c": 8.513,
+   "cloud_pct": 83.6,
+   "wind_kmh": 11.307,
+   "tmax_prev_c": 17.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-27": {
+   "tmin_c": 8.6,
+   "dew_c": 7.813,
+   "cloud_pct": 90.867,
+   "wind_kmh": 10.693,
+   "tmax_prev_c": 17.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-28": {
+   "tmin_c": 5.8,
+   "dew_c": 7.233,
+   "cloud_pct": 78.4,
+   "wind_kmh": 3.873,
+   "tmax_prev_c": 16.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-29": {
+   "tmin_c": 5.1,
+   "dew_c": 2.94,
+   "cloud_pct": 19.8,
+   "wind_kmh": 1.893,
+   "tmax_prev_c": 18.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-11-30": {
+   "tmin_c": 5.3,
+   "dew_c": 6.86,
+   "cloud_pct": 89.733,
+   "wind_kmh": 3.54,
+   "tmax_prev_c": 19.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-01": {
+   "tmin_c": 6.1,
+   "dew_c": 7.087,
+   "cloud_pct": 79.667,
+   "wind_kmh": 1.98,
+   "tmax_prev_c": 18.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-02": {
+   "tmin_c": 6.1,
+   "dew_c": 7.267,
+   "cloud_pct": 32.067,
+   "wind_kmh": 2.627,
+   "tmax_prev_c": 20.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-03": {
+   "tmin_c": 6.2,
+   "dew_c": 7.4,
+   "cloud_pct": 31.133,
+   "wind_kmh": 1.587,
+   "tmax_prev_c": 20.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-04": {
+   "tmin_c": 6.2,
+   "dew_c": 7.013,
+   "cloud_pct": 76.467,
+   "wind_kmh": 3.147,
+   "tmax_prev_c": 19.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-05": {
+   "tmin_c": 7.1,
+   "dew_c": 7.693,
+   "cloud_pct": 63.867,
+   "wind_kmh": 4.093,
+   "tmax_prev_c": 18.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-06": {
+   "tmin_c": 6.1,
+   "dew_c": 7.38,
+   "cloud_pct": 81.2,
+   "wind_kmh": 1.64,
+   "tmax_prev_c": 18.8,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-07": {
+   "tmin_c": 10.3,
+   "dew_c": 9.56,
+   "cloud_pct": 89.8,
+   "wind_kmh": 8.047,
+   "tmax_prev_c": 19.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-08": {
+   "tmin_c": 6.5,
+   "dew_c": 7.52,
+   "cloud_pct": 91.6,
+   "wind_kmh": 2.76,
+   "tmax_prev_c": 16.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-09": {
+   "tmin_c": 5.6,
+   "dew_c": 7.247,
+   "cloud_pct": 43.333,
+   "wind_kmh": 0.973,
+   "tmax_prev_c": 17.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-10": {
+   "tmin_c": 5.5,
+   "dew_c": 6.907,
+   "cloud_pct": 77.133,
+   "wind_kmh": 4.78,
+   "tmax_prev_c": 19.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-11": {
+   "tmin_c": 5.4,
+   "dew_c": 5.907,
+   "cloud_pct": 29.333,
+   "wind_kmh": 1.22,
+   "tmax_prev_c": 18.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-12": {
+   "tmin_c": 5.6,
+   "dew_c": 4.02,
+   "cloud_pct": 17.533,
+   "wind_kmh": 2.647,
+   "tmax_prev_c": 19.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-13": {
+   "tmin_c": 4.4,
+   "dew_c": 4.527,
+   "cloud_pct": 63.067,
+   "wind_kmh": 4.873,
+   "tmax_prev_c": 19.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-14": {
+   "tmin_c": 8.1,
+   "dew_c": 7.56,
+   "cloud_pct": 86.0,
+   "wind_kmh": 13.2,
+   "tmax_prev_c": 18.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-15": {
+   "tmin_c": 4.1,
+   "dew_c": 5.913,
+   "cloud_pct": 62.4,
+   "wind_kmh": 5.08,
+   "tmax_prev_c": 14.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-16": {
+   "tmin_c": 4.8,
+   "dew_c": 5.6,
+   "cloud_pct": 17.6,
+   "wind_kmh": 2.713,
+   "tmax_prev_c": 18.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-17": {
+   "tmin_c": 3.7,
+   "dew_c": 5.46,
+   "cloud_pct": 59.667,
+   "wind_kmh": 2.447,
+   "tmax_prev_c": 16.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-18": {
+   "tmin_c": 4.0,
+   "dew_c": 3.26,
+   "cloud_pct": 13.867,
+   "wind_kmh": 5.04,
+   "tmax_prev_c": 16.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-19": {
+   "tmin_c": 3.4,
+   "dew_c": 4.093,
+   "cloud_pct": 16.333,
+   "wind_kmh": 3.207,
+   "tmax_prev_c": 16.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-20": {
+   "tmin_c": 2.5,
+   "dew_c": 1.507,
+   "cloud_pct": 22.0,
+   "wind_kmh": 3.6,
+   "tmax_prev_c": 18.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-21": {
+   "tmin_c": 6.9,
+   "dew_c": 6.093,
+   "cloud_pct": 84.2,
+   "wind_kmh": 7.473,
+   "tmax_prev_c": 18.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-22": {
+   "tmin_c": 8.3,
+   "dew_c": 8.327,
+   "cloud_pct": 90.4,
+   "wind_kmh": 7.133,
+   "tmax_prev_c": 16.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-23": {
+   "tmin_c": 8.5,
+   "dew_c": 8.227,
+   "cloud_pct": 86.0,
+   "wind_kmh": 6.94,
+   "tmax_prev_c": 17.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-24": {
+   "tmin_c": 6.6,
+   "dew_c": 7.14,
+   "cloud_pct": 81.333,
+   "wind_kmh": 5.547,
+   "tmax_prev_c": 18.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-25": {
+   "tmin_c": 5.6,
+   "dew_c": 5.887,
+   "cloud_pct": 48.933,
+   "wind_kmh": 3.74,
+   "tmax_prev_c": 18.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-26": {
+   "tmin_c": 3.3,
+   "dew_c": 3.7,
+   "cloud_pct": 9.0,
+   "wind_kmh": 3.413,
+   "tmax_prev_c": 17.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-27": {
+   "tmin_c": 3.6,
+   "dew_c": 4.367,
+   "cloud_pct": 5.867,
+   "wind_kmh": 3.287,
+   "tmax_prev_c": 17.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-28": {
+   "tmin_c": 3.8,
+   "dew_c": 3.087,
+   "cloud_pct": 23.267,
+   "wind_kmh": 4.713,
+   "tmax_prev_c": 18.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-29": {
+   "tmin_c": 6.1,
+   "dew_c": 6.1,
+   "cloud_pct": 89.667,
+   "wind_kmh": 12.567,
+   "tmax_prev_c": 17.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-30": {
+   "tmin_c": 3.3,
+   "dew_c": 4.44,
+   "cloud_pct": 76.733,
+   "wind_kmh": 4.78,
+   "tmax_prev_c": 14.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2025-12-31": {
+   "tmin_c": 3.6,
+   "dew_c": 3.44,
+   "cloud_pct": 10.133,
+   "wind_kmh": 2.453,
+   "tmax_prev_c": 18.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-01": {
+   "tmin_c": 4.0,
+   "dew_c": 0.94,
+   "cloud_pct": 28.8,
+   "wind_kmh": 2.44,
+   "tmax_prev_c": 18.8,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-02": {
+   "tmin_c": 4.3,
+   "dew_c": 1.993,
+   "cloud_pct": 1.6,
+   "wind_kmh": 1.347,
+   "tmax_prev_c": 20.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-03": {
+   "tmin_c": 3.8,
+   "dew_c": 4.113,
+   "cloud_pct": 0.8,
+   "wind_kmh": 5.393,
+   "tmax_prev_c": 19.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-04": {
+   "tmin_c": 4.9,
+   "dew_c": 2.993,
+   "cloud_pct": 1.533,
+   "wind_kmh": 3.073,
+   "tmax_prev_c": 20.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-05": {
+   "tmin_c": 5.3,
+   "dew_c": 0.947,
+   "cloud_pct": 5.533,
+   "wind_kmh": 1.847,
+   "tmax_prev_c": 20.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-06": {
+   "tmin_c": 4.9,
+   "dew_c": 2.647,
+   "cloud_pct": 0.0,
+   "wind_kmh": 4.873,
+   "tmax_prev_c": 20.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-07": {
+   "tmin_c": 4.8,
+   "dew_c": 4.827,
+   "cloud_pct": 0.333,
+   "wind_kmh": 2.1,
+   "tmax_prev_c": 21.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-08": {
+   "tmin_c": 4.2,
+   "dew_c": 5.473,
+   "cloud_pct": 7.333,
+   "wind_kmh": 3.187,
+   "tmax_prev_c": 20.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-09": {
+   "tmin_c": 4.5,
+   "dew_c": 4.24,
+   "cloud_pct": 2.2,
+   "wind_kmh": 2.72,
+   "tmax_prev_c": 20.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-10": {
+   "tmin_c": 5.5,
+   "dew_c": 5.727,
+   "cloud_pct": 99.667,
+   "wind_kmh": 13.633,
+   "tmax_prev_c": 17.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-11": {
+   "tmin_c": 1.7,
+   "dew_c": 2.86,
+   "cloud_pct": 59.6,
+   "wind_kmh": 7.02,
+   "tmax_prev_c": 11.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-12": {
+   "tmin_c": 3.9,
+   "dew_c": 3.82,
+   "cloud_pct": 40.667,
+   "wind_kmh": 3.333,
+   "tmax_prev_c": 18.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-13": {
+   "tmin_c": 5.5,
+   "dew_c": 4.46,
+   "cloud_pct": 94.2,
+   "wind_kmh": 1.433,
+   "tmax_prev_c": 17.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-14": {
+   "tmin_c": 5.8,
+   "dew_c": 5.56,
+   "cloud_pct": 93.267,
+   "wind_kmh": 9.447,
+   "tmax_prev_c": 17.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-15": {
+   "tmin_c": 3.5,
+   "dew_c": 3.24,
+   "cloud_pct": 15.467,
+   "wind_kmh": 3.093,
+   "tmax_prev_c": 15.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-16": {
+   "tmin_c": 4.7,
+   "dew_c": 5.913,
+   "cloud_pct": 59.133,
+   "wind_kmh": 2.567,
+   "tmax_prev_c": 18.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-17": {
+   "tmin_c": 4.0,
+   "dew_c": 5.8,
+   "cloud_pct": 81.133,
+   "wind_kmh": 4.993,
+   "tmax_prev_c": 16.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-18": {
+   "tmin_c": 3.0,
+   "dew_c": 4.913,
+   "cloud_pct": 47.4,
+   "wind_kmh": 2.693,
+   "tmax_prev_c": 16.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-19": {
+   "tmin_c": 4.1,
+   "dew_c": 4.16,
+   "cloud_pct": 24.4,
+   "wind_kmh": 3.033,
+   "tmax_prev_c": 18.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-20": {
+   "tmin_c": 4.0,
+   "dew_c": 5.487,
+   "cloud_pct": 99.933,
+   "wind_kmh": 1.853,
+   "tmax_prev_c": 18.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-21": {
+   "tmin_c": 3.1,
+   "dew_c": 3.593,
+   "cloud_pct": 11.067,
+   "wind_kmh": 1.767,
+   "tmax_prev_c": 16.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-22": {
+   "tmin_c": 4.3,
+   "dew_c": 3.38,
+   "cloud_pct": 38.333,
+   "wind_kmh": 2.573,
+   "tmax_prev_c": 16.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-23": {
+   "tmin_c": 3.3,
+   "dew_c": -0.073,
+   "cloud_pct": 54.867,
+   "wind_kmh": 3.98,
+   "tmax_prev_c": 18.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-24": {
+   "tmin_c": 3.3,
+   "dew_c": 3.153,
+   "cloud_pct": 42.867,
+   "wind_kmh": 5.86,
+   "tmax_prev_c": 18.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-25": {
+   "tmin_c": 4.6,
+   "dew_c": 3.933,
+   "cloud_pct": 60.267,
+   "wind_kmh": 1.953,
+   "tmax_prev_c": 19.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-26": {
+   "tmin_c": 2.6,
+   "dew_c": 3.833,
+   "cloud_pct": 8.8,
+   "wind_kmh": 5.02,
+   "tmax_prev_c": 20.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-27": {
+   "tmin_c": 4.4,
+   "dew_c": 2.5,
+   "cloud_pct": 18.467,
+   "wind_kmh": 2.973,
+   "tmax_prev_c": 19.8,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-28": {
+   "tmin_c": 4.1,
+   "dew_c": 4.173,
+   "cloud_pct": 2.4,
+   "wind_kmh": 4.527,
+   "tmax_prev_c": 19.8,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-29": {
+   "tmin_c": 4.9,
+   "dew_c": 0.68,
+   "cloud_pct": 82.933,
+   "wind_kmh": 4.013,
+   "tmax_prev_c": 20.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-30": {
+   "tmin_c": 4.3,
+   "dew_c": 4.7,
+   "cloud_pct": 91.267,
+   "wind_kmh": 3.647,
+   "tmax_prev_c": 21.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-01-31": {
+   "tmin_c": 3.5,
+   "dew_c": 2.7,
+   "cloud_pct": 42.933,
+   "wind_kmh": 4.34,
+   "tmax_prev_c": 16.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-01": {
+   "tmin_c": 1.5,
+   "dew_c": 2.433,
+   "cloud_pct": 2.933,
+   "wind_kmh": 4.02,
+   "tmax_prev_c": 18.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-02": {
+   "tmin_c": 3.6,
+   "dew_c": 1.607,
+   "cloud_pct": 6.867,
+   "wind_kmh": 2.74,
+   "tmax_prev_c": 19.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-03": {
+   "tmin_c": 4.2,
+   "dew_c": 2.5,
+   "cloud_pct": 11.667,
+   "wind_kmh": 4.093,
+   "tmax_prev_c": 20.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-04": {
+   "tmin_c": 5.7,
+   "dew_c": 5.713,
+   "cloud_pct": 95.2,
+   "wind_kmh": 12.28,
+   "tmax_prev_c": 19.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-05": {
+   "tmin_c": 3.9,
+   "dew_c": 3.06,
+   "cloud_pct": 11.8,
+   "wind_kmh": 3.7,
+   "tmax_prev_c": 16.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-06": {
+   "tmin_c": 0.9,
+   "dew_c": 1.053,
+   "cloud_pct": 25.933,
+   "wind_kmh": 5.62,
+   "tmax_prev_c": 19.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-07": {
+   "tmin_c": 4.2,
+   "dew_c": 0.573,
+   "cloud_pct": 38.667,
+   "wind_kmh": 4.113,
+   "tmax_prev_c": 19.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-08": {
+   "tmin_c": 3.4,
+   "dew_c": -0.733,
+   "cloud_pct": 14.2,
+   "wind_kmh": 3.5,
+   "tmax_prev_c": 21.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-09": {
+   "tmin_c": 5.1,
+   "dew_c": 1.98,
+   "cloud_pct": 1.133,
+   "wind_kmh": 2.54,
+   "tmax_prev_c": 22.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-10": {
+   "tmin_c": 6.5,
+   "dew_c": 3.28,
+   "cloud_pct": 0.467,
+   "wind_kmh": 3.113,
+   "tmax_prev_c": 23.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-11": {
+   "tmin_c": 5.4,
+   "dew_c": 5.353,
+   "cloud_pct": 1.4,
+   "wind_kmh": 4.2,
+   "tmax_prev_c": 23.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-12": {
+   "tmin_c": 6.1,
+   "dew_c": 2.02,
+   "cloud_pct": 0.0,
+   "wind_kmh": 3.56,
+   "tmax_prev_c": 23.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-13": {
+   "tmin_c": 6.9,
+   "dew_c": 7.36,
+   "cloud_pct": 6.2,
+   "wind_kmh": 2.533,
+   "tmax_prev_c": 23.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-14": {
+   "tmin_c": 7.9,
+   "dew_c": 5.267,
+   "cloud_pct": 1.4,
+   "wind_kmh": 3.14,
+   "tmax_prev_c": 23.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-15": {
+   "tmin_c": 5.9,
+   "dew_c": 6.273,
+   "cloud_pct": 42.0,
+   "wind_kmh": 3.413,
+   "tmax_prev_c": 22.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-16": {
+   "tmin_c": 6.5,
+   "dew_c": 3.74,
+   "cloud_pct": 6.933,
+   "wind_kmh": 3.467,
+   "tmax_prev_c": 23.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-17": {
+   "tmin_c": 6.7,
+   "dew_c": 2.0,
+   "cloud_pct": 0.0,
+   "wind_kmh": 3.02,
+   "tmax_prev_c": 23.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-18": {
+   "tmin_c": 6.4,
+   "dew_c": 5.047,
+   "cloud_pct": 0.0,
+   "wind_kmh": 2.1,
+   "tmax_prev_c": 25.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-19": {
+   "tmin_c": 7.0,
+   "dew_c": 1.967,
+   "cloud_pct": 0.2,
+   "wind_kmh": 2.227,
+   "tmax_prev_c": 25.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-20": {
+   "tmin_c": 6.1,
+   "dew_c": -0.94,
+   "cloud_pct": 0.0,
+   "wind_kmh": 2.0,
+   "tmax_prev_c": 25.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-21": {
+   "tmin_c": 8.2,
+   "dew_c": 5.62,
+   "cloud_pct": 68.667,
+   "wind_kmh": 13.927,
+   "tmax_prev_c": 24.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-22": {
+   "tmin_c": 1.9,
+   "dew_c": 2.38,
+   "cloud_pct": 65.467,
+   "wind_kmh": 12.687,
+   "tmax_prev_c": 11.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-23": {
+   "tmin_c": -1.9,
+   "dew_c": -0.087,
+   "cloud_pct": 37.8,
+   "wind_kmh": 7.44,
+   "tmax_prev_c": 17.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-24": {
+   "tmin_c": 2.7,
+   "dew_c": -1.9,
+   "cloud_pct": 0.0,
+   "wind_kmh": 3.54,
+   "tmax_prev_c": 19.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-25": {
+   "tmin_c": 4.8,
+   "dew_c": -1.007,
+   "cloud_pct": 0.333,
+   "wind_kmh": 2.433,
+   "tmax_prev_c": 20.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-26": {
+   "tmin_c": 5.6,
+   "dew_c": 1.02,
+   "cloud_pct": 0.4,
+   "wind_kmh": 3.86,
+   "tmax_prev_c": 22.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-27": {
+   "tmin_c": 4.2,
+   "dew_c": 3.267,
+   "cloud_pct": 4.4,
+   "wind_kmh": 5.76,
+   "tmax_prev_c": 21.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-02-28": {
+   "tmin_c": 4.4,
+   "dew_c": 2.267,
+   "cloud_pct": 2.0,
+   "wind_kmh": 5.553,
+   "tmax_prev_c": 21.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-01": {
+   "tmin_c": 4.5,
+   "dew_c": 2.567,
+   "cloud_pct": 5.0,
+   "wind_kmh": 5.44,
+   "tmax_prev_c": 21.8,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-02": {
+   "tmin_c": 4.2,
+   "dew_c": 1.227,
+   "cloud_pct": 0.533,
+   "wind_kmh": 4.8,
+   "tmax_prev_c": 22.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-03": {
+   "tmin_c": 6.3,
+   "dew_c": 3.127,
+   "cloud_pct": 15.867,
+   "wind_kmh": 3.067,
+   "tmax_prev_c": 21.3,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-04": {
+   "tmin_c": 6.8,
+   "dew_c": 3.7,
+   "cloud_pct": 20.333,
+   "wind_kmh": 2.113,
+   "tmax_prev_c": 20.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-05": {
+   "tmin_c": 4.3,
+   "dew_c": 5.593,
+   "cloud_pct": 40.933,
+   "wind_kmh": 3.02,
+   "tmax_prev_c": 18.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-06": {
+   "tmin_c": 4.9,
+   "dew_c": 3.213,
+   "cloud_pct": 6.2,
+   "wind_kmh": 2.927,
+   "tmax_prev_c": 18.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-07": {
+   "tmin_c": 6.5,
+   "dew_c": 3.653,
+   "cloud_pct": 6.6,
+   "wind_kmh": 2.753,
+   "tmax_prev_c": 21.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-08": {
+   "tmin_c": 7.1,
+   "dew_c": 7.58,
+   "cloud_pct": 60.867,
+   "wind_kmh": 4.08,
+   "tmax_prev_c": 21.6,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-09": {
+   "tmin_c": 7.4,
+   "dew_c": 7.433,
+   "cloud_pct": 29.667,
+   "wind_kmh": 2.16,
+   "tmax_prev_c": 20.8,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-10": {
+   "tmin_c": 7.6,
+   "dew_c": 3.667,
+   "cloud_pct": 4.8,
+   "wind_kmh": 3.187,
+   "tmax_prev_c": 23.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-11": {
+   "tmin_c": 8.4,
+   "dew_c": 5.973,
+   "cloud_pct": 53.533,
+   "wind_kmh": 13.593,
+   "tmax_prev_c": 23.1,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-12": {
+   "tmin_c": 5.4,
+   "dew_c": 5.847,
+   "cloud_pct": 48.733,
+   "wind_kmh": 5.86,
+   "tmax_prev_c": 19.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-13": {
+   "tmin_c": 6.0,
+   "dew_c": 4.12,
+   "cloud_pct": 32.8,
+   "wind_kmh": 4.153,
+   "tmax_prev_c": 20.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-14": {
+   "tmin_c": 5.1,
+   "dew_c": 4.573,
+   "cloud_pct": 5.933,
+   "wind_kmh": 4.007,
+   "tmax_prev_c": 19.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-15": {
+   "tmin_c": 6.6,
+   "dew_c": 4.193,
+   "cloud_pct": 26.4,
+   "wind_kmh": 2.553,
+   "tmax_prev_c": 21.8,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-16": {
+   "tmin_c": 5.8,
+   "dew_c": 6.887,
+   "cloud_pct": 33.467,
+   "wind_kmh": 5.853,
+   "tmax_prev_c": 18.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-17": {
+   "tmin_c": 3.8,
+   "dew_c": 5.847,
+   "cloud_pct": 66.8,
+   "wind_kmh": 2.36,
+   "tmax_prev_c": 17.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-18": {
+   "tmin_c": 4.3,
+   "dew_c": 3.427,
+   "cloud_pct": 2.533,
+   "wind_kmh": 3.167,
+   "tmax_prev_c": 19.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-19": {
+   "tmin_c": 2.7,
+   "dew_c": 3.653,
+   "cloud_pct": 14.333,
+   "wind_kmh": 6.167,
+   "tmax_prev_c": 20.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-20": {
+   "tmin_c": 1.9,
+   "dew_c": 3.0,
+   "cloud_pct": 47.6,
+   "wind_kmh": 6.153,
+   "tmax_prev_c": 19.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-21": {
+   "tmin_c": 2.2,
+   "dew_c": 2.387,
+   "cloud_pct": 10.4,
+   "wind_kmh": 4.967,
+   "tmax_prev_c": 20.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-22": {
+   "tmin_c": 4.1,
+   "dew_c": 1.673,
+   "cloud_pct": 18.667,
+   "wind_kmh": 3.16,
+   "tmax_prev_c": 19.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-23": {
+   "tmin_c": 3.2,
+   "dew_c": 5.607,
+   "cloud_pct": 45.267,
+   "wind_kmh": 4.82,
+   "tmax_prev_c": 19.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-24": {
+   "tmin_c": 2.6,
+   "dew_c": 3.8,
+   "cloud_pct": 22.133,
+   "wind_kmh": 4.927,
+   "tmax_prev_c": 19.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-25": {
+   "tmin_c": 1.6,
+   "dew_c": 2.567,
+   "cloud_pct": 13.0,
+   "wind_kmh": 5.1,
+   "tmax_prev_c": 20.5,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-26": {
+   "tmin_c": 3.4,
+   "dew_c": 3.353,
+   "cloud_pct": 0.6,
+   "wind_kmh": 4.233,
+   "tmax_prev_c": 21.0,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-27": {
+   "tmin_c": 5.3,
+   "dew_c": 3.747,
+   "cloud_pct": 35.133,
+   "wind_kmh": 12.26,
+   "tmax_prev_c": 21.4,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-28": {
+   "tmin_c": 5.5,
+   "dew_c": 4.567,
+   "cloud_pct": 58.533,
+   "wind_kmh": 13.147,
+   "tmax_prev_c": 18.9,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-29": {
+   "tmin_c": 4.1,
+   "dew_c": 5.8,
+   "cloud_pct": 83.533,
+   "wind_kmh": 2.893,
+   "tmax_prev_c": 19.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-30": {
+   "tmin_c": 3.9,
+   "dew_c": 5.4,
+   "cloud_pct": 68.4,
+   "wind_kmh": 2.133,
+   "tmax_prev_c": 17.7,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  },
+  "2026-03-31": {
+   "tmin_c": 2.4,
+   "dew_c": 4.333,
+   "cloud_pct": 28.133,
+   "wind_kmh": 2.72,
+   "tmax_prev_c": 17.2,
+   "grid_elev_m": 2669.0,
+   "source": "open-meteo previous-runs ecmwf_ifs025 day-1"
+  }
+ },
+ "season_check": {
+  "cut": {
+   "k": 44,
+   "first_night": "2025-11-14",
+   "nights": 138,
+   "frost_nights": 1,
+   "mae_before_c": 1.94,
+   "mae_after_c": 1.34,
+   "cov80_before": 0.91,
+   "cov80_after": 0.85
+  },
+  "online": {
+   "nights": 181,
+   "frost_nights": 1,
+   "mae_before_c": 2.01,
+   "mae_after_c": 1.53,
+   "cov80_before": 0.87,
+   "cov80_after": 0.82,
+   "note": "each night uses all readings of the nights before it"
+  }
+ }
+}

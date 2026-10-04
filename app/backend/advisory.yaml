@@ -1,0 +1,296 @@
+# Helada advisory table — BORRADOR.
+# Precondition (docs/tradeoffs-preconditions.md): an agronomist signs this table
+# before any real farmer receives it. Every action cites a source key.
+meta:
+  version: "0.1-draft"
+  signed_by: null            # REQUIRED before real use: agronomist name + institution + date
+  signed_at: null
+  unsigned_label: "Borrador sin firma agronómica"
+  disclaimer_es: "Orientación general. No garantiza la protección del cultivo. Revisado por: {signed_by}."
+
+# Who «pregunte a su técnico» points to (fail-safe replies of the bot, and the phone page through
+# scripts/build_movil_pack.py). FICTIONAL in the demo: a real deployment sets the officer of the Delegación.
+contact:
+  name: "Técnico de la Delegación (ficticio)"
+  phone: "722 000 0100"
+  fictional: true
+
+sources:   # from docs/advisory-table.md (verified 2026-09-29; [V] = not confirmed)
+  S1: "Jasso-Miranda et al., Rev. Mex. Cienc. Agríc. 2022 (UAEMéx; revista del INIFAP) — pérdida de maíz de temporal por heladas en el valle de Toluca. https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S2007-09342022000200207"
+  S2: "FAO, Protección contra las heladas, cap. 4, Tabla 4.5 (temperaturas críticas). https://www.fao.org/4/y7223s/y7223s05.pdf"
+  S3: "Tolerancia de papas nativas a heladas (SciELO Perú). http://www.scielo.org.pe/scielo.php?script=sci_arttext&pid=S2077-99172018000300010"
+  S4: "INIFAP — variedades precoces de maíz para Valles Altos (V-54 A, HV 60 A, Coztli/Kuautli Puma). https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S2007-09342010000500005"
+  S5: "Avena Zafiro de temporal (SciELO). https://www.scielo.org.mx/scielo.php?script=sci_arttext_plus&pid=S0187-73802024000300325"
+  PASACME: "Lineamientos y Mecánica Operativa PASACME, Gaceta del Gobierno 25-jun-2024, numeral 9.3.1 c (aviso en 10 días naturales)"
+  TODO_AGRONOMO: "TODO(agrónomo): fuente primaria pendiente [V]"
+
+# Message templates (Spanish, plain, for voice). Placeholders in {braces}.
+templates:
+  # Short alert (chat text <= 4 lines and the voice note): parcel, tonight's P(frost) + range, one action.
+  # The rest is the follow-up `alert_detail`, sent when the farmer answers 1 / más.
+  alert_voice: >-
+    {saludo}, {trato}. Aviso de Helada para su parcela en {municipio}.
+    Esta noche la probabilidad de helada es de {prob_voz}, y su parcela puede bajar a {tmin_voz}{aprox_voz}.
+    {accion_voz}
+    Responda uno para más información.
+  alert_text: |-
+    ❄️ Aviso de Helada · {parcel_id} ({municipio}){borrador}
+    Esta noche: probabilidad de helada {prob_pct}%. Su parcela {tmin_txt} (rango {lo_txt} a {hi_txt}){aprox_txt}.
+    {accion_corta}
+    Responda 1 para más. BAJA = salir.
+  alert_detail: >-
+    Más sobre el aviso de la parcela {parcel_id}.
+    Noche del {noche}.
+    Su parcela: {tmin_txt} (rango {lo_txt} a {hi_txt}).
+    Pronóstico general de la zona: {grid_txt}.
+    {soporte_txt}
+    Probabilidad de helada: {prob_voz}.
+    {acciones_txt}
+    Si hay daño: mande audio + foto y le armamos su paquete de evidencia.
+    BAJA = dejar de recibir avisos.
+  # WATCH (not an alert): terrain-transfer parcel, cold end of the band <= 0 degC but P(frost) < 30%.
+  # Text only, no voice note, does not count toward the weekly alert cap.
+  watch:
+    text:
+      - "🔎 Vigilancia de helada (no es aviso) — parcela {parcel_id} ({municipio})"
+      - "Noche del {noche}."
+      - "Su parcela: {tmin_txt} (rango {lo_txt} a {hi_txt}). Probabilidad de helada: {prob_voz}."
+      - "No hay estación cerca de su parcela: el cálculo es aproximado y el extremo frío del rango llega a {lo_txt}. Si tiene cultivos delicados, esté pendiente."
+      - "Con un registrador de temperatura en la parcela una temporada, el aviso sería más preciso."
+      - "BAJA = dejar de recibir avisos."
+    sms: "VIGILANCIA {parcel_id} (no es aviso): noche {noche_corta} aprox {tmin_int}C, podria bajar a {lo_int}C. Prob {prob_n}. Sin estacion cerca. BAJA=salir"
+  # Fail-safe: when the model did not run and only the backup
+  # calculation (TEMP_STUB, no validated skill) answered, or when there was no forecast to feed it (offline with
+  # nothing saved), no number goes out. The farmer is told so and sent to a person, with the phone number
+  # ({tecnico}: from `contact` above). At most one per parcel per night, with its own weekly cap
+  # (alerts.MAX_UNSURE_PER_7D).
+  unsure:
+    text:
+      - "❓ Helada · parcela {parcel_id} ({municipio})"
+      - "Hoy no pude calcular el pronóstico de su parcela. No estoy seguro de si va a helar esta noche."
+      - "Pregunte a su técnico de la Delegación: {tecnico}. Si el cielo está despejado y no hay viento, puede helar."
+      - "BAJA = dejar de recibir avisos."
+    voice: "{saludo}. Le habla Helada. Hoy no pude calcular el pronóstico de su parcela en {municipio}. No estoy seguro de si va a helar esta noche. Pregunte a su técnico de la Delegación, al teléfono {tecnico_voz}. Si el cielo está despejado y no hay viento, puede helar."
+    sms: "HELADA {parcel_id}: hoy no pude calcular el pronostico. No estoy seguro si va a helar. Tecnico: {tecnico_sms}. Cielo despejado y sin viento: puede helar. BAJA=salir"
+  # Support regime (helada_model.support_of): station-anchored = validated setting; terrain-transfer = no
+  # station nearby, wide band, logger precondition. Empty when the model says nothing (TEMP_STUB).
+  support:
+    station_voz: "Este cálculo usa la estación del Servicio Meteorológico que está junto a su parcela."
+    station_txt: "Base: estación SMN {estacion} a {km} km de su parcela (calibrado con sus datos)."
+    transfer_voz: "Ojo: no hay estación cerca de su parcela; este cálculo es aproximado y el rango es amplio."
+    transfer_txt: "Base: sin estación cercana, cálculo aproximado por terreno (rango amplio). Con un registrador de temperatura en la parcela una temporada, el aviso sería más preciso."
+    logger_voz: "Este cálculo usa las lecturas del termómetro de su parcela: {k} noches."
+    logger_txt: "Base: registrador en su parcela ({k} noches); error típico medido ±{mae} °C."
+  # SMS fallback: no accents/emoji (GSM-7) and <= 160 chars so it is 1 segment.
+  alert_sms: "HELADA {parcel_id}: noche {noche_corta} su parcela puede llegar a {tmin_int}C{aprox_sms} (zona {grid_int}C). Prob {prob_n}. {accion_sms}. Dano? mande audio+foto. BAJA=salir"
+  followup:
+    cause: "¿Qué le pasó a su cultivo? ¿Fue helada, granizo, sequía o inundación?"
+    area_ha: "¿Más o menos cuánto terreno se dañó? Por ejemplo: media hectárea, una hectárea, toda la parcela."
+    # the farmer said more land than the registered parcel has: said before asking again
+    area_over: "Su parcela registrada tiene {area}; no puedo anotar más que eso."
+    crop: "¿Qué cultivo se dañó? ¿Maíz, papa, avena, haba?"
+    date: "¿Qué día pasó? Por ejemplo: anoche, ayer, el lunes."
+    # sent once the four facts are known, and again if the farmer corrects one of them
+    understood: "Entendí: {resumen}. Si algo no está bien, dígamelo y lo corrijo."
+    photo: "Gracias. Ahora mándeme fotos del daño en su parcela, desde distintos lugares. El programa pide al menos 4 fotos. Si puede, mande también su ubicación desde la parcela."
+    more_photos: "Recibí {n} de {min} fotos. Mande {faltan} más desde otros puntos de la parcela, o diga LISTO si ya no tiene más."
+    preregistro: "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no."
+    # after an unclear answer ("creo que sí", "¿qué es eso?"); a second unclear answer -> packet "Confirmar: pre-registro"
+    preregistro_confirm: "Perdón, no le entendí. El pre-registro es el formulario del programa de siniestros (PASACME), en la Delegación o en línea. ¿Usted ya lo hizo, o alguien de su familia por usted? Responda SÍ o NO."
+  packet_ready: "Listo. Su paquete de evidencia está preparado: {estado}. Recuerde avisar a la Delegación {plazo}. Personal de la Secretaría del Campo revisa la parcela en persona. Lo decide la Secretaría del Campo."
+  # Menu: reply to greetings and to anything the intent router (intents.py) does not recognise.
+  help: "Soy Helada. Le aviso cuando puede helar en su parcela. Escriba o diga: PRONÓSTICO (¿va a helar esta noche?) · SIEMBRA (hasta cuándo sembrar y qué ciclo) · DAÑO (si su cultivo se dañó: mande audio y fotos) · APOYO (qué pide el programa de siniestros) · BAJA (dejar de recibir avisos)."
+  thanks: "Con gusto."
+  # Reply to a forecast question («¿va a caer helada esta noche?»): tonight, the farmer's own parcel.
+  forecast:
+    text:
+      - "Pronóstico para su parcela {parcel_id} ({municipio}), noche del {noche}:"
+      - "Su parcela: {tmin_txt} (rango {lo_txt} a {hi_txt}). Probabilidad de helada: {prob_voz}."
+    alert_sent: "Ya le mandé el aviso de helada para esta noche."
+    alert_queued: "Hay aviso de helada para esta noche: se lo mando entre 6 y 8 de la noche."
+    alert: "Hay riesgo de helada para esta noche en su parcela."
+    watch: "No es aviso, pero no hay estación cerca y el extremo frío del rango llega a {lo_txt}: esté pendiente si tiene cultivos delicados."
+    none: "Por ahora no hay aviso de helada para su parcela esta noche."
+    # the model did not run (TEMP_STUB) or had no forecast: no numbers, send the farmer to a person
+    unsure: "Ahorita no puedo calcular el pronóstico de su parcela {parcel_id}, así que no le doy un número. No estoy seguro de si va a helar esta noche. Pregunte a su técnico de la Delegación: {tecnico}. Si el cielo está despejado y no hay viento, puede helar."
+    unavailable: "Ahorita no tengo el pronóstico de su parcela. No estoy seguro de si va a helar esta noche. Pregunte a su técnico de la Delegación: {tecnico}."
+    optedout: "Usted pidió BAJA: no le mando avisos automáticos. Para volver a recibirlos, escriba ALTA."
+  # Reply to a question about the support program. Facts only (pasacme.yaml); never says who qualifies.
+  program: "Apoyo por daños al cultivo (PASACME, Secretaría del Campo): 1) Avise a la Delegación {delegacion} dentro de {dias} días naturales después del daño. 2) Haga su pre-registro en el formulario del programa y lleve a ventanilla su INE, CURP, comprobante de domicilio, constancia de productor y el documento de su parcela. 3) Personal de la Secretaría revisa la parcela en persona; el daño debe ser de al menos {pct}% de la superficie. Si su cultivo se dañó, mándeme un audio y fotos y le preparo el paquete de evidencia. Lo decide la Secretaría del Campo."
+  optout: "Listo, ya no le mandaremos avisos. Si quiere volver, escriba ALTA."
+  optin: "Listo, volverá a recibir avisos de helada para su parcela."
+
+# Actions by crop and phenological window (months, local calendar; crude
+# month->stage mapping, agronomist to confirm by altitude band [V]).
+# Honest actionability: for maize at flowering/grain fill there is little to do
+# tonight; the useful actions are timely loss documentation (10-day clock) and
+# next-season planting-date / variety choice.
+crops:
+  maiz_temporal:
+    name: "maíz de temporal"
+    stages:
+      - months: [5]
+        stage: "emergencia"
+        actions:
+          - text: "Si su maíz está recién nacido, la helada puede quemar las hojas, pero muchas veces vuelve a brotar. No resiembre luego luego: espere de 3 a 5 días."
+            sms: "Maiz chico: espere 3-5 dias antes de resembrar"
+            source: S2
+          - text: "Anote la fecha de la helada: sirve para escoger fecha de siembra y variedad el próximo año."
+            sms: "Anote la fecha"
+            source: S4
+      - months: [6, 7]
+        stage: "plántula y crecimiento"
+        actions:
+          - text: "No resiembre luego luego. Espere de 3 a 5 días y corte un tallo por abajo: si está blanco y firme, la planta sigue viva."
+            sms: "Espere 3-5 dias; revise tallo"
+            source: TODO_AGRONOMO
+          - text: "Si hay daño, tiene 10 días para avisar a la Delegación. Mándeme audio y fotos y le ayudo."
+            sms: "Dano: avise en 10 dias"
+            source: PASACME
+      - months: [8, 9]
+        stage: "floración y llenado de grano"
+        actions:
+          - text: "En esta etapa no hay mucho que hacer esta noche. Mañana temprano revise la espiga, los jilotes y el grano."
+            sms: "Manana revise espiga y grano"
+            source: S1
+          - text: "Si hay daño, no corte ni queme las plantas antes de tomar fotos. Tiene 10 días para avisar a la Delegación."
+            sms: "No corte antes de fotos; avise en 10 dias"
+            source: PASACME
+      - months: [10, 11]
+        stage: "llenado de grano o madurez"
+        actions:
+          - text: "Si el grano ya está duro, la helada casi no le baja la cosecha. Si todavía está lechoso o masoso, sí puede perder grano."
+            sms: "Grano lechoso=riesgo; grano duro=poco dano"
+            source: S2
+          - text: "Si hay daño, no corte ni queme las plantas antes de tomar fotos. Tiene 10 días para avisar a la Delegación."
+            sms: "No corte antes de fotos; avise en 10 dias"
+            source: PASACME
+      - months: [12, 1, 2, 3, 4]
+        stage: "fuera de temporada"
+        actions:
+          - text: "Para la siguiente siembra: si su parcela hiela seguido, pregunte a su técnico por una variedad más precoz."
+            sms: "Pregunte por variedad precoz"
+            source: S4
+  papa:
+    name: "papa"
+    stages:
+      - months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        stage: "cualquier etapa"
+        actions:
+          - text: "Si su papa está naciendo, cubra los surcos o aporque antes de que oscurezca."
+            sms: "Cubra o aporque"
+            source: S3
+          - text: "Si tiene agua, riegue ligeramente esta tarde: la tierra húmeda guarda más calor."
+            sms: "Riegue ligero en la tarde"
+            source: TODO_AGRONOMO
+  avena:
+    name: "avena"
+    stages:
+      - months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        stage: "cualquier etapa"
+        actions:
+          - text: "La avena chica aguanta mucho frío, pero en floración y llenado de grano sí se daña. Mañana revise la espiga."
+            sms: "Manana revise la espiga"
+            source: S2
+          - text: "Si hay daño, tome fotos antes de cortar. Tiene 10 días para avisar a la Delegación."
+            sms: "Fotos antes de cortar; avise en 10 dias"
+            source: PASACME
+  haba:
+    name: "haba"
+    stages:
+      - months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        stage: "cualquier etapa"
+        actions:
+          - text: "Mañana temprano revise la flor y las vainas. Si hay daño, tome fotos antes de cortar."
+            sms: "Revise flor y vainas; fotos"
+            source: TODO_AGRONOMO
+  flores_campo_abierto:
+    name: "flores (campo abierto)"
+    no_verified_threshold: true
+    stages:
+      - months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        stage: "sin umbral verificado"
+        actions:
+          - text: "Riesgo de helada: proteja las camas y viveros al aire libre."
+            sms: "Proteja camas y viveros"
+            source: S2
+  _default:
+    name: "cultivo"
+    stages:
+      - months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        stage: "cualquier etapa"
+        actions:
+          - text: "Mañana temprano revise su parcela. Si hay daño, tome fotos antes de cortar o limpiar. Tiene 10 días para avisar a la Delegación."
+            sms: "Revise manana; fotos; avise en 10 dias"
+            source: PASACME
+
+# Planting-date / cycle advisor ("¿Cuándo siembro?", backend/planting.py). Deterministic: the parcel's own
+# frost climatology (helada_model.climatology: SMN 1991-2025, shelter Tmin <= 0 °C, first autumn frost = first
+# frost after 15 Jul) + the variety cycle lengths below. REQUIERE FIRMA AGRONÓMICA: every number here is a
+# default for the agronomist to confirm; [V] = not confirmed by a primary source.
+planting:
+  maiz_temporal:
+    requires_signature: true
+    signature_note: "Requiere firma agronómica: calendario calculado, no revisado por un agrónomo."
+    frost_note: "Helada = Tmin de abrigo ≤ 0 °C en el registro SMN (en la planta suele hacer 1-2 °C menos; daño en floración desde −1/−2 °C, S2)."
+    # Cycle length grows with altitude (slower development in the cold). Default from S10 (H-52: 50% tasseling at
+    # 84 d at 2 250 m vs 96 d above 2 500 m; harvest 170 d Valle de México vs 190 d Valle de Toluca), i.e. about
+    # +4% per 100 m. S13 (Venado H74: tasseling 75 d at 2 250 m -> 108 d at 2 650 m) suggests it can be up to
+    # ~+11% per 100 m, so these cycles may be SHORTER than reality at high parcels [V: agronomist to calibrate].
+    altitude_pct_per_100m: 4.0
+    # Days added to the cycle before the frost date. 0 because the risk-averse date is already the 1-in-10-years
+    # early frost (p10); docs/advisory-table.md proposed 10 d [V: agronomist to confirm].
+    margin_days: 0
+    flowering_window_days: 10      # tasseling -> end of silking/pollination [V]
+    emergence_days: 12             # sowing -> emergence in April at 2 600 m [V]
+    # Reference sowing moments (the real date depends on moisture and on when the rains arrive):
+    decision_dates:
+      humedad_residual: {date: "04-15", label: "con humedad residual o punta de riego (mediados de abril)", src: S14}
+      temporal: {date: "06-01", label: "con las lluvias (principios de junio)", src: "S4 [V: inicio típico del temporal]"}
+    table_dates: ["03-20", "04-01", "04-15", "05-01", "05-15", "06-01", "06-15"]
+    cycles:
+      - id: corto
+        label: "Ciclo corto (precoz)"
+        short: "corto"
+        examples: "V-54 A, V-55 A, HV 60 A"
+        ref_elev_m: 2250
+        flowering_days: 70          # V-54 A 70 d, V-55 A 69 d (S8)
+        maturity_days: 136          # V-54 A 135 d, V-55 A 136 d, HV 60 A 137 d a madurez fisiológica (S4, S7)
+        src: [S4, S7, S8]
+        note: "Semillas amarillas de INIFAP para siembra retrasada (fines de mayo y junio a 2 250 m, S4). Disponibilidad de semilla sin verificar [V]."
+      - id: intermedio
+        label: "Ciclo intermedio"
+        short: "intermedio"
+        examples: "H-51 AE, H-50, H-52"
+        ref_elev_m: 2250
+        flowering_days: 84          # H-51 AE 83/85 d; H-52 84/86 d (S9, S10)
+        maturity_days: 155          # H-51 AE 150 d (S9); H-50/H-52 160-162 d at 2 240 m (S12)
+        src: [S9, S10, S12]
+      - id: largo
+        label: "Ciclo largo (criollo tardío)"
+        short: "largo"
+        examples: "criollos Cónico/Cacahuacintle/Chalqueño del valle"
+        ref_elev_m: 2640
+        flowering_days: 103         # Cacahuacintle criollos, Calimaya 2 675 m / Metepec 2 606 m: 99-106 d (S11)
+        maturity_days: 190          # [V] estimate: flowering + ~85 d grain fill; S10 harvests at 190 d in Toluca
+        src: [S11, S10]
+        verify: true
+        note: "Ciclo de criollos muy variable entre parcelas y semillas; días a madurez estimados [V]."
+    # Messages (Spanish, plain; placeholders filled by planting.py)
+    templates:
+      voice_intro: "{trato}, para su parcela en {municipio}: la primera helada de otoño puede llegar, en uno de cada diez años, desde el {fa10}."
+      voice_residual_ok: "Si siembra con humedad en abril, le conviene el {ciclo}, sembrado a más tardar el {fecha}."
+      voice_residual_none: "Aun sembrando en abril, ningún ciclo madura con seguridad antes de esa helada."
+      voice_temporal_ok: "Si siembra hasta junio, con las lluvias, use el {ciclo}."
+      voice_temporal_none: "Si siembra hasta junio, con las lluvias, ni el ciclo corto madura seguro: {riesgo} de cada diez años helaría antes de que madure. Pregunte a su técnico por la variedad más precoz."
+      voice_outro: "La fecha depende de cuándo lleguen las lluvias. Le mando la tabla por escrito."
+
+sources_planting:   # appended to `sources` at load time by planting.py
+  S7: "HV 60 A, híbrido varietal de maíz amarillo para siembras retrasadas en Valles Altos (INIFAP CEVAMEX, CNVV MAZ-1846-231117): 137 d a madurez fisiológica a 2 250 m, siembra fines de mayo a fines de junio [V: URL de la revista]"
+  S8: "Espinosa-Calderón et al. 2013, Agronomía Mesoamericana 24:93-99 — variedades precoces de grano amarillo (V-54 A 70 d, V-55 A 69 d a floración masculina, siembra de junio). https://www.scielo.sa.cr/scielo.php?script=sci_arttext&pid=S1659-13212013000100009"
+  S9: "Espinosa et al. 2012, Rev. Fitotec. Mex. 35(4) — 'H-51 AE' (INIFAP): floración 83/85 d y madurez fisiológica 150 d a 2 250 m; probado en Almoloya de Juárez, Calimaya, Metepec. https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S0187-73802012000400011"
+  S10: "H-52, híbrido de maíz para Valles Altos, Agric. Téc. Méx. 35(2) 2009 — (INIFAP Sitio Exp. Metepec): espigamiento 84 d a 2 250 m y 96 d arriba de 2 500 m; cosecha a 170 d (Valle de México) y 190 d (Valle de Toluca). https://www.scielo.org.mx/scielo.php?pid=S0568-25172009000200012&script=sci_arttext"
+  S11: "Arellano et al. 2010, Rev. Fitotec. Mex. 33(4) — criollos Cacahuacintle del Valle de Toluca (Calimaya 2 675 m, Metepec 2 606 m): floración femenina 99-106 d, variedades tardías. https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S0187-73802010000500009"
+  S12: "Tadeo-Robledo et al. 2015, Rev. Mex. Cienc. Agríc. 6(1) — criollos de Ixtlahuaca y Atlacomulco, H-50 y H-52 a 2 240 m: madurez fisiológica a 160-162 d. https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S2007-09342015000100004"
+  S13: "INIFAP, folleto 4170 (Gacela H72 y Venado H74): en Valles Altos las heladas tempranas de octubre pueden reducir el ciclo del maíz a 140 días; Venado H74 espiga a 75 d (2 250 m) y 108 d (2 650 m). https://vun.inifap.gob.mx/BibliotecaWeb/_Content?%2F=4170"
+  S14: "ICAMEX (Gobierno del Estado de México), Maíz de temporal Valles Altos: siembra 20 de marzo al 20 de abril en punta de riego y temporal para precoces, intermedios e intermedio-tardíos. https://icamex.edomex.gob.mx/maiz"

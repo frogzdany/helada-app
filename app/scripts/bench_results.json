@@ -1,0 +1,887 @@
+{
+ "asr": [
+  {
+   "model": "tiny",
+   "load_s": 0.22137870799633674,
+   "rss_base_mb": 77.676544,
+   "rss_peak_mb": 686.98112,
+   "clips": [
+    {
+     "id": "c01",
+     "text": "Se me heló la milpa a noche, como hectarea y media.",
+     "latency_s": 0.21143924999341834,
+     "audio_s": 3.204375,
+     "wer": 0.2
+    },
+    {
+     "id": "c02",
+     "text": "Que ayó granizo, el barque se me percee la de maíz.",
+     "latency_s": 0.2104110420041252,
+     "audio_s": 2.752,
+     "wer": 0.7777777777777778
+    },
+    {
+     "id": "c03",
+     "text": "Cuando símbolo este año.",
+     "latency_s": 0.18791479199717287,
+     "audio_s": 1.6835,
+     "wer": 0.25
+    },
+    {
+     "id": "c04",
+     "text": "Se crevo toda la vida para que la helada fue antier.",
+     "latency_s": 0.2094059999944875,
+     "audio_s": 3.104,
+     "wer": 0.4
+    },
+    {
+     "id": "c05",
+     "text": "Nos cayó una granizada muy fuerte, se perdieron dos sectarias de maíz.",
+     "latency_s": 0.22412145799899008,
+     "audio_s": 4.6208125,
+     "wer": 0.08333333333333333
+    },
+    {
+     "id": "c06",
+     "text": "La hilada me quedó un video de hectárea de papa.",
+     "latency_s": 0.35298854199936613,
+     "audio_s": 2.48,
+     "wer": 0.625
+    },
+    {
+     "id": "c07",
+     "text": "Se me secola avena porque no ha lluvido.",
+     "latency_s": 0.2071897920104675,
+     "audio_s": 2.38,
+     "wer": 0.3333333333333333
+    },
+    {
+     "id": "c08",
+     "text": "Casi, tres días, cayó escarcha y dan yo y naba.",
+     "latency_s": 0.4364360829931684,
+     "audio_s": 2.656,
+     "wer": 0.5555555555555556
+    },
+    {
+     "id": "c09",
+     "text": "Buenas tardes. Cuánto va a bajar la temperatura está en muchas.",
+     "latency_s": 0.21801254199817777,
+     "audio_s": 3.504,
+     "wer": 0.2
+    },
+    {
+     "id": "c10",
+     "text": "Se inundó la parcela, se agaron como tres sectarias de maíz.",
+     "latency_s": 0.2228741250000894,
+     "audio_s": 4.1099375,
+     "wer": 0.18181818181818182
+    },
+    {
+     "id": "c11",
+     "text": "Un cuarto de hectárea de frijol se lo el mundo es.",
+     "latency_s": 0.21413808299985249,
+     "audio_s": 2.784,
+     "wer": 0.3
+    },
+    {
+     "id": "c12",
+     "text": "Se me heló la milpa a noche, como étare a inmediate.",
+     "latency_s": 0.21777204099635128,
+     "audio_s": 3.204375,
+     "wer": 0.5
+    }
+   ],
+   "wer": 0.35714285714285715,
+   "wer_clean": 0.37037037037037035,
+   "wer_noisy": 0.3225806451612903,
+   "p50_s": 0.21595506199810188,
+   "p95_s": 0.39053993544657706,
+   "rtf": 0.07983728722927573,
+   "size_mb": 78.203619,
+   "params_m": 39
+  },
+  {
+   "model": "base",
+   "load_s": 0.26731554200523533,
+   "rss_base_mb": 76.857344,
+   "rss_peak_mb": 732.03712,
+   "clips": [
+    {
+     "id": "c01",
+     "text": "Se me heló la milpa anoche, como hectárea y media.",
+     "latency_s": 0.3621157080051489,
+     "audio_s": 3.204375,
+     "wer": 0.0
+    },
+    {
+     "id": "c02",
+     "text": "Cayó granizo el martes en mi parcela de maíz.",
+     "latency_s": 0.36072608300310094,
+     "audio_s": 2.752,
+     "wer": 0.0
+    },
+    {
+     "id": "c03",
+     "text": "Cuando cimbró este año.",
+     "latency_s": 0.3309900000022026,
+     "audio_s": 1.6835,
+     "wer": 0.25
+    },
+    {
+     "id": "c04",
+     "text": "Se que moto de la limpa con la helada, fue antier.",
+     "latency_s": 0.3638562499982072,
+     "audio_s": 3.104,
+     "wer": 0.4
+    },
+    {
+     "id": "c05",
+     "text": "Nos cayó una granizada muy fuerte, se perdieron dos hectáreas de maíz.",
+     "latency_s": 0.3783922500006156,
+     "audio_s": 4.6208125,
+     "wer": 0.0
+    },
+    {
+     "id": "c06",
+     "text": "El helada me camó media y ha hectárea de papa.",
+     "latency_s": 0.3614415840129368,
+     "audio_s": 2.48,
+     "wer": 0.5
+    },
+    {
+     "id": "c07",
+     "text": "Se me secó la avena porque no haya hígado.",
+     "latency_s": 0.35188666700560134,
+     "audio_s": 2.38,
+     "wer": 0.2222222222222222
+    },
+    {
+     "id": "c08",
+     "text": "Se tres días cayó escarcha y daño enaba.",
+     "latency_s": 0.3524373749969527,
+     "audio_s": 2.656,
+     "wer": 0.3333333333333333
+    },
+    {
+     "id": "c09",
+     "text": "Buenas tardes, ¿cuánto va a bajar la temperatura y esta noche?",
+     "latency_s": 0.36965062501258217,
+     "audio_s": 3.504,
+     "wer": 0.1
+    },
+    {
+     "id": "c10",
+     "text": "Se inundó la parcela, se ahogaron como tres sectarias de maíz.",
+     "latency_s": 0.3846760420128703,
+     "audio_s": 4.1099375,
+     "wer": 0.09090909090909091
+    },
+    {
+     "id": "c11",
+     "text": "Un cuarto de hectárea de frijol se heló el lunes.",
+     "latency_s": 0.3685874579969095,
+     "audio_s": 2.784,
+     "wer": 0.0
+    },
+    {
+     "id": "c12",
+     "text": "Se me heló la milpa anoche, como hectárea y media.",
+     "latency_s": 0.36314949998632073,
+     "audio_s": 3.204375,
+     "wer": 0.0
+    }
+   ],
+   "wer": 0.14285714285714285,
+   "wer_clean": 0.18518518518518517,
+   "wer_noisy": 0.03225806451612903,
+   "p50_s": 0.3626326039957348,
+   "p95_s": 0.3812199564061302,
+   "rtf": 0.11917631614816349,
+   "size_mb": 147.882941,
+   "params_m": 74
+  },
+  {
+   "model": "small",
+   "load_s": 0.46231862501008436,
+   "rss_base_mb": 77.266944,
+   "rss_peak_mb": 1294.614528,
+   "clips": [
+    {
+     "id": "c01",
+     "text": "Se me heló la milpa anoche, como hectárea y media.",
+     "latency_s": 1.1074572910001734,
+     "audio_s": 3.204375,
+     "wer": 0.0
+    },
+    {
+     "id": "c02",
+     "text": "Cayó granizo del martes en mi parcela de maíz.",
+     "latency_s": 1.1010484169964911,
+     "audio_s": 2.752,
+     "wer": 0.1111111111111111
+    },
+    {
+     "id": "c03",
+     "text": "Cuando siembro este año.",
+     "latency_s": 1.012740083009703,
+     "audio_s": 1.6835,
+     "wer": 0.0
+    },
+    {
+     "id": "c04",
+     "text": "Se creó toda la milpa con la helada, fue antier.",
+     "latency_s": 1.0884132080100244,
+     "audio_s": 3.104,
+     "wer": 0.1
+    },
+    {
+     "id": "c05",
+     "text": "Nos cayó una granizada muy fuerte, se perdieron dos hectáreas de maíz.",
+     "latency_s": 1.1282797919993754,
+     "audio_s": 4.6208125,
+     "wer": 0.0
+    },
+    {
+     "id": "c06",
+     "text": "La helada me quemó media hectárea de papa.",
+     "latency_s": 1.0629674160009017,
+     "audio_s": 2.48,
+     "wer": 0.0
+    },
+    {
+     "id": "c07",
+     "text": "Se me secó la avena porque no ha llovido.",
+     "latency_s": 1.1067268749902723,
+     "audio_s": 2.38,
+     "wer": 0.0
+    },
+    {
+     "id": "c08",
+     "text": "Hace tres días cayó, escarcha y daño el agua.",
+     "latency_s": 1.0975374580011703,
+     "audio_s": 2.656,
+     "wer": 0.1111111111111111
+    },
+    {
+     "id": "c09",
+     "text": "Buenas tardes, ¿cuánto va a bajar la temperatura esta noche?",
+     "latency_s": 1.1033303750009509,
+     "audio_s": 3.504,
+     "wer": 0.0
+    },
+    {
+     "id": "c10",
+     "text": "Se inundó la parcela, se ahogaron como tres hectáreas de maíz.",
+     "latency_s": 1.134847916997387,
+     "audio_s": 4.1099375,
+     "wer": 0.0
+    },
+    {
+     "id": "c11",
+     "text": "Un cuarto de hectárea de frijol se heló el lunes.",
+     "latency_s": 1.1006290419900324,
+     "audio_s": 2.784,
+     "wer": 0.0
+    },
+    {
+     "id": "c12",
+     "text": "Se me heló la milpa anoche, como hectárea y media.",
+     "latency_s": 1.0988155419909162,
+     "audio_s": 3.204375,
+     "wer": 0.0
+    }
+   ],
+   "wer": 0.026785714285714284,
+   "wer_clean": 0.037037037037037035,
+   "wer_noisy": 0.0,
+   "p50_s": 1.1008387294932618,
+   "p95_s": 1.1312354482484808,
+   "rtf": 0.360244316969202,
+   "size_mb": 486.212372,
+   "params_m": 244
+  },
+  {
+   "model": "small@generic",
+   "load_s": 0.47670629200001713,
+   "rss_base_mb": 77.398016,
+   "rss_peak_mb": 1273.315328,
+   "clips": [
+    {
+     "id": "c01",
+     "text": "Se meló la milpa anoche, como hectárea y media.",
+     "latency_s": 1.06454062499688,
+     "audio_s": 3.204375,
+     "wer": 0.2
+    },
+    {
+     "id": "c02",
+     "text": "Cahyó granizo del martes en mi parcela de maíz.",
+     "latency_s": 1.0748719159892062,
+     "audio_s": 2.752,
+     "wer": 0.2222222222222222
+    },
+    {
+     "id": "c03",
+     "text": "Cuando siembro este año.",
+     "latency_s": 0.9943147079902701,
+     "audio_s": 1.6835,
+     "wer": 0.0
+    },
+    {
+     "id": "c04",
+     "text": "Se cremo toda la milpa con la helada, fue ayer.",
+     "latency_s": 1.0672935000038706,
+     "audio_s": 3.104,
+     "wer": 0.2
+    },
+    {
+     "id": "c05",
+     "text": "Nos cayó una granizada muy fuerte, se perdieron dos hectáreas de maíz.",
+     "latency_s": 1.1006766250065994,
+     "audio_s": 4.6208125,
+     "wer": 0.0
+    },
+    {
+     "id": "c06",
+     "text": "La helada me quemó media hectárea de papa.",
+     "latency_s": 1.0619889999943553,
+     "audio_s": 2.48,
+     "wer": 0.0
+    },
+    {
+     "id": "c07",
+     "text": "Se me secó la avena porque no ha llovido.",
+     "latency_s": 1.0611927090067184,
+     "audio_s": 2.38,
+     "wer": 0.0
+    },
+    {
+     "id": "c08",
+     "text": "Hace tres días cayó escarcha y dañó el agua.",
+     "latency_s": 1.0990151659934781,
+     "audio_s": 2.656,
+     "wer": 0.1111111111111111
+    },
+    {
+     "id": "c09",
+     "text": "Buenas tardes, ¿cuánto va a bajar la temperatura esta noche?",
+     "latency_s": 1.0810680840077111,
+     "audio_s": 3.504,
+     "wer": 0.0
+    },
+    {
+     "id": "c10",
+     "text": "Se inundó la parcela, se ahogaron como tres hectáreas de maíz.",
+     "latency_s": 1.1254944160027662,
+     "audio_s": 4.1099375,
+     "wer": 0.0
+    },
+    {
+     "id": "c11",
+     "text": "Un cuarto de hectárea de frijoles celó el lunes.",
+     "latency_s": 1.0673150000075111,
+     "audio_s": 2.784,
+     "wer": 0.3
+    },
+    {
+     "id": "c12",
+     "text": "Se meló la milpa anoche, como hectárea y media.",
+     "latency_s": 1.0584406670095632,
+     "audio_s": 3.204375,
+     "wer": 0.2
+    }
+   ],
+   "wer": 0.10714285714285714,
+   "wer_clean": 0.08641975308641975,
+   "wer_noisy": 0.16129032258064516,
+   "p50_s": 1.0673042500056908,
+   "p95_s": 1.1118446309548744,
+   "rtf": 0.35238912414025514,
+   "size_mb": 486.212372,
+   "params_m": 244
+  },
+  {
+   "model": "medium",
+   "load_s": 1.0944812910020119,
+   "rss_base_mb": 77.037568,
+   "rss_peak_mb": 3171.434496,
+   "clips": [
+    {
+     "id": "c01",
+     "text": "Se me heló la milpa anoche, como hectárea y media.",
+     "latency_s": 3.217183582994039,
+     "audio_s": 3.204375,
+     "wer": 0.0
+    },
+    {
+     "id": "c02",
+     "text": "Cayó granizo el martes en mi parcela de maíz.",
+     "latency_s": 3.196944915995118,
+     "audio_s": 2.752,
+     "wer": 0.0
+    },
+    {
+     "id": "c03",
+     "text": "Cuando siembro este año.",
+     "latency_s": 3.0404551249957876,
+     "audio_s": 1.6835,
+     "wer": 0.0
+    },
+    {
+     "id": "c04",
+     "text": "Se quemó toda la milpa con la helada, fue antier.",
+     "latency_s": 3.232413459001691,
+     "audio_s": 3.104,
+     "wer": 0.0
+    },
+    {
+     "id": "c05",
+     "text": "Nos cayó una granizada muy fuerte, se perdieron dos hectáreas de maíz.",
+     "latency_s": 3.3346475420112256,
+     "audio_s": 4.6208125,
+     "wer": 0.0
+    },
+    {
+     "id": "c06",
+     "text": "La helada me quemó media hectárea de papa.",
+     "latency_s": 3.218050791998394,
+     "audio_s": 2.48,
+     "wer": 0.0
+    },
+    {
+     "id": "c07",
+     "text": "Se me secó la avena porque no ha llovido.",
+     "latency_s": 3.2130806670029415,
+     "audio_s": 2.38,
+     "wer": 0.0
+    },
+    {
+     "id": "c08",
+     "text": "Hace tres días cayó escarcha y dañó helada.",
+     "latency_s": 3.2349976249970496,
+     "audio_s": 2.656,
+     "wer": 0.2222222222222222
+    },
+    {
+     "id": "c09",
+     "text": "Buenas tardes, ¿cuánto va a bajar la temperatura esta noche?",
+     "latency_s": 3.363857917007408,
+     "audio_s": 3.504,
+     "wer": 0.0
+    },
+    {
+     "id": "c10",
+     "text": "Se inundó la parcela, se ahogaron como tres hectáreas de maíz.",
+     "latency_s": 3.396744249999756,
+     "audio_s": 4.1099375,
+     "wer": 0.0
+    },
+    {
+     "id": "c11",
+     "text": "Un cuarto de hectárea de frijol se lo elmude.",
+     "latency_s": 3.310778958009905,
+     "audio_s": 2.784,
+     "wer": 0.3
+    },
+    {
+     "id": "c12",
+     "text": "Se me heló la milpa anoche, como hectárea y media.",
+     "latency_s": 3.716027665999718,
+     "audio_s": 3.204375,
+     "wer": 0.0
+    }
+   ],
+   "wer": 0.044642857142857144,
+   "wer_clean": 0.024691358024691357,
+   "wer_noisy": 0.0967741935483871,
+   "p50_s": 3.2337055419993703,
+   "p95_s": 3.5404217871997385,
+   "rtf": 1.082015801880685,
+   "size_mb": 1530.571735,
+   "params_m": 769
+  }
+ ],
+ "slots": [
+  {
+   "engine": "regex",
+   "model": "rules (slots.py)",
+   "size_mb": 0.03,
+   "params": "-",
+   "test_phrases": {
+    "acc": 1.0,
+    "wrong": 0.0,
+    "n_slots": 41,
+    "per_slot": {
+     "crop": 1.0,
+     "cause": 1.0,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 3.604199446272105e-05,
+    "p95_s": 0.0007033875008346503,
+    "conflicts": 0,
+    "errors": 0
+   },
+   "clip_refs": {
+    "acc": 1.0,
+    "wrong": 0.0,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 1.0,
+     "cause": 1.0,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 3.2979005482047796e-05,
+    "p95_s": 4.5343605597736315e-05,
+    "conflicts": 0,
+    "errors": 0
+   },
+   "asr_e2e": {
+    "acc": 0.9791666666666666,
+    "wrong": 0.0,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.9166666666666666,
+     "cause": 1.0,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 3.268699947511777e-05,
+    "p95_s": 4.437674870132469e-05,
+    "conflicts": 0,
+    "errors": 0
+   }
+  },
+  {
+   "engine": "llm",
+   "model": "helada-qwen3-1.7b",
+   "size_mb": 1359.293484,
+   "params": "2.0B",
+   "quant": "Q4_K_M",
+   "ram_mb": 1640.638464,
+   "ctx": 2048,
+   "gpu_mb": 0.0,
+   "test_phrases": {
+    "acc": 0.9024390243902439,
+    "wrong": 0.0975609756097561,
+    "n_slots": 41,
+    "per_slot": {
+     "crop": 1.0,
+     "cause": 1.0,
+     "area_ha": 0.9166666666666666,
+     "date": 0.625
+    },
+    "p50_s": 1.3348289160057902,
+    "p95_s": 1.4007427251068292,
+    "conflicts": 0,
+    "errors": 0
+   },
+   "clip_refs": {
+    "acc": 0.625,
+    "wrong": 0.375,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.8333333333333334,
+     "cause": 0.9166666666666666,
+     "area_ha": 0.5,
+     "date": 0.25
+    },
+    "p50_s": 1.3359597914968617,
+    "p95_s": 1.4287323456446757,
+    "conflicts": 0,
+    "errors": 0
+   },
+   "asr_e2e": {
+    "acc": 0.5625,
+    "wrong": 0.4375,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.75,
+     "cause": 0.8333333333333334,
+     "area_ha": 0.5,
+     "date": 0.16666666666666666
+    },
+    "p50_s": 1.343588687996089,
+    "p95_s": 1.4217160314103239,
+    "conflicts": 0,
+    "errors": 0
+   }
+  },
+  {
+   "engine": "hybrid",
+   "model": "helada-qwen3-1.7b + rules",
+   "size_mb": 1359.293484,
+   "params": "2.0B",
+   "quant": "Q4_K_M",
+   "ram_mb": 1640.638464,
+   "ctx": 2048,
+   "gpu_mb": 0.0,
+   "test_phrases": {
+    "acc": 1.0,
+    "wrong": 0.0,
+    "n_slots": 41,
+    "per_slot": {
+     "crop": 1.0,
+     "cause": 1.0,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 1.3311809169972548,
+    "p95_s": 1.4053632789014954,
+    "conflicts": 0,
+    "errors": 0
+   },
+   "clip_refs": {
+    "acc": 1.0,
+    "wrong": 0.0,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 1.0,
+     "cause": 1.0,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 1.341832437508856,
+    "p95_s": 1.4425724893932055,
+    "conflicts": 0,
+    "errors": 0
+   },
+   "asr_e2e": {
+    "acc": 0.9791666666666666,
+    "wrong": 0.020833333333333332,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.9166666666666666,
+     "cause": 1.0,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 1.3412378334978712,
+    "p95_s": 1.4220175590009603,
+    "conflicts": 0,
+    "errors": 0
+   }
+  },
+  {
+   "engine": "llm",
+   "model": "helada-gemma3-1b",
+   "size_mb": 815.319833,
+   "params": "999.89M",
+   "quant": "Q4_K_M",
+   "ram_mb": 1204.275456,
+   "ctx": 2048,
+   "gpu_mb": 0.0,
+   "test_phrases": {
+    "acc": 0.5609756097560976,
+    "wrong": 0.2682926829268293,
+    "n_slots": 41,
+    "per_slot": {
+     "crop": 0.8333333333333334,
+     "cause": 0.4,
+     "area_ha": 0.5,
+     "date": 0.75
+    },
+    "p50_s": 1.5541538340039551,
+    "p95_s": 1.724811899807537,
+    "conflicts": 0,
+    "errors": 0
+   },
+   "clip_refs": {
+    "acc": 0.5833333333333334,
+    "wrong": 0.3541666666666667,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.75,
+     "cause": 0.6666666666666666,
+     "area_ha": 0.6666666666666666,
+     "date": 0.25
+    },
+    "p50_s": 1.3971178125066217,
+    "p95_s": 1.752680027452152,
+    "conflicts": 0,
+    "errors": 0
+   },
+   "asr_e2e": {
+    "acc": 0.6041666666666666,
+    "wrong": 0.3541666666666667,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.75,
+     "cause": 0.6666666666666666,
+     "area_ha": 0.75,
+     "date": 0.25
+    },
+    "p50_s": 1.4182552290003514,
+    "p95_s": 1.8101661999971839,
+    "conflicts": 0,
+    "errors": 0
+   }
+  },
+  {
+   "engine": "hybrid",
+   "model": "helada-gemma3-1b + rules",
+   "size_mb": 815.319833,
+   "params": "999.89M",
+   "quant": "Q4_K_M",
+   "ram_mb": 1204.275456,
+   "ctx": 2048,
+   "gpu_mb": 0.0,
+   "test_phrases": {
+    "acc": 0.8536585365853658,
+    "wrong": 0.0,
+    "n_slots": 41,
+    "per_slot": {
+     "crop": 0.8333333333333334,
+     "cause": 0.6666666666666666,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 1.6087690419954015,
+    "p95_s": 1.8088648285993258,
+    "conflicts": 6,
+    "errors": 0
+   },
+   "clip_refs": {
+    "acc": 0.9375,
+    "wrong": 0.0,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.9166666666666666,
+     "cause": 0.8333333333333334,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 1.4200870834974921,
+    "p95_s": 1.8074404226979823,
+    "conflicts": 3,
+    "errors": 0
+   },
+   "asr_e2e": {
+    "acc": 0.9375,
+    "wrong": 0.020833333333333332,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.9166666666666666,
+     "cause": 0.8333333333333334,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 1.4251113329955842,
+    "p95_s": 1.8590538663003826,
+    "conflicts": 2,
+    "errors": 0
+   }
+  },
+  {
+   "engine": "llm",
+   "model": "helada-qwen3-0.6b",
+   "size_mb": 522.653807,
+   "params": "751.63M",
+   "quant": "Q4_K_M",
+   "ram_mb": 780.930048,
+   "ctx": 2048,
+   "gpu_mb": 0.0,
+   "test_phrases": {
+    "acc": 0.6585365853658537,
+    "wrong": 0.34146341463414637,
+    "n_slots": 41,
+    "per_slot": {
+     "crop": 0.8333333333333334,
+     "cause": 0.8,
+     "area_ha": 0.5,
+     "date": 0.5
+    },
+    "p50_s": 0.8029222909972304,
+    "p95_s": 0.8572107538086129,
+    "conflicts": 0,
+    "errors": 0
+   },
+   "clip_refs": {
+    "acc": 0.5416666666666666,
+    "wrong": 0.4583333333333333,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.8333333333333334,
+     "cause": 0.9166666666666666,
+     "area_ha": 0.16666666666666666,
+     "date": 0.25
+    },
+    "p50_s": 0.7715594580004108,
+    "p95_s": 0.8397426330004236,
+    "conflicts": 0,
+    "errors": 0
+   },
+   "asr_e2e": {
+    "acc": 0.4583333333333333,
+    "wrong": 0.5416666666666666,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.75,
+     "cause": 0.75,
+     "area_ha": 0.16666666666666666,
+     "date": 0.16666666666666666
+    },
+    "p50_s": 0.7723228954928345,
+    "p95_s": 0.82576898940315,
+    "conflicts": 0,
+    "errors": 0
+   }
+  },
+  {
+   "engine": "hybrid",
+   "model": "helada-qwen3-0.6b + rules",
+   "size_mb": 522.653807,
+   "params": "751.63M",
+   "quant": "Q4_K_M",
+   "ram_mb": 780.930048,
+   "ctx": 2048,
+   "gpu_mb": 0.0,
+   "test_phrases": {
+    "acc": 0.9024390243902439,
+    "wrong": 0.0,
+    "n_slots": 41,
+    "per_slot": {
+     "crop": 0.8333333333333334,
+     "cause": 0.8,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 0.7848465410061181,
+    "p95_s": 0.8502219999005319,
+    "conflicts": 4,
+    "errors": 0
+   },
+   "clip_refs": {
+    "acc": 0.9791666666666666,
+    "wrong": 0.0,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 1.0,
+     "cause": 0.9166666666666666,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 0.7744291250055539,
+    "p95_s": 0.8275014455008204,
+    "conflicts": 1,
+    "errors": 0
+   },
+   "asr_e2e": {
+    "acc": 0.9375,
+    "wrong": 0.020833333333333332,
+    "n_slots": 48,
+    "per_slot": {
+     "crop": 0.9166666666666666,
+     "cause": 0.8333333333333334,
+     "area_ha": 1.0,
+     "date": 1.0
+    },
+    "p50_s": 0.7761886039952515,
+    "p95_s": 0.8236934421482147,
+    "conflicts": 2,
+    "errors": 0
+   }
+  }
+ ]
+}
