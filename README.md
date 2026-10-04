@@ -127,6 +127,17 @@ Interfaces and the fixed rules: [`docs/interfaces.md`](docs/interfaces.md).
 > [!NOTE]
 > The live dashboard has no sign-in and uses a simulated phone, so anyone with the link can press the buttons, including the reset. No WhatsApp account is involved.
 
+> [!WARNING]
+> **On the Tecnológico de Monterrey network** the addresses above do not load. The campus web filter lists the new `helada.app` domain as "parked" and blocks it (seen at Campus Toluca on 4 October 2026). The same three sites answer on their CloudFront addresses, which the filter lets through:
+>
+> | | Address on the Tec network |
+> |---|---|
+> | Landing page | <https://d2x9irknqybt6f.cloudfront.net> |
+> | Phone app | <https://d39rr4bsfjtup0.cloudfront.net/#demo> |
+> | Officer dashboard | <https://doxd20937ve9e.cloudfront.net> |
+>
+> Open each address directly: the two buttons on the landing page still point to `helada.app`. Mobile data or any other network also works.
+
 ### On your machine
 
 ```sh
