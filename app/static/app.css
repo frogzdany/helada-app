@@ -92,6 +92,10 @@ button, input, select { font: inherit; color: inherit; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #map .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.85) contrast(.9); } }
 .leaflet-container { background: var(--bg); font: inherit; }
 .leaflet-tooltip { font-size: 14px; }
+/* the selected parcel: a ring in the text colour with a thin edge in the panel colour, so it reads on any tile */
+#map path.sel-ring { stroke: var(--ink); filter: drop-shadow(0 0 1.5px var(--panel)); }
+.leaflet-tooltip.sel-tip { background: var(--ink); color: var(--panel); border-color: var(--ink); font-weight: 650; padding: 3px 9px; }
+.leaflet-tooltip-top.sel-tip::before { border-top-color: var(--ink); }
 
 .compare { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: var(--bg); }
 .compare h3 { margin: 0 0 2px; font-size: 20px; }

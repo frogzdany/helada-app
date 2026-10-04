@@ -61,7 +61,7 @@ function supportTag(f) {
   return s ? `<span class="tag sup ${s.cls}">${s.short}</span>` : '<span class="muted">—</span>';
 }
 
-const state = { cfg: null, fc: null, sel: null, markers: {}, phone: null, lastMsgId: 0, parcels: [], alerts: [] };
+const state = { cfg: null, fc: null, sel: null, markers: {}, selRing: null, phone: null, lastMsgId: 0, parcels: [], alerts: [] };
 
 function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
 function frostColor(p) { return p >= 0.6 ? cssVar("--f3") : p >= 0.3 ? cssVar("--f2") : p >= 0.1 ? cssVar("--f1") : cssVar("--f0"); }
@@ -258,10 +258,24 @@ function renderForecast() {
   } else if (state.sel) select(state.sel, false);
 }
 
+/** Mark the selected parcel on the map: a ring around its point, the point above its neighbours and its id
+ *  always in view (the id alone: a longer label hides the points next to it). The point keeps its own style,
+ *  so the frost colour and the dashed border still read. */
+function markSelected(r) {
+  if (state.selRing) { state.selRing.remove(); state.selRing = null; }
+  const m = r && state.markers[r.parcel.parcel_id];
+  if (!m) return;
+  const p = r.parcel;
+  state.selRing = L.circleMarker([p.lat, p.lon], { radius: 19, weight: 4, fill: false, interactive: false, className: "sel-ring" })
+    .addTo(map).bindTooltip(esc(p.parcel_id), { permanent: true, direction: "top", offset: [0, -20], className: "sel-tip" });
+  m.bringToFront();
+}
+
 async function select(pid, pan = true) {
   state.sel = pid;
   $$("#fcTable tbody tr").forEach((tr) => tr.classList.toggle("sel", tr.dataset.pid === pid));
   const r = state.fc.rows.find((x) => x.parcel.parcel_id === pid);
+  markSelected(r);
   if (!r) return;
   const p = r.parcel, f = r.forecast, d = f.drivers || {};
   setPhone(p.phone);
