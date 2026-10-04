@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helada: aviso de helada para su parcela, por WhatsApp</title>
+<meta name="description" content="Avisos de helada por parcela para el maíz de temporal del valle de Toluca, y paquetes de evidencia de pérdida. Por nota de voz en WhatsApp, y en el teléfono sin señal.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#f1f4f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1320" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="assets/fonts/besley.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/libre-franklin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#contenido" data-i18n="skip">Ir al contenido</a>
+
+<!-- cell patterns shared by the four charts in #evidencia: one cell is one frost night -->
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="cell-helada" width="16" height="16" patternUnits="userSpaceOnUse"><rect class="cell cell--helada" x="2" y="2" width="12" height="12"/></pattern>
+    <pattern id="cell-forecast" width="16" height="16" patternUnits="userSpaceOnUse"><rect class="cell cell--forecast" x="2" y="2" width="12" height="12"/></pattern>
+    <pattern id="cell-missed" width="16" height="16" patternUnits="userSpaceOnUse"><rect class="cell cell--missed" x="2.75" y="2.75" width="10.5" height="10.5"/></pattern>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top__row">
+    <a class="top__logo" href="#" aria-label="Helada">
+      <!-- the horizontal logo, inline so it takes the colours of the page -->
+      <svg viewBox="0 0 850 256" aria-hidden="true" focusable="false">
+        <path class="logo__symbol" fill-rule="evenodd" d="M140.7 24.7 L231.3 115.3 A18 18 0 0 1 231.3 140.7 L140.7 231.3 A18 18 0 0 1 115.3 231.3 L24.7 140.7 A18 18 0 0 1 24.7 115.3 L115.3 24.7 A18 18 0 0 1 140.7 24.7 Z M117.8 123 C102.2 105.3 80.4 90.4 60 98.5 C84.5 72.7 113 80.8 121.2 104 C117.8 86.3 121.9 67.2 128 48.2 C134.1 67.2 138.2 86.3 134.8 104 C143 80.8 171.5 72.7 196 98.5 C175.6 90.4 153.8 105.3 138.2 123 Z M89.3 147 L87.6 146 L72.6 146 L78.1 155.5 L70.8 168 L85.3 168 L90.8 177.5 L98.3 164.5 L98.3 162.6 L119 150.6 L119 174.5 L117.3 175.5 L109.8 188.5 L120.8 188.5 L128 201 L135.2 188.5 L146.2 188.5 L138.7 175.5 L137 174.5 L137 150.6 L157.7 162.6 L157.7 164.5 L165.2 177.5 L170.7 168 L185.2 168 L177.9 155.5 L183.4 146 L168.4 146 L166.7 147 L146 135 L110 135 Z"/>
+        <path class="logo__word" d="M311.8 186.4Q305.8 186.4 302.5 183Q299.3 179.7 299.3 173.6V83.6Q299.3 77.4 302.5 74.1Q305.8 70.8 311.8 70.8Q317.8 70.8 321 74.1Q324.2 77.4 324.2 83.6V117.5H376.6V83.6Q376.6 77.4 379.8 74.1Q383 70.8 389 70.8Q395 70.8 398.2 74.1Q401.4 77.4 401.4 83.6V173.6Q401.4 179.7 398.2 183Q395 186.4 389 186.4Q383 186.4 379.8 183Q376.6 179.7 376.6 173.6V138.1H324.2V173.6Q324.2 179.7 321 183Q317.9 186.4 311.8 186.4Z M462.9 186.7Q449 186.7 439 181.7Q429 176.7 423.6 167.5Q418.2 158.3 418.2 145.8Q418.2 133.6 423.4 124.4Q428.6 115.3 437.7 110Q446.8 104.8 458.5 104.8Q467.1 104.8 473.9 107.6Q480.8 110.4 485.8 115.6Q490.7 120.8 493.3 128.2Q495.8 135.7 495.8 144.9Q495.8 147.9 493.9 149.4Q492 150.9 488.3 150.9H438.1V138.5H478.4L475.9 140.7Q475.9 134.1 474 129.7Q472.1 125.3 468.5 123.1Q464.9 120.8 459.5 120.8Q453.7 120.8 449.5 123.5Q445.3 126.3 443.1 131.4Q440.9 136.5 440.9 143.7V145Q440.9 157.2 446.5 162.9Q452.1 168.6 463.4 168.6Q467.2 168.6 472.1 167.7Q477 166.8 481.4 164.7Q485.2 162.9 488 163.5Q490.8 164.1 492.4 166.1Q494 168.2 494.2 170.9Q494.5 173.7 493.1 176.3Q491.6 179 488.4 180.7Q482.8 183.7 476 185.2Q469.2 186.7 462.9 186.7Z M538.3 186.7Q524 186.7 517 178.8Q510 170.8 510 155.2V83Q510 77 513.1 73.9Q516.2 70.8 522 70.8Q527.8 70.8 531 73.9Q534.1 77 534.1 83V154.3Q534.1 160.9 536.9 164Q539.6 167.1 544.3 167.1Q545.6 167.1 546.7 167Q547.9 166.8 549.1 166.7Q551.7 166.5 552.7 168.3Q553.8 170.1 553.8 175.6Q553.8 180.4 551.9 182.9Q550 185.4 545.8 186.1Q544.4 186.2 542.3 186.5Q540.2 186.7 538.3 186.7Z M589.8 186.7Q581 186.7 574.2 183.4Q567.4 180 563.6 174.3Q559.7 168.6 559.7 161.3Q559.7 152.7 564.2 147.7Q568.7 142.7 578.7 140.5Q588.8 138.2 605.5 138.2H613.9V150.7H605.5Q597.4 150.7 592.4 151.7Q587.4 152.6 585.2 154.7Q583 156.7 583 160.3Q583 164.8 586.2 167.7Q589.3 170.6 595.1 170.6Q599.8 170.6 603.4 168.5Q607 166.3 609.1 162.6Q611.3 158.8 611.3 153.9V135.5Q611.3 128.5 608.1 125.6Q604.8 122.7 597.1 122.7Q592.8 122.7 587.7 123.7Q582.7 124.6 576.7 127.1Q573.1 128.6 570.4 127.7Q567.7 126.9 566.2 124.5Q564.7 122.2 564.8 119.4Q564.8 116.6 566.4 114Q568.1 111.4 571.7 110.1Q579.2 107.1 585.8 106Q592.5 104.8 598 104.8Q610.3 104.8 618.3 108.5Q626.3 112.1 630.2 119.5Q634.2 127 634.2 138.6V174.1Q634.2 180 631.3 183.2Q628.4 186.4 623 186.4Q617.6 186.4 614.6 183.2Q611.6 180 611.6 174.1V168.2L612.8 169.2Q611.8 174.6 608.7 178.5Q605.6 182.4 600.8 184.5Q596 186.7 589.8 186.7Z M682.8 186.7Q672.7 186.7 664.9 181.7Q657.1 176.8 652.8 167.5Q648.4 158.3 648.4 145.7Q648.4 133 652.8 123.8Q657.1 114.7 664.9 109.8Q672.6 104.8 682.8 104.8Q692.1 104.8 699.3 109.3Q706.4 113.8 708.9 121H707.1V83Q707.1 77 710.2 73.9Q713.4 70.8 719.2 70.8Q725 70.8 728.1 73.9Q731.3 77 731.3 83V174.1Q731.3 180 728.2 183.2Q725.2 186.4 719.4 186.4Q713.6 186.4 710.5 183.2Q707.4 180 707.4 174.1V163.2L709.2 169.5Q706.9 177.3 699.6 182Q692.3 186.7 682.8 186.7ZM690.1 168.6Q695.3 168.6 699.2 166.1Q703.1 163.6 705.3 158.6Q707.5 153.5 707.5 145.7Q707.5 134 702.7 128.4Q697.9 122.9 690.1 122.9Q685 122.9 681.1 125.3Q677.1 127.8 674.9 132.8Q672.7 137.9 672.7 145.7Q672.7 157.3 677.6 163Q682.4 168.6 690.1 168.6Z M776.5 186.7Q767.8 186.7 761 183.4Q754.1 180 750.3 174.3Q746.5 168.6 746.5 161.3Q746.5 152.7 750.9 147.7Q755.4 142.7 765.5 140.5Q775.5 138.2 792.2 138.2H800.6V150.7H792.3Q784.1 150.7 779.1 151.7Q774.2 152.6 772 154.7Q769.7 156.7 769.7 160.3Q769.7 164.8 772.9 167.7Q776.1 170.6 781.9 170.6Q786.5 170.6 790.1 168.5Q793.7 166.3 795.8 162.6Q798 158.8 798 153.9V135.5Q798 128.5 794.8 125.6Q791.6 122.7 783.8 122.7Q779.5 122.7 774.4 123.7Q769.4 124.6 763.4 127.1Q759.8 128.6 757.1 127.7Q754.4 126.9 752.9 124.5Q751.5 122.2 751.5 119.4Q751.5 116.6 753.1 114Q754.8 111.4 758.4 110.1Q765.9 107.1 772.6 106Q779.2 104.8 784.7 104.8Q797.1 104.8 805 108.5Q813 112.1 816.9 119.5Q820.9 127 820.9 138.6V174.1Q820.9 180 818 183.2Q815.1 186.4 809.7 186.4Q804.3 186.4 801.3 183.2Q798.4 180 798.4 174.1V168.2L799.5 169.2Q798.5 174.6 795.4 178.5Q792.3 182.4 787.5 184.5Q782.7 186.7 776.5 186.7Z"/>
+      </svg>
+    </a>
+    <nav class="top__nav" aria-label="Secciones" data-i18n-aria="nav_label">
+      <a href="#que-hace" data-i18n="nav_what">Qué hace</a>
+      <a href="#evidencia" data-i18n="nav_evidence">Evidencia</a>
+      <a href="#oficinas" data-i18n="nav_offices">Para oficinas</a>
+    </nav>
+    <button class="lang" type="button" id="lang" lang="en">English</button>
+  </div>
+</header>
+
+<main id="contenido">
+
+<section class="hero">
+  <div class="wrap hero__in">
+    <p class="mast">
+      <span data-i18n="mast_l">Maíz de temporal · Valles de Toluca, Ixtlahuaca y Atlacomulco</span>
+      <span data-i18n="mast_r">Prototipo, octubre de 2026</span>
+    </p>
+    <div class="hero__top">
+      <h1 data-i18n="hero_h1">Aviso de helada para su parcela, por WhatsApp</h1>
+      <div class="hero__copy">
+        <p class="lead" data-i18n="hero_lead">Helada corrige el pronóstico de esta noche para cada parcela de maíz de temporal y avisa al productor con una nota de voz.</p>
+        <p class="actions">
+          <a class="btn btn--primary" data-link="panel" href="https://panel.helada.app" data-i18n="cta_demo">Ver la demostración</a>
+          <a class="btn" data-link="phone" href="https://m.helada.app/" data-i18n="cta_phone">Abrir en el teléfono</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- the scene: engraved layers (generated illustrations) that run through cloud, rain, a clear frost night and dawn -->
+  <div class="hero__art">
+    <div class="scene" id="scene" role="img" aria-label="Grabado del Nevado de Toluca detrás de una hilera de maíz quemado por la helada. El cielo pasa por nubes, lluvia, una noche despejada y el amanecer." data-i18n-aria="hero_alt">
+      <div class="scene__sky"></div>
+      <svg class="scene__stars" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="scene__twinkle scene__twinkle--1" d="M1304 424L1305.5 427.5L1309 429L1305.5 430.5L1304 434L1302.5 430.5L1299 429L1302.5 427.5ZM1291 118L1292.2 120.8L1295 122L1292.2 123.2L1291 126L1289.8 123.2L1287 122L1289.8 120.8ZM951 444L952.8 448.2L957 450L952.8 451.8L951 456L949.2 451.8L945 450L949.2 448.2ZM1174 432L1175.5 435.5L1179 437L1175.5 438.5L1174 442L1172.5 438.5L1169 437L1172.5 435.5ZM873 436.5L875.2 441.8L880.5 444L875.2 446.2L873 451.5L870.8 446.2L865.5 444L870.8 441.8ZM543 113L544.8 117.2L549 119L544.8 120.8L543 125L541.2 120.8L537 119L541.2 117.2ZM614.9 207a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM39.6 317a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM1184.6 79a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM518.9 381a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM803.6 461a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM87.6 272a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM1229.6 261a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM989.2 296a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0ZM1541.9 18a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM368.6 154a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM930.2 179a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0ZM79.6 19a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM1310.6 48a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM162.2 241a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0Z"/><path class="scene__twinkle scene__twinkle--2" d="M1435 435L1436.2 437.8L1439 439L1436.2 440.2L1435 443L1433.8 440.2L1431 439L1433.8 437.8ZM1243 122.5L1245.2 127.8L1250.5 130L1245.2 132.2L1243 137.5L1240.8 132.2L1235.5 130L1240.8 127.8ZM1168 162.5L1170.2 167.8L1175.5 170L1170.2 172.2L1168 177.5L1165.8 172.2L1160.5 170L1165.8 167.8ZM1567 170L1568.5 173.5L1572 175L1568.5 176.5L1567 180L1565.5 176.5L1562 175L1565.5 173.5ZM15 247L16.8 251.2L21 253L16.8 254.8L15 259L13.2 254.8L9 253L13.2 251.2ZM160.9 56a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM769.6 328a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM382.9 331a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM332.2 388a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0ZM1244.6 50a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM496.2 388a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0ZM1073.2 99a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0ZM1269.9 324a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM559.6 220a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM1095.9 302a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM1508.2 363a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0ZM740.6 368a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM145.6 384a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0Z"/><path class="scene__twinkle scene__twinkle--3" d="M942 444L943.5 447.5L947 449L943.5 450.5L942 454L940.5 450.5L937 449L940.5 447.5ZM1038 113L1039.2 115.8L1042 117L1039.2 118.2L1038 121L1036.8 118.2L1034 117L1036.8 115.8ZM49 461L50.2 463.8L53 465L50.2 466.2L49 469L47.8 466.2L45 465L47.8 463.8ZM37 137.5L39.2 142.8L44.5 145L39.2 147.2L37 152.5L34.8 147.2L29.5 145L34.8 142.8ZM1247 439L1248.2 441.8L1251 443L1248.2 444.2L1247 447L1245.8 444.2L1243 443L1245.8 441.8ZM1201.9 335a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM268.6 310a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM644.2 126a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0ZM1142.2 110a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0ZM105.9 63a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM810.6 141a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0ZM148.9 74a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM581.9 118a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM518.9 40a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM196.9 195a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0ZM1204.2 81a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0ZM76.2 20a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0ZM661.9 79a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0 -2.2 0Z"/></svg>
+      <svg class="scene__sun" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="24"/><g><line x1="50" y1="10" x2="50" y2="21" transform="rotate(0 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(15 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(30 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(45 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(60 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(75 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(90 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(105 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(120 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(135 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(150 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(165 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(180 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(195 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(210 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(225 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(240 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(255 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(270 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(285 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(300 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(315 50 50)"/><line x1="50" y1="10" x2="50" y2="21" transform="rotate(330 50 50)"/><line x1="50" y1="4" x2="50" y2="21" transform="rotate(345 50 50)"/></g></svg>
+      <div class="scene__clouds">
+        <picture><source type="image/avif" srcset="assets/img/scene-cloud-b-640.avif 640w" sizes="(max-width: 62rem) 34vw, max(26vw, 44vh)"><img class="scene__cloud scene__cloud--b" src="assets/img/scene-cloud-b-640.webp" srcset="assets/img/scene-cloud-b-640.webp 640w" sizes="(max-width: 62rem) 34vw, max(26vw, 44vh)" width="640" height="331" alt="" decoding="async"></picture>
+        <picture><source type="image/avif" srcset="assets/img/scene-cloud-d-640.avif 640w" sizes="(max-width: 62rem) 34vw, max(26vw, 44vh)"><img class="scene__cloud scene__cloud--d" src="assets/img/scene-cloud-d-640.webp" srcset="assets/img/scene-cloud-d-640.webp 640w" sizes="(max-width: 62rem) 34vw, max(26vw, 44vh)" width="640" height="269" alt="" decoding="async"></picture>
+      </div>
+      <picture><source type="image/avif" srcset="assets/img/scene-mountain-1400.avif 1400w, assets/img/scene-mountain-2400.avif 2400w" sizes="(max-width: 62rem) 134vw, max(106vw, 170vh)"><img class="scene__mountain" src="assets/img/scene-mountain-1400.webp" srcset="assets/img/scene-mountain-1400.webp 1400w, assets/img/scene-mountain-2400.webp 2400w" sizes="(max-width: 62rem) 134vw, max(106vw, 170vh)" width="2400" height="601" alt="" decoding="async" fetchpriority="high"></picture>
+      <div class="scene__clouds">
+        <picture><source type="image/avif" srcset="assets/img/scene-cloud-a-640.avif 640w" sizes="(max-width: 62rem) 34vw, max(26vw, 44vh)"><img class="scene__cloud scene__cloud--a" src="assets/img/scene-cloud-a-640.webp" srcset="assets/img/scene-cloud-a-640.webp 640w" sizes="(max-width: 62rem) 34vw, max(26vw, 44vh)" width="640" height="300" alt="" decoding="async"></picture>
+        <picture><source type="image/avif" srcset="assets/img/scene-cloud-c-640.avif 640w" sizes="(max-width: 62rem) 34vw, max(26vw, 44vh)"><img class="scene__cloud scene__cloud--c" src="assets/img/scene-cloud-c-640.webp" srcset="assets/img/scene-cloud-c-640.webp 640w" sizes="(max-width: 62rem) 34vw, max(26vw, 44vh)" width="640" height="296" alt="" decoding="async"></picture>
+      </div>
+      <picture><source type="image/avif" srcset="assets/img/scene-storm-1600.avif 1600w" sizes="(max-width: 62rem) 134vw, max(106vw, 170vh)"><img class="scene__storm" src="assets/img/scene-storm-1600.webp" srcset="assets/img/scene-storm-1600.webp 1600w" sizes="(max-width: 62rem) 134vw, max(106vw, 170vh)" width="1600" height="407" alt="" decoding="async"></picture>
+      <div class="scene__rain"></div>
+      <picture><source type="image/avif" srcset="assets/img/scene-maize-1400.avif 1400w, assets/img/scene-maize-2400.avif 2400w" sizes="(max-width: 62rem) 134vw, max(106vw, 170vh)"><img class="scene__maize" src="assets/img/scene-maize-1400.webp" srcset="assets/img/scene-maize-1400.webp 1400w, assets/img/scene-maize-2400.webp 2400w" sizes="(max-width: 62rem) 134vw, max(106vw, 170vh)" width="2400" height="552" alt="" decoding="async" fetchpriority="high"></picture>
+    </div>
+  </div>
+
+  <div class="wrap hero__slip">
+    <button class="motion" type="button" id="motion" aria-pressed="false">
+      <span class="motion__pause" data-i18n="anim_pause">Pausar la animación</span>
+      <span class="motion__play" data-i18n="anim_play">Reanudar la animación</span>
+    </button>
+    <!-- the example alert, first half: what the model worked out. The message itself is in #aviso -->
+    <div class="readout">
+      <p class="readout__label" data-i18n="slip_label">Ejemplo del aviso</p>
+      <dl>
+        <div>
+          <dd>−2&nbsp;°C</dd>
+          <dt data-i18n="read_temp">Su parcela, esta noche</dt>
+        </div>
+        <div>
+          <dd>70&nbsp;%</dd>
+          <dt data-i18n="read_prob">Probabilidad de helada</dt>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<p class="wrap credit" data-i18n="hero_c">El Nevado de Toluca, el maíz helado y las nubes son grabados generados con IA, no fotografías. El cielo pasa por nubes, lluvia, una noche despejada con helada y el amanecer.</p>
+
+<section id="aviso">
+  <div class="wrap sec">
+    <div class="sec__side">
+      <h2 class="sec__head" data-i18n="how_h2">Así llega el aviso</h2>
+    </div>
+    <div class="sec__body how">
+      <figure class="aviso">
+        <div class="aviso__msg">
+          <div class="voice" role="img" aria-label="Nota de voz de 18 segundos" data-i18n-aria="voice_aria">
+            <span class="play" aria-hidden="true"></span>
+            <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="dur">0:18</span>
+          </div>
+          <div class="msg" lang="es-MX">
+            <p><strong>❄️ Aviso de Helada · P-07 (Almoloya de Juárez)</strong> <span class="draft">(Borrador sin firma agronómica)</span></p>
+            <p>Esta noche: probabilidad de helada <span class="risk">70%</span>. Su parcela −2&nbsp;°C (rango −4 a 0&nbsp;°C).</p>
+            <p>Proteja sus cultivos esta noche.</p>
+            <p>Responda 1 para más. BAJA = salir.</p>
+          </div>
+        </div>
+        <figcaption data-i18n="phone_caption">Ejemplo del aviso, en español como lo recibe el productor. La parcela y los valores son ficticios.</figcaption>
+      </figure>
+      <div>
+        <p data-i18n="how_p">El productor escucha el aviso en una nota de voz y lo lee en el mismo mensaje: la probabilidad de helada, la temperatura de su parcela con su rango, una acción y la palabra para dejar de recibirlo. Helada también funciona en el teléfono, sin señal.</p>
+        <p class="fine" data-i18n="hero_fine">Es un prototipo. Los nombres, teléfonos y parcelas de la demostración son ficticios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="problema">
+  <div class="wrap sec">
+    <div class="sec__side">
+      <h2 class="sec__head" data-i18n="prob_h2">En el valle hiela más de cien días al año, y el pronóstico gratuito casi no avisa</h2>
+      <span class="engraving engraving--maize" aria-hidden="true"></span>
+    </div>
+    <div class="sec__body">
+      <div class="stats">
+        <div class="stat">
+          <p class="stat__n" data-i18n="prob1_n">Más de 100</p>
+          <div>
+            <p data-i18n="prob1_t">días con helada al año en el distrito de Toluca. En la temporada 2019, la helada se llevó 3,511 ha de maíz de temporal, según una estimación con imágenes de satélite.</p>
+            <p class="source" data-i18n="prob1_s">Jasso-Miranda, Soria-Ruiz y Antonio-Némiga, Rev. Mex. Cienc. Agríc. 13(2), 2022.</p>
+          </div>
+        </div>
+        <div class="stat">
+          <p class="stat__n" data-i18n="prob2_n">1 de cada 4</p>
+          <div>
+            <p data-i18n="prob2_t">noches de helada alcanza a detectar el pronóstico regional gratuito, que además marca 1.5&nbsp;°C de más en las estaciones.</p>
+            <p class="source" data-i18n="prob2_s">Medición del equipo: 39 estaciones del SMN, temporada 2025-26.</p>
+          </div>
+        </div>
+        <div class="stat">
+          <p class="stat__n" data-i18n="prob3_n">10 días</p>
+          <div>
+            <p data-i18n="prob3_t">naturales tiene el productor para avisar del daño al programa estatal (PASACME), que después lo verifica en la parcela.</p>
+            <p class="source" data-i18n="prob3_s">Lineamientos PASACME, Gaceta del Gobierno núm. 114, 2024.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="que-hace">
+  <div class="wrap sec">
+    <div class="sec__side">
+      <h2 class="sec__head" data-i18n="what_h2">Qué hace Helada</h2>
+      <span class="engraving engraving--thermometer" aria-hidden="true"></span>
+    </div>
+    <div class="sec__body">
+      <dl class="rows">
+        <div class="rows__row">
+          <dt data-i18n="what1_t">Aviso de helada</dt>
+          <dd data-i18n="what1_d">Un modelo pequeño corrige el pronóstico de esta noche para cada parcela con lo que han medido las estaciones, y calcula la probabilidad de helada. El productor la escucha en una nota de voz por WhatsApp entre las 18:00 y las 20:00, a lo más dos veces por semana.</dd>
+        </div>
+        <div class="rows__row">
+          <dt data-i18n="what2_t">Calendario de siembra</dt>
+          <dd data-i18n="what2_d">Las fechas de helada de cada parcela ayudan a elegir la fecha de siembra y el ciclo de la variedad. Si el maíz está en floración, un aviso esa misma tarde rara vez salva el cultivo, y Helada lo dice.</dd>
+        </div>
+        <div class="rows__row">
+          <dt data-i18n="what3_t">Paquete de pérdida</dt>
+          <dd data-i18n="what3_d">Una nota de voz y unas fotos se convierten en un PDF con la parcela, la fecha, la ubicación, la temperatura calculada y la observada, y la lista de documentos del programa. Solo dice «Documentos completos» o «Falta: X». Nunca decide si procede el apoyo: eso lo decide la Secretaría del Campo, en la parcela.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="night" id="evidencia">
+  <div class="wrap">
+    <div class="night__head">
+      <h2 data-i18n="ev_h2">De cada 100 noches de helada, cuántas se avisan</h2>
+      <p class="lead" data-i18n="ev_lead">Cada cuadro es una noche de helada. Los cuadros llenos son las noches que el método avisó. Los dos métodos dan las mismas falsas alarmas: 5 de cada 100 noches sin helada.</p>
+    </div>
+
+    <div class="evidence">
+      <div class="evidence__group">
+        <h3 data-i18n="ev_near_h3">Parcela cerca de una estación del SMN</h3>
+        <div class="charts">
+          <figure class="chart">
+            <svg viewBox="0 0 160 160" role="img" aria-label="24 de 100 cuadros llenos" data-i18n-aria="ev_c1_aria">
+              <rect width="160" height="32" fill="url(#cell-forecast)"/><rect y="32" width="64" height="16" fill="url(#cell-forecast)"/>
+              <rect x="64" y="32" width="96" height="16" fill="url(#cell-missed)"/><rect y="48" width="160" height="112" fill="url(#cell-missed)"/>
+            </svg>
+            <figcaption><strong>24</strong> <span data-i18n="ev_forecast">Pronóstico regional gratuito</span></figcaption>
+          </figure>
+          <figure class="chart">
+            <svg viewBox="0 0 160 160" role="img" aria-label="58 de 100 cuadros llenos" data-i18n-aria="ev_c2_aria">
+              <rect width="160" height="80" fill="url(#cell-helada)"/><rect y="80" width="128" height="16" fill="url(#cell-helada)"/>
+              <rect x="128" y="80" width="32" height="16" fill="url(#cell-missed)"/><rect y="96" width="160" height="64" fill="url(#cell-missed)"/>
+            </svg>
+            <figcaption><strong class="is-helada">58</strong> <span>Helada</span></figcaption>
+          </figure>
+        </div>
+        <p data-i18n="ev_near_p">Con Helada se avisan 57.9% de las noches de helada, contra 24.3% del pronóstico. Una hoja de cálculo con una corrección por estación llega a 36.2%.</p>
+      </div>
+
+      <div class="evidence__group">
+        <h3 data-i18n="ev_far_h3">Parcela sin estación cerca</h3>
+        <div class="charts">
+          <figure class="chart">
+            <svg viewBox="0 0 160 160" role="img" aria-label="32 de 100 cuadros llenos" data-i18n-aria="ev_c3_aria">
+              <rect width="160" height="48" fill="url(#cell-forecast)"/><rect y="48" width="32" height="16" fill="url(#cell-forecast)"/>
+              <rect x="32" y="48" width="128" height="16" fill="url(#cell-missed)"/><rect y="64" width="160" height="96" fill="url(#cell-missed)"/>
+            </svg>
+            <figcaption><strong>32</strong> <span data-i18n="ev_forecast">Pronóstico regional gratuito</span></figcaption>
+          </figure>
+          <figure class="chart">
+            <svg viewBox="0 0 160 160" role="img" aria-label="32 de 100 cuadros llenos" data-i18n-aria="ev_c3_aria">
+              <rect width="160" height="48" fill="url(#cell-helada)"/><rect y="48" width="32" height="16" fill="url(#cell-helada)"/>
+              <rect x="32" y="48" width="128" height="16" fill="url(#cell-missed)"/><rect y="64" width="160" height="96" fill="url(#cell-missed)"/>
+            </svg>
+            <figcaption><strong class="is-helada">32</strong> <span>Helada</span></figcaption>
+          </figure>
+        </div>
+        <p data-i18n="ev_far_p"><strong>Lejos de una estación, Helada no detecta mejor la helada</strong> (32.4% contra 32.1%). Solo quita el sesgo cálido del pronóstico: el error baja de 2.83 a 2.32&nbsp;°C, y el rango que muestra es más amplio. Para ganar precisión hacen falta termómetros registradores en unas 5 parcelas por ejido.</p>
+      </div>
+    </div>
+
+    <p class="source source--block" data-i18n="ev_source">Cerca de una estación: temporada 2025-26, que el modelo no vio al entrenarse; 39 estaciones del SMN, 5,855 noches, 503 con helada. «Cerca» quiere decir a menos de 1.5 km y 50 m de altitud. Sin estación cerca: 80 estaciones apartadas del entrenamiento, temporadas 2024-25 y 2025-26, 19,592 noches. El dato real es la temperatura en la caseta de la estación, no en el cultivo.</p>
+  </div>
+</section>
+
+<section id="pequeno">
+  <div class="wrap sec">
+    <div class="sec__side">
+      <h2 class="sec__head" data-i18n="small_h2">Un modelo de 372 KB que corre en el teléfono</h2>
+      <span class="engraving engraving--phone" aria-hidden="true"></span>
+    </div>
+    <div class="sec__body">
+      <p data-i18n="small_p1">El modelo de helada pesa 372 KB. Corre en el servidor y también en el teléfono del productor, en una página que se instala y funciona sin señal. La versión del teléfono da el mismo resultado que la original: menos de 0.005&nbsp;°C de diferencia en 204 casos de prueba.</p>
+      <p data-i18n="small_p2">Sin señal, el teléfono guarda las lecturas y los reportes, y los manda cuando la señal regresa.</p>
+      <ul class="facts">
+        <li><strong>372 KB</strong> <span data-i18n="small_f1">el modelo de helada, en el teléfono y en el servidor</span></li>
+        <li><strong data-i18n="small_f2n">Cerca de 1 MB</strong> <span data-i18n="small_f2">la página del teléfono completa</span></li>
+        <li><strong>486 MB</strong> <span data-i18n="small_f3">la voz a texto, que corre en el servidor y no en el teléfono. Se probó con 12 notas de voz sintéticas, no con productores</span></li>
+        <li><strong data-i18n="small_f4n">Reglas fijas</strong> <span data-i18n="small_f4">para leer un reporte de daño: ahí la IA no les ganó, y no la usamos</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="decide">
+  <div class="wrap sec">
+    <div class="sec__side">
+      <h2 class="sec__head" data-i18n="who_h2">Una persona decide en cada paso</h2>
+      <span class="engraving engraving--spade" aria-hidden="true"></span>
+    </div>
+    <div class="sec__body">
+      <div class="unsure-row">
+        <div class="unsure" lang="es-MX">
+          <p class="unsure__state">No estoy seguro</p>
+          <p>Pregunte a su técnico antes de decidir.</p>
+        </div>
+        <p data-i18n="who_p">El teléfono lo dice así cuando no hay pronóstico guardado, cuando el pronóstico es viejo, cuando faltan datos o cuando no hay estación cerca en una noche fría. Una palabra, BAJA, detiene todos los avisos.</p>
+      </div>
+      <dl class="who">
+        <div><dt data-i18n="who1_t">Qué hacer con el aviso</dt><dd data-i18n="who1_d">Lo decide el productor.</dd></div>
+        <div><dt data-i18n="who2_t">Cuando falta información</dt><dd data-i18n="who2_d">Lo decide el técnico.</dd></div>
+        <div><dt data-i18n="who3_t">El apoyo por pérdida</dt><dd data-i18n="who3_d">Lo decide la Secretaría del Campo, con visita a la parcela.</dd></div>
+        <div><dt data-i18n="who4_t">Las recomendaciones</dt><dd data-i18n="who4_d">Un agrónomo debe firmarlas. Hasta entonces dicen «Borrador sin firma agronómica».</dd></div>
+      </dl>
+      <h3 data-i18n="lim_h3">Lo que todavía falta</h3>
+      <ul class="limits">
+        <li data-i18n="lim1">La mejora solo está medida cerca de estaciones del SMN.</li>
+        <li data-i18n="lim2">El reconocimiento de voz no se ha medido con productores reales.</li>
+        <li data-i18n="lim3">El mazahua todavía no está disponible.</li>
+        <li data-i18n="lim4">No hay paso de consentimiento al inscribirse ni borrado de datos a petición.</li>
+        <li data-i18n="lim5">El envío por WhatsApp Business no se ha probado en una cuenta real.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<figure class="wrap plate plate--jocotitlan">
+  <div class="plate__img">
+    <picture>
+      <source type="image/avif" srcset="assets/img/volcan-jocotitlan-800.avif 800w, assets/img/volcan-jocotitlan-1600.avif 1600w" sizes="(min-width: 76.5rem) 74rem, calc(100vw - 2.5rem)">
+      <img src="assets/img/volcan-jocotitlan-1600.webp" srcset="assets/img/volcan-jocotitlan-800.webp 800w, assets/img/volcan-jocotitlan-1600.webp 1600w" sizes="(min-width: 76.5rem) 74rem, calc(100vw - 2.5rem)" width="1600" height="804" loading="lazy" decoding="async" alt="Un campo de maíz en pie y, al fondo, el volcán Jocotitlán." data-i18n-alt="jocotitlan_alt">
+    </picture>
+  </div>
+  <figcaption>
+    <span data-i18n="jocotitlan_c">Maíz al pie del volcán Jocotitlán, Estado de México, julio de 2007.</span>
+    <span data-i18n="jocotitlan_s">Foto: <a href="https://commons.wikimedia.org/wiki/File:Volc%C3%A1n_Jocotitl%C3%A1n.JPG">Hernan Corona</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a>. Recortada y a una tinta.</span>
+  </figcaption>
+</figure>
+
+<section id="oficinas">
+  <div class="wrap sec">
+    <div class="sec__side">
+      <h2 class="sec__head" data-i18n="off_h2">Para oficinas agrícolas y aliados</h2>
+      <span class="engraving engraving--shelter" aria-hidden="true"></span>
+    </div>
+    <div class="sec__body">
+      <p data-i18n="off_p1">El siguiente paso es un ejido durante una temporada de heladas: 5 termómetros registradores (unos MX$3,300), un padrón con consentimiento, la firma de un agrónomo y un acuerdo con la Secretaría del Campo sobre cómo recibir un paquete digital.</p>
+      <p data-i18n="off_p2">El mismo sistema ya corre para papa en Puno, Perú, solo con el pronóstico y sin afirmar ninguna mejora: allá la precisión también hay que ganarla con mediciones locales.</p>
+      <div class="cost">
+        <p class="cost__n">US$1.20</p>
+        <div>
+          <p data-i18n="cost_p1">por productor el primer año, y después de US$0.15 a US$0.30 por temporada.</p>
+          <p class="source" data-i18n="cost_s">Son estimaciones. Incluyen mensajes, el equipo de la oficina y los termómetros. No incluyen el tiempo de extensionistas y agrónomos, que es el costo mayor.</p>
+        </div>
+      </div>
+      <p class="actions">
+        <a class="btn btn--primary" data-link="contact" href="mailto:hola@helada.app" data-i18n="off_cta">Escribir a hola@helada.app</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__row">
+    <svg class="foot__mark" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path class="logo__symbol" fill-rule="evenodd" d="M140.7 24.7 L231.3 115.3 A18 18 0 0 1 231.3 140.7 L140.7 231.3 A18 18 0 0 1 115.3 231.3 L24.7 140.7 A18 18 0 0 1 24.7 115.3 L115.3 24.7 A18 18 0 0 1 140.7 24.7 Z M117.8 123 C102.2 105.3 80.4 90.4 60 98.5 C84.5 72.7 113 80.8 121.2 104 C117.8 86.3 121.9 67.2 128 48.2 C134.1 67.2 138.2 86.3 134.8 104 C143 80.8 171.5 72.7 196 98.5 C175.6 90.4 153.8 105.3 138.2 123 Z M89.3 147 L87.6 146 L72.6 146 L78.1 155.5 L70.8 168 L85.3 168 L90.8 177.5 L98.3 164.5 L98.3 162.6 L119 150.6 L119 174.5 L117.3 175.5 L109.8 188.5 L120.8 188.5 L128 201 L135.2 188.5 L146.2 188.5 L138.7 175.5 L137 174.5 L137 150.6 L157.7 162.6 L157.7 164.5 L165.2 177.5 L170.7 168 L185.2 168 L177.9 155.5 L183.4 146 L168.4 146 L166.7 147 L146 135 L110 135 Z"/></svg>
+    <div>
+      <p data-i18n="foot_1">Helada es un prototipo del equipo SysCallOx4, octubre de 2026.</p>
+      <p data-i18n="foot_2">Datos: SMN y CONAGUA, Open-Meteo (CC BY 4.0), Copernicus GLO-30. Tipografías Besley y Libre Franklin (SIL OFL).</p>
+      <p data-i18n="foot_3">La fotografía es de Wikimedia Commons, con su crédito al pie. Los grabados son ilustraciones generadas con IA (Gemini), no fotografías.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
