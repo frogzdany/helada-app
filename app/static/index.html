@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helada: frost alerts for each plot</title>
+<link rel="stylesheet" href="/static/vendor/leaflet.css">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg class="logo" viewBox="12 12 232 232" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M140.7 24.7 L231.3 115.3 A18 18 0 0 1 231.3 140.7 L140.7 231.3 A18 18 0 0 1 115.3 231.3 L24.7 140.7 A18 18 0 0 1 24.7 115.3 L115.3 24.7 A18 18 0 0 1 140.7 24.7 Z M128 56 L115 78.5 L115 105.5 L91.6 92 L65.6 92 L78.6 114.5 L102 128 L78.6 141.5 L65.6 164 L91.6 164 L115 150.5 L115 177.5 L128 200 L141 177.5 L141 150.5 L164.4 164 L190.4 164 L177.4 141.5 L154 128 L177.4 114.5 L190.4 92 L164.4 92 L141 105.5 L141 78.5 Z"/></svg>
+    <div>
+      <h1>Helada</h1>
+      <p class="sub" data-es="Avisos de helada por parcela y paquetes de evidencia · valle de Toluca">Frost alerts for each plot and loss-evidence packets · Toluca valley, Mexico</p>
+    </div>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="top-actions">
+    <label class="clock dev-only" title="The time the system uses; empty = real time" data-es-title="Hora que usa el sistema; vacío = hora real">
+      <span data-es="Hora del sistema">System time</span>
+      <input type="datetime-local" id="demoNow">
+    </label>
+    <button class="btn demo-btn" id="demoBtn" title="The demo runs by itself, step by step. It can be paused." data-es-title="La demostración corre sola, paso a paso. Se puede pausar.">▶ Demo</button>
+    <button class="icon-btn" id="devBtn" title="Show or hide technical details" data-es-title="Mostrar u ocultar detalles técnicos" aria-pressed="false" data-es="Detalles técnicos">Technical details</button>
+    <button class="icon-btn" id="langBtn" title="Ver el tablero en español" data-es-title="See the dashboard in English" data-es="English">Español</button>
+    <button class="icon-btn" id="themeBtn" title="Switch between light and dark" data-es-title="Cambiar tema claro/oscuro" aria-label="Switch theme" data-es-aria-label="Cambiar tema">◐</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="dash">
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="mapa" data-es="Mapa y pronóstico">Map and forecast</button>
+      <button class="tab" data-tab="calendario" data-es="Calendario de siembra">Sowing calendar</button>
+      <button class="tab" data-tab="paquetes"><span data-es="Paquetes">Packets</span> <span class="badge" id="pkCount">0</span></button>
+      <button class="tab" data-tab="bitacora" data-es="Bitácora">Audit log</button>
+      <button class="tab" data-tab="registrador" data-es="Registrador en la parcela">Thermometer on the plot</button>
+      <button class="tab" data-tab="evidencia" data-es="Evidencia del modelo">Model evidence</button>
+    </nav>
+
+    <div class="panel active" id="tab-mapa">
+      <div class="controls">
+        <label><span data-es="Noche del">Night of</span> <input type="date" id="nightDate"></label>
+        <label><span data-es="Pronóstico">Forecast</span>
+          <select id="scenario">
+            <option value="demo" data-es="Noche del 14 al 15 de noviembre de 2025">Night of 14–15 November 2025 (real night)</option>
+            <option value="" data-es="Esta noche, en vivo">Tonight, live</option>
+          </select>
+        </label>
+        <button class="btn" id="refreshBtn" data-es="Actualizar">Refresh</button>
+        <span class="grow"></span>
+        <label class="check dev-only" title="The rule only sends between 18:00 and 20:00; sending outside those hours is written to the audit log" data-es-title="La regla solo envía de 18:00 a 20:00; enviar fuera de ese horario queda en la bitácora">
+          <input type="checkbox" id="overrideWindow" checked> <span data-es="Enviar fuera del horario 18–20 h">Send outside 18:00–20:00</span>
+        </label>
+        <button class="btn" id="resetBtn" hidden title="Clears the demo's alerts, simulated phone chats, reports and packets, and puts the clock back at the start of the night. The audit log is kept." data-es-title="Borra los avisos, las conversaciones del teléfono simulado, los reportes y los paquetes de la demostración, y regresa la hora al inicio de la noche. La bitácora se conserva." data-es="Reiniciar demostración">Reset demo</button>
+        <button class="btn primary" id="sendBtn" data-es="Enviar avisos">Send alerts</button>
+      </div>
+      <div class="toast" id="sendNote" hidden></div>
+      <div class="banner" id="scenarioBanner" hidden></div>
+      <div class="map-row">
+        <div id="map" aria-label="Map of plots" data-es-aria-label="Mapa de parcelas"></div>
+        <aside class="compare" id="compare">
+          <p class="muted" data-es="Seleccione una parcela en el mapa o en la tabla.">Choose a plot on the map or in the table.</p>
+        </aside>
+      </div>
+      <div class="legend" id="legend"></div>
+      <div class="toast" id="toast" hidden></div>
+      <p class="night-summary" id="nightSummary"></p>
+      <div class="table-wrap">
+        <table class="grid" id="fcTable">
+          <thead><tr>
+            <th data-es="Parcela">Plot</th><th data-es="Productor">Farmer</th>
+            <th class="num" data-es="Pronóstico regional">Regional forecast</th><th class="num" data-es="Su parcela">On the plot</th><th class="num" data-es="Rango probable">Likely range</th>
+            <th data-es="Prob. de helada">Chance of frost</th><th data-es="Base">Basis</th><th class="num" data-es="Se midió">Measured</th><th data-es="Aviso">Rule</th><th data-es="Último aviso">Last alert</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="fine" data-es="Se avisa al productor cuando la probabilidad de helada en su parcela es de 30% o más.">The farmer is alerted when the chance of frost on the plot is 30% or more.</p>
+      <p class="fine dev-only" data-es="Regla: <b>Avisar</b> si P(helada) ≥ 30% (texto + nota de voz; máx. 2 avisos por parcela cada 7 días) · <b>Vigilar</b> si la parcela no tiene estación cercana, el extremo frío del rango ≤ 0 °C y P &amp;lt; 30% (solo texto, sin nota de voz, no cuenta para el tope) · envío 18:00–20:00. Soporte: «Anclada a estación» = parcela a ≤ 1.5 km de una estación SMN (régimen validado); «Transferencia por terreno» = sin estación cercana, rango amplio (borde punteado en el mapa); «Registrador (k noches)» = calibrada con las lecturas de la propia parcela. Nombres y teléfonos ficticios; coordenadas reales.">Rule: <b>Alert</b> if P(frost) ≥ 30% (text and voice note; at most 2 alerts per plot every 7 days) · <b>Watch</b> if the plot has no station nearby, the cold end of the range is ≤ 0 °C and P is under 30% (text only, no voice note, does not count toward the cap) · sent 18:00–20:00. Basis: «Station-anchored» = plot within 1.5 km of a weather-service (SMN) station (validated setting); «Terrain transfer» = no station nearby, wide range (dashed outline on the map); «Thermometer (k nights)» = calibrated with the plot's own readings. Names and phone numbers are fictional; coordinates are real.</p>
+    </div>
+
+    <div class="panel" id="tab-calendario">
+      <div id="calendar"><p class="muted" data-es="Seleccione una parcela.">Choose a plot.</p></div>
+    </div>
+
+    <div class="panel" id="tab-paquetes">
+      <div class="cards" id="packets"></div>
+    </div>
+
+    <div class="panel" id="tab-bitacora">
+      <div class="verify" id="verify"></div>
+      <div class="table-wrap">
+        <table class="grid" id="auditTable">
+          <thead><tr><th>#</th><th data-es="Hora (UTC)">Time (UTC)</th><th>Actor</th><th data-es="Acción">Action</th><th data-es="Entidad">Entity</th><th>Hash</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel" id="tab-registrador">
+      <p class="lg-intro" data-es="Un termómetro de máximas y mínimas o un registrador barato en la parcela convierte el cálculo «por terreno» en uno calibrado con la parcela. Suba o pegue las mínimas de cada noche: el modelo estima la corrección de esa parcela (con más peso al pronóstico general mientras hay pocas noches) y el rango se angosta según lo que se midió en estaciones del SMN que el modelo nunca vio.">A max–min thermometer or a low-cost logger on the plot turns the «terrain» estimate into one calibrated for that plot. Upload or paste each night's minimum: the model estimates the plot's own correction (leaning on the general forecast while there are few nights), and the range narrows by what was measured at weather-service stations the model never saw.</p>
+      <div class="lg-grid">
+        <form class="lg-form" id="lgForm">
+          <label><span data-es="Parcela">Plot</span> <select id="lgParcel"></select></label>
+          <fieldset class="lg-dates"><legend data-es="La fecha de cada lectura es">The date of each reading is</legend>
+            <label><input type="radio" name="lgDateIs" value="morning" checked> <span data-es="la mañana en que se leyó el termómetro">the morning the thermometer was read</span></label>
+            <label><input type="radio" name="lgDateIs" value="evening"> <span data-es="la tarde en que empezó la noche">the evening the night began</span></label>
+          </fieldset>
+          <label><span data-es="Pegue lecturas, una por renglón:">Paste readings, one per line:</span> <code>fecha,tmin_c</code>
+            <textarea id="lgText" rows="7" placeholder="fecha,tmin_c&#10;2025-11-15,-1.5&#10;16/11/2025;0,5"></textarea></label>
+          <label><span data-es="o suba un CSV">or upload a CSV</span> <input type="file" id="lgFile" accept=".csv,text/csv,text/plain"></label>
+          <div class="lg-actions">
+            <button class="btn primary" type="submit" id="lgSave" data-es="Guardar y calibrar">Save and calibrate</button>
+            <button class="btn" type="button" id="lgDemo" data-es="Ejemplo con datos reales (Jocotitlán)">Example with real data (Jocotitlán)</button>
+          </div>
+          <p class="fine" data-es="El antes y después usa la noche y el pronóstico elegidos en «Mapa y pronóstico». Solo cuentan las lecturas de noches anteriores a esa noche. Cada carga queda en la bitácora.">The before and after uses the night and forecast chosen in «Map and forecast». Only readings from nights before that night count. Every upload is written to the audit log.</p>
+        </form>
+        <div class="lg-result" id="lgResult"><p class="muted" data-es="Elija una parcela para ver sus lecturas.">Choose a plot to see its readings.</p></div>
+      </div>
+    </div>
+
+    <div class="panel" id="tab-evidencia">
+      <div id="backtest"></div>
+    </div>
+  </section>
+
+  <section class="phone-col">
+    <div class="phone">
+      <div class="phone-top">
+        <select id="phoneSel" aria-label="Simulated phone" data-es-aria-label="Teléfono simulado"></select>
+        <span class="phone-note" data-es="Vista del productor">The farmer's phone · messages are in Spanish by design</span>
+      </div>
+      <div class="chat" id="chat" aria-live="polite"></div>
+      <div class="quick">
+        <button class="chip-btn" id="sampleAudio" data-es="🎤 Audio de ejemplo">🎤 Sample voice note</button>
+        <button class="chip-btn" id="samplePhoto" data-es="📷 Foto de ejemplo">📷 Sample photo</button>
+        <button class="chip-btn" id="sampleLoc" data-es="📍 Ubicación">📍 Location</button>
+      </div>
+      <form class="composer" id="composer">
+        <label class="attach" title="Attach audio or a photo" data-es-title="Adjuntar audio o foto">📎<input type="file" id="fileIn" accept="audio/*,image/*" hidden></label>
+        <input type="text" id="textIn" placeholder="Message (in Spanish)" data-es-placeholder="Escriba un mensaje" autocomplete="off">
+        <button type="button" class="mic" id="micBtn" title="Record a voice note" data-es-title="Grabar nota de voz" aria-label="Record a voice note" data-es-aria-label="Grabar nota de voz">🎙</button>
+        <button type="submit" class="send" aria-label="Send" data-es-aria-label="Enviar">➤</button>
+      </form>
+      <p class="asr-hint dev-only" id="asrHint"></p>
+    </div>
+  </section>
+</main>
+
+<script src="/static/vendor/leaflet.js"></script>
+<script src="/static/app.js"></script>
+<script src="/static/tour.js"></script>
+</body>
+</html>
