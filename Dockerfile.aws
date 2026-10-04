@@ -1,0 +1,91 @@
+# Helada dashboard and backend as one container image for AWS Lambda (arm64), through the AWS Lambda Web Adapter.
+# Same image as Dockerfile, plus the adapter; diff the two files to see what is Lambda-specific.
+#   docker build --platform linux/arm64 -f Dockerfile.aws -t helada-lambda . \
+#     && docker run --rm --read-only --tmpfs /tmp -u 993:990 -p 8080:8080 helada-lambda
+# (outside Lambda the adapter is inert and this is a plain web server on :8080)
+#
+# What is inside, so the public demo behaves like the laptop one:
+#   - the app (FastAPI, static frontend) and helada_model with its artifacts
+#   - ffmpeg (static build) for voice notes in and out
+#   - piper with two Mexican Spanish voices: the alert's voice note, and the built-in sample of the farmer
+#   - faster-whisper "small" with its weights, so voice notes are transcribed in the container, offline
+#   - the Lambda Web Adapter, as a Lambda extension (/opt/extensions)
+# State (SQLite, media, packets) lives in /tmp. With HELADA_DDB_TABLE and HELADA_MEDIA_BUCKET set (the CDK stack
+# does it) backend/cloud.py also stores it in DynamoDB and S3 and loads it back when a new instance starts;
+# without them it lasts while the instance is warm and starts clean after that.
+# Lambda's filesystem is read-only except /tmp, and Lambda runs the container as an unprivileged user with a UID
+# other than the build's: nothing below writes outside /tmp at run time, and every file the app reads is world-readable.
+# Always build with --platform linux/arm64 (Lambda on Graviton): it picks the arm64 variant of every image below.
+FROM python:3.12-slim-bookworm
+
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy HF_HOME=/srv/hf
+
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 tzdata ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+COPY --from=mwader/static-ffmpeg:7.1 /ffmpeg /usr/local/bin/ffmpeg
+COPY --from=ghcr.io/astral-sh/uv:0.8.3 /uv /usr/local/bin/uv
+# Lambda Web Adapter v1.1.0 (github.com/aws/aws-lambda-web-adapter/releases/tag/v1.1.0), multi-arch index digest
+COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:1.1.0@sha256:17cfd08eff1dfea3f6a9a1e9c65fdac80aa4919b6085e746615530f43f57d2f1 \
+    /lambda-adapter /opt/extensions/lambda-adapter
+
+WORKDIR /srv/helada
+# dependencies first (a cached layer): the app's lock file, and the model package it depends on by path
+COPY model/pyproject.toml model/README.md model/
+COPY model/src model/src
+COPY app/pyproject.toml app/uv.lock app/
+# (uv compiles the venv's bytecode; helada_model is installed editable, so its .pyc are made here: the read-only
+# filesystem would otherwise make every cold start recompile it in memory)
+# (boto3 is only needed on AWS, for backend/cloud.py, so it is added here and not to the app's own dependencies)
+RUN cd app && uv sync --frozen --no-dev --no-cache --extra asr --extra tts \
+    && uv pip install --no-cache --python .venv/bin/python 'boto3>=1.40,<2' \
+    && .venv/bin/python -m compileall -q /srv/helada/model/src
+
+# piper voices (rhasspy/piper-voices): claude/high is Apache-2.0, ald/medium is Unlicense
+ARG VOICES=https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/es/es_MX
+# (made first: ADD --chmod=644 would create the folder as 644 too, which another UID cannot enter)
+RUN mkdir -m 755 /srv/voices
+ADD --chmod=644 --checksum=sha256:3ef40a71ea63852cd8ab7e6fa7d2ecdcfa67a0b47c9c48e3f10e02ee02083ea0 \
+    ${VOICES}/claude/high/es_MX-claude-high.onnx /srv/voices/
+ADD --chmod=644 ${VOICES}/claude/high/es_MX-claude-high.onnx.json /srv/voices/
+ADD --chmod=644 --checksum=sha256:019b3803293c93e34a206dd2e53a3889209a514e786fd7144f7b70196c579b63 \
+    ${VOICES}/ald/medium/es_MX-ald-medium.onnx /srv/voices/
+ADD --chmod=644 ${VOICES}/ald/medium/es_MX-ald-medium.onnx.json /srv/voices/
+
+# speech-to-text weights (486 MB), downloaded once here so no request ever waits for them
+# (huggingface_hub writes some cache files owner-only: opened up in the same layer, so nothing is stored twice)
+RUN app/.venv/bin/python -c "from faster_whisper.utils import download_model; download_model('small')" \
+    && chmod -R a+rX /srv/hf
+
+ENV PATH=/srv/helada/app/.venv/bin:$PATH HOME=/tmp HF_HUB_OFFLINE=1 \
+    HELADA_DATA_DIR=/tmp/helada HELADA_CHANNEL=sim HELADA_SCHEDULER=0 \
+    HELADA_TTS=piper HELADA_PIPER_MODEL=/srv/voices/es_MX-claude-high.onnx \
+    HELADA_SAMPLE_PIPER_MODEL=/srv/voices/es_MX-ald-medium.onnx HELADA_TTS_BUDGET_S=40 \
+    HELADA_ASR=auto WHISPER_MODEL=small
+
+COPY app/backend app/backend
+COPY app/scripts/seed_demo_media.py app/scripts/
+# the replay night's voice notes, made once here: on one server core each takes about as long as it lasts
+# (static/ comes after this step so a page edit does not redo it; the app only needs the folder to exist)
+RUN mkdir -p app/static && cd app && python scripts/seed_demo_media.py /srv/seed \
+    && python -m compileall -q backend
+ENV HELADA_SEED_DIR=/srv/seed
+COPY app/static app/static
+
+# Lambda runs the container as another, unprivileged UID: fail the build if it could not read a file the app needs
+RUN bad=$(find /srv /usr/local/bin /opt/extensions \( -type f ! -perm -o+r \) -o \( -type d ! -perm -o+rx \)); \
+    if [ -n "$bad" ]; then echo "not readable by other users:"; echo "$bad" | head -20; exit 1; fi
+
+# Lambda Web Adapter: it starts with the container, waits until the readiness path answers, then turns each Lambda
+# invocation into an HTTP request to the app on AWS_LWA_PORT.
+#   readiness: GET /api/backtest is a pure read of helada_model's artifacts/backtest.json (cached after the first
+#   call), with no writes and no outbound calls; GET /api/config would load faster_whisper on its first call.
+#   pass-through: non-HTTP events (SQS, EventBridge Scheduler) would be POSTed as-is to AWS_LWA_PASS_THROUGH_PATH;
+#   nothing sends such events today and the app has no route there, so they would get a 404.
+ENV PORT=8080 AWS_LWA_PORT=8080 AWS_LWA_READINESS_CHECK_PATH=/api/backtest \
+    AWS_LWA_READINESS_CHECK_HEALTHY_STATUS=200-399 AWS_LWA_PASS_THROUGH_PATH=/events
+
+WORKDIR /srv/helada/app
+EXPOSE 8080
+# one uvicorn worker (Lambda sends one request at a time to an instance), no reload
+# backend.cloud:app is the same app; with HELADA_DDB_TABLE set it also keeps the data in DynamoDB and S3
+CMD ["sh", "-c", "exec uvicorn backend.cloud:app --host 0.0.0.0 --port ${PORT:-8080} --proxy-headers --forwarded-allow-ips='*' --no-access-log"]

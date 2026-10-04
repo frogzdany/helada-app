@@ -1,0 +1,38 @@
+{
+  "name": "helada-infra",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AWS CDK app for Helada (serverless: CloudFront, S3, HTTP API, Lambda, DynamoDB)",
+  "bin": {
+    "helada": "bin/helada.js"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "jest",
+    "cdk": "cdk",
+    "synth": "cdk synth --quiet",
+    "diff": "cdk diff",
+    "deploy:dev": "BUILDX_NO_DEFAULT_ATTESTATIONS=1 cdk deploy --profile ${AWS_PROFILE:-default} -c stage=dev --all",
+    "deploy:dev:site": "cdk deploy --profile ${AWS_PROFILE:-default} -c stage=dev --exclusively Helada-dev-Edge",
+    "deploy:dev:app": "BUILDX_NO_DEFAULT_ATTESTATIONS=1 cdk deploy --profile ${AWS_PROFILE:-default} -c stage=dev --exclusively Helada-dev-Backend",
+    "deploy:prod": "BUILDX_NO_DEFAULT_ATTESTATIONS=1 cdk deploy --profile ${AWS_PROFILE:-default} -c stage=prod --all",
+    "diff:dev": "cdk diff --profile ${AWS_PROFILE:-default} -c stage=dev",
+    "diff:pipeline": "cdk diff --app 'npx ts-node --prefer-ts-exts bin/pipeline.ts' -o cdk.out.pipeline --profile ${AWS_PROFILE:-default}",
+    "deploy:pipeline": "cdk deploy --app 'npx ts-node --prefer-ts-exts bin/pipeline.ts' -o cdk.out.pipeline --profile ${AWS_PROFILE:-default}",
+    "status": "scripts/release.sh status"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.0.0",
+    "aws-cdk": "^2.1144.0",
+    "jest": "^30.0.0",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.272.0",
+    "cdk-nag": "^3.0.2",
+    "constructs": "^10.8.1"
+  }
+}

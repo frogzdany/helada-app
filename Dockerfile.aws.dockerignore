@@ -1,0 +1,13 @@
+# Only what the image needs (see Dockerfile.aws). Everything else stays out of the build context.
+# BuildKit reads this file instead of .dockerignore when building with -f Dockerfile.aws; keep the two in step.
+*
+!app/pyproject.toml
+!app/uv.lock
+!app/backend
+!app/static
+!app/scripts/seed_demo_media.py
+!model/pyproject.toml
+!model/README.md
+!model/src
+**/__pycache__
+**/*.pyc

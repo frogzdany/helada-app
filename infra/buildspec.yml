@@ -1,0 +1,16 @@
+# What the pipelines run (lib/pipeline-stack.ts). STAGE comes from the pipeline: dev or prod.
+# The steps themselves are in scripts/ci-deploy.sh, so they can be read and tried outside CodeBuild.
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # No runtime-versions: switching to a chosen Node took 42 s of every run. The image's own Node
+      # is used when it is recent enough, and uv fetches the Python the app asks for by itself.
+      - node --version && python3 --version
+      - if [ "$(node -p 'process.versions.node.split(".")[0]')" -lt 20 ]; then n 22; fi
+      - pip install --quiet uv
+      - cd "$CODEBUILD_SRC_DIR/infra" && npm ci --no-audit --no-fund
+  build:
+    commands:
+      - cd "$CODEBUILD_SRC_DIR" && infra/scripts/ci-deploy.sh "$STAGE"

@@ -1,0 +1,12 @@
+# Only what the image needs (see Dockerfile). Everything else stays out of the build context.
+*
+!app/pyproject.toml
+!app/uv.lock
+!app/backend
+!app/static
+!app/scripts/seed_demo_media.py
+!model/pyproject.toml
+!model/README.md
+!model/src
+**/__pycache__
+**/*.pyc
