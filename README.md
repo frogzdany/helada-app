@@ -19,6 +19,9 @@ Built for smallholders who grow rainfed maize in Mexico's Toluca valley.
 
 **[Landing page](https://helada.app)** · **[Phone app](https://m.helada.app/#demo)** · **[Officer dashboard](https://panel.helada.app)**
 
+**Testing from the Tecnológico de Monterrey network?** The links above are blocked there. Use these instead:<br>
+[Landing page](https://d2x9irknqybt6f.cloudfront.net) · [Phone app](https://d39rr4bsfjtup0.cloudfront.net/#demo) · [Officer dashboard](https://doxd20937ve9e.cloudfront.net) · [why](#live)
+
 </div>
 
 > [!NOTE]
