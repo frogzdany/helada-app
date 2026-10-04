@@ -318,7 +318,7 @@ Full account, with what is built and what is missing: [`docs/responsible-ai.md`]
 
 <img src="docs/img/team.jpg" alt="The four members of Team SysCallOx4 at the Tecnológico de Monterrey Campus Toluca hub, during the hackathon" width="640">
 
-Team SysCallOx4: Daniel Fragoso, René Canto, Erick Jimenez and Alejandro Cruz, at the Tecnológico de Monterrey Campus Toluca hub.
+Team SysCallOx4: Daniel Fragoso, René Cano, Erick Jimenez and Alejandro Cruz, at the Tecnológico de Monterrey Campus Toluca hub.
 
 ## License and attribution
 
