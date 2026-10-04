@@ -75,17 +75,22 @@ Sources for every figure: [`docs/problem-evidence.md`](docs/problem-evidence.md)
 ## How it works
 
 ```mermaid
-flowchart LR
-    F["Regional forecast<br/>(Open-Meteo, ECMWF)"] --> M["Frost model<br/>LightGBM, 372 KB"]
-    S["Weather stations (SMN)<br/>and terrain"] --> M
-    M --> R{"Fixed rule<br/>chance of frost ≥ 30%"}
-    R -- alert --> W["Voice note in Spanish<br/>WhatsApp or SMS"]
-    R -- "not enough data" --> U["«No estoy seguro,<br/>pregunte a su técnico»"]
-    W --> P(["Farmer"])
-    U --> P
-    P -- "voice note and photos<br/>after a loss" --> A["Speech to text<br/>and Spanish rules"]
-    A --> K["Loss-evidence packet<br/>(PDF)"]
-    K --> O(["Officer dashboard<br/>audit log"])
+flowchart TB
+    subgraph warn["Before the frost: the warning"]
+        direction LR
+        F["Regional forecast<br/>(Open-Meteo, ECMWF)"] --> M["Frost model<br/>LightGBM, 372 KB"]
+        S["Weather stations (SMN)<br/>and terrain"] --> M
+        M --> R{"Fixed rule<br/>chance of frost ≥ 30%"}
+        R -- alert --> W["Voice note in Spanish<br/>WhatsApp or SMS"]
+        R -- "not enough data" --> U["«No estoy seguro,<br/>pregunte a su técnico»"]
+    end
+    subgraph loss["After a loss: the evidence"]
+        direction LR
+        P(["Farmer"]) -- "voice note<br/>and photos" --> A["Speech to text<br/>and Spanish rules"]
+        A --> K["Loss-evidence packet<br/>(PDF)"]
+        K --> O(["Officer dashboard<br/>audit log"])
+    end
+    warn -- "the farmer hears it" --> loss
 ```
 
 - The model only estimates temperature and the chance of frost. **Rules written as code** decide when an alert goes out, how often, and what the packet says.
