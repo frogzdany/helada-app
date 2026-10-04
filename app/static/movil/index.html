@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1319" media="(prefers-color-scheme: dark)">
+<title>Helada, aviso en su teléfono</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="preload" href="fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var th=JSON.parse(localStorage.getItem("helada.theme"));if(th)document.documentElement.dataset.theme=th}catch(e){}</script>
+<link rel="stylesheet" href="movil.css">
+</head>
+<body>
+
+<header class="top">
+  <button class="parcel" id="parcelBtn" type="button" aria-haspopup="dialog">
+    <span class="parcel-id"><span id="parcelId">…</span><span data-ico="chevron" data-size="20"></span></span>
+    <span class="parcel-where" id="parcelWhere" data-t="parcel_loading">Cargando…</span>
+  </button>
+  <span class="top-right">
+    <span class="net" id="net" role="status"></span>
+    <button class="lang" id="tourBtn" type="button" aria-pressed="false"></button>
+    <button class="lang" id="langBtn" type="button">EN</button>
+    <button class="lang" id="themeBtn" type="button"></button>
+  </span>
+</header>
+
+<div class="notice" id="notice" hidden>
+  <p id="demoBar" hidden></p>
+  <p id="reviewerBar" hidden></p>
+</div>
+
+<main>
+  <section id="tab-noche" aria-labelledby="t-noche">
+    <div class="loading" id="loading" data-t="loading">Preparando el modelo en este teléfono…</div>
+    <div id="noche" hidden></div>
+  </section>
+
+  <section id="tab-termo" hidden aria-labelledby="t-termo">
+    <div class="block first">
+      <h1 data-t="termo_h1">Termómetro de su parcela</h1>
+      <p id="termoLead"></p>
+      <p class="stat" id="termoStat" hidden></p>
+    </div>
+    <form id="termoForm" class="block form" novalidate>
+      <label for="termoTemp" class="q" data-t="termo_temp">Temperatura mínima que marcó (°C)</label>
+      <div class="temp-row">
+        <button type="button" class="sign" id="termoSigno" aria-pressed="false" data-t="termo_below">Bajo cero</button>
+        <input id="termoTemp" type="text" inputmode="decimal" autocomplete="off" required>
+        <span class="unit" aria-hidden="true">°C</span>
+      </div>
+      <label for="termoFecha" id="termoFechaL" data-t="termo_date">¿De qué mañana es la lectura?</label>
+      <div class="days" id="termoDias" role="group" aria-labelledby="termoFechaL"></div>
+      <input id="termoFecha" type="date" required hidden>
+      <p class="err" id="termoErr" hidden></p>
+      <button class="btn primary" type="submit" data-t="termo_save">Guardar lectura</button>
+    </form>
+    <div id="termoList"></div>
+  </section>
+
+  <section id="tab-dano" hidden aria-labelledby="t-dano">
+    <div class="block first">
+      <h1 data-t="dano_h1">Reportar un daño</h1>
+      <p data-t="dano_lead">Se guarda en este teléfono y se envía solo cuando haya señal. Tiene 10 días para avisar a la Delegación.</p>
+    </div>
+    <form id="danoForm" class="block form" novalidate>
+      <fieldset data-tour="dano-cause">
+        <legend class="q" data-t="dano_q_cause">¿Qué le pasó a su cultivo?</legend>
+        <div class="choices" id="danoCausa"></div>
+      </fieldset>
+      <fieldset data-tour="dano-area">
+        <legend class="q" data-t="dano_q_area">¿Cuánto terreno se dañó?</legend>
+        <div class="choices" id="danoArea"></div>
+        <input id="danoAreaOtra" type="text" inputmode="decimal" placeholder="Hectáreas" data-t-ph="area_ph" hidden>
+      </fieldset>
+      <label for="danoFecha" id="danoFechaL" class="q" data-t="dano_q_date">¿Qué día pasó?</label>
+      <div class="days" id="danoDias" role="group" aria-labelledby="danoFechaL" data-tour="dano-day"></div>
+      <input id="danoFecha" type="date" required hidden>
+      <label for="danoNota" data-t="dano_note">Nota (opcional)</label>
+      <textarea id="danoNota" rows="2" maxlength="280"></textarea>
+      <p class="err" id="danoErr" hidden></p>
+      <button class="btn primary" type="submit" data-t="dano_save">Guardar reporte</button>
+    </form>
+    <div id="danoList" data-tour="dano-list"></div>
+    <p class="block fine" data-t="dano_fine">Helada arma la evidencia. Personal de la Secretaría del Campo revisa la parcela y decide si procede el apoyo.</p>
+  </section>
+</main>
+
+<nav class="tabs" aria-label="Secciones">
+  <button type="button" id="t-noche" data-tab="noche" aria-current="page"><span data-ico="moon" data-size="26"></span><span data-t="tab_noche">Esta noche</span></button>
+  <button type="button" id="t-termo" data-tab="termo"><span data-ico="thermo" data-size="26"></span><span data-t="tab_termo">Termómetro</span><span class="badge" id="termoBadge" hidden></span></button>
+  <button type="button" id="t-dano" data-tab="dano"><span data-ico="report" data-size="26"></span><span data-t="tab_dano">Daño</span><span class="badge" id="colaBadge" hidden></span></button>
+</nav>
+
+<!-- The demo that runs by itself: one caption per step, above the tabs. -->
+<div class="tour" id="tour" role="region" hidden>
+  <div class="tour-track"><div class="tour-fill" id="tourFill"></div></div>
+  <p class="tour-n" id="tourN"></p>
+  <p class="tour-text" id="tourText" aria-live="polite"></p>
+  <div class="tour-ctl">
+    <button type="button" id="tourPrev"></button>
+    <button type="button" id="tourPlay" class="main"></button>
+    <button type="button" id="tourNext"></button>
+    <button type="button" id="tourClose"></button>
+  </div>
+</div>
+
+<dialog id="parcelDlg" aria-labelledby="dlgTitle">
+  <form method="dialog">
+    <h2 id="dlgTitle" data-t="dlg_title">Su parcela</h2>
+    <div id="parcelList" class="parcel-list"></div>
+    <label class="switch"><input type="checkbox" id="demoChk"> <span data-t="dlg_demo">Demostración: réplica de una noche real (14 de noviembre de 2025)</span></label>
+    <button class="btn primary" value="close" data-t="dlg_close">Cerrar</button>
+  </form>
+</dialog>
+
+<!-- After a reading at or below freezing: a reading is not a damage report, so ask. -->
+<dialog id="lecturaDlg" aria-labelledby="lecturaTxt">
+  <form method="dialog">
+    <h2 id="lecturaTxt"></h2>
+    <p data-t="lect_q">¿Su cultivo sufrió algún daño y quiere reportarlo?</p>
+    <button class="btn" value="no" data-t="lect_no">No, solo guardar</button>
+    <button class="btn" value="si" data-t="lect_yes">Sí, reportar un daño</button>
+  </form>
+</dialog>
+
+<script src="i18n.js"></script>
+<script src="helada-model.js"></script>
+<script src="cola.js"></script>
+<script src="movil.js"></script>
+</body>
+</html>

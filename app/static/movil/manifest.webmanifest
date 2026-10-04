@@ -1,0 +1,12 @@
+{
+  "name": "Helada, aviso en su teléfono",
+  "short_name": "Helada",
+  "description": "Aviso de helada para su parcela. Funciona sin señal.",
+  "lang": "es-MX",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
