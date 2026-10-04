@@ -1,0 +1,130 @@
+# Helada region config: Puno (Peru), Altiplano around Lake Titicaca. Potato frost.
+# Loaded by helada_model.regions.load("puno"). Plain YAML subset (block mappings, block lists, inline scalar lists),
+# readable with or without PyYAML. Items marked [V] are not confirmed by a primary source we could open.
+name: puno
+display_name: "Puno, Altiplano del Lago Titicaca"
+country: PE
+admin: "Departamento de Puno"
+timezone: America/Lima
+hemisphere: south
+bbox:
+  lat: [-16.9, -14.5]
+  lon: [-70.8, -68.9]
+
+model:
+  # forecast_only: no station data, so no learned correction. Helada Tmin = the ecmwf_ifs025 day-1 forecast at the
+  # point; the band is the measured forecast-vs-ERA5 spread plus a site-microclimate prior (see calibration file).
+  mode: forecast_only
+  forecast_source: ecmwf_ifs025
+  forecast_lead: previous_day1
+  reference: "ERA5 reanalysis via Open-Meteo archive (reanalysis, NOT observations)"
+  calibration: out/puno_eval.json
+  site_sd_prior_c: 2.3
+  site_sd_prior_source: "Toluca: SD of per-station mean (observed minus ecmwf_ifs025) offsets across SMN stations (model/README.md, 'Why terrain fails'). Assumed, not measured, for Puno."
+  why_not_toluca_model: "The Toluca GBMs were trained on 18.9-20.1 N, 2,300-3,100 m, Oct-Mar nights, SMN shelter readings. Puno is 15-17 S, 3,800-4,000 m, with the cold season in May-Aug; lat/lon, day-of-year and terrain features are outside the training range (tree models extrapolate flat), and the DEM artifact covers Toluca only. No station data means no way to check a correction."
+  precondition: "Install shielded Tmin loggers on ~5 parcels per community for one season, or partner with SENAMHI for station records (registration with DNI required). Until then: forecast + honest band only."
+
+data:
+  stations_available: false
+  station_network: "SENAMHI (Peru). Daily Tmin for ~370 stations exists, but download needs registration with name, DNI, email and phone."
+  station_urls:
+    - "https://www.senamhi.gob.pe/?p=descarga-datos-hidrometeorologicos"
+    - "https://www.senamhi.gob.pe/?dp=puno&p=estaciones"
+  forecast: "Open-Meteo Previous Runs API, ecmwf_ifs025, *_previous_day1 (CC BY 4.0)"
+  reanalysis: "Open-Meteo Archive API, era5 and era5_land (Copernicus, CC BY 4.0)"
+  existing_warnings: "SENAMHI Puno already issues frost and friaje warnings (Heladas y Friajes Avisos, levels 1-4): https://www.senamhi.gob.pe/main.php?dp=puno&p=heladas-y-friajes-avisos . Helada would localise these to the parcel, not replace them."
+
+crops:
+  - id: papa
+    name_es: "Papa (Solanum tuberosum; variedades mejoradas y nativas dulces)"
+    crit_plant_c: [-3.0, -2.0]
+    crit_note: "Most cultivated varieties are sensitive below -2.5 C (S1). FAO generic potato range -2/-3 C at emergence, -1/-2 C at flowering (S2). Neither source says whether this is leaf or shelter air temperature."
+    alert_air_tmin_c: -1.0
+    alert_air_note: "Draft: -2.5 C plant threshold minus ~1.5 C because the canopy runs colder than a 2 m shelter on radiative nights. Agronomist (INIA Puno) to confirm."
+    in_field: ["10-15", "04-30"]
+    in_field_note: "Approximate. MIDAGRI: national potato sowing mostly Aug-Dec, ~6-month cycle, harvest Jan-Jun (S4); in the Altiplano sowing waits for the rains, Oct-Dec [V]. Confirm per province with the Agencia Agraria."
+    src: [S1, S2, S4]
+  - id: papa_amarga
+    name_es: "Papa amarga (S. juzepczukii, S. curtilobum; para chuño)"
+    crit_plant_c: [-5.5, -4.8]
+    crit_note: "Tolerance to -4.8 and -5.5 C (S3, citing Li and Palta 1977 and Bonifacio 1991)."
+    alert_air_tmin_c: -3.5
+    alert_air_note: "Draft, same 1.5 C canopy margin. Agronomist to confirm."
+    in_field: ["10-01", "05-15"]
+    in_field_note: "Grown at 3,400-4,100 m; harvested around May [V]."
+    src: [S3]
+
+sources:
+  S1: "Marmolejo Gutarra D., Ruiz Velasquez J.E. (2018). Tolerancia de papas nativas (Solanum spp.) a heladas en el contexto de cambio climatico. Scientia Agropecuaria 9(3). http://www.scielo.org.pe/scielo.php?script=sci_arttext&pid=S2077-99172018000300010"
+  S2: "FAO (2010). Proteccion contra las heladas, cap. 4, Tabla 4.5. https://www.fao.org/4/y7223s/y7223s05.pdf"
+  S3: "Bonifacio A., Ramos J., Alcon D., Gabriel J. (2013). Solanum x curtilobum Juz. et Buk.: papa amarga cultivada con potencial para el mejoramiento genetico. Revista Latinoamericana de la Papa 17(2). https://dialnet.unirioja.es/descarga/articulo/5512095.pdf"
+  S4: "MIDAGRI (2024). Observatorio de siembras y perspectivas de la produccion: Papa. https://cdn.www.gob.pe/uploads/document/file/6103503/4344772-observatorio-de-siembras-y-perspectivas-de-produccion-papa.pdf"
+
+program:
+  name: "Seguro Agricola Catastrofico (SAC)"
+  owner: "MIDAGRI, funded 100% by the State through FOGASA"
+  covers_frost: true
+  payout: "S/ 800 per ha for prioritised crops, S/ 400 per ha for others; max 10 ha per beneficiary (campaign Aug 2024 - Aug 2025)"
+  assessment: "A perito ajustador assesses damage with an agente agrario and signs the acta de ajuste."
+  urls:
+    - "https://andina.pe/agencia/noticia-eres-agricultor-seguro-agricola-te-compensa-s-800-hectarea-973171.aspx"
+    - "https://agraria.pe/noticias/midagri-activa-seguro-agricola-catastrofico-para-la-atencion-38266"
+  packet_status: "Not built. The PASACME checklist does not transfer; SAC rules (trigger, sectors, deadlines) must be read from the current norm [V]."
+
+languages:
+  spoken:
+    - code: es
+      note: "Spanish text and voice."
+    - code: qu
+      note: "Quechua: 42.9% of Puno residents report it as mother tongue (INEI Censo 2017) [V: from INEI press release summary]. Mostly northern provinces."
+    - code: ay
+      note: "Aymara: 27.0% mother tongue (INEI Censo 2017) [V]. South and west shore of the lake (Chucuito, El Collao, Yunguyo, Puno) [V]."
+  asr_claim: none
+  asr_note: "Meta MMS-1b-all lists ayr (Central Aymara) and quz (Cusco Quechua), not Puno Quechua; we have not tested either. No speech-recognition claim for Quechua or Aymara. Plan: alert voice notes recorded once by local speakers; replies by buttons or Spanish."
+
+channel:
+  primary: whatsapp
+  notes: "Same WhatsApp/SMS adapters as Toluca. OSIPTEL reports 4G guaranteed in ~77% of populated areas nationally (Q3 2025) [V]; rural Altiplano coverage must be checked per community (https://checatusenal.osiptel.gob.pe/). Some prepaid plans include unlimited WhatsApp [V]. Community radio is the likely complement."
+
+# Demo parcels: approximate locations near district capitals, one per 0.25 degree forecast cell. No real farmers.
+parcels:
+  - id: PU01
+    place: "Ilave (El Collao)"
+    lat: -16.087
+    lon: -69.638
+  - id: PU02
+    place: "Juli (Chucuito)"
+    lat: -16.215
+    lon: -69.460
+  - id: PU03
+    place: "Yunguyo"
+    lat: -16.250
+    lon: -69.090
+  - id: PU04
+    place: "Chucuito"
+    lat: -15.894
+    lon: -69.891
+  - id: PU05
+    place: "Capachica (peninsula)"
+    lat: -15.643
+    lon: -69.832
+  - id: PU06
+    place: "Huancane"
+    lat: -15.203
+    lon: -69.762
+  - id: PU07
+    place: "Azangaro"
+    lat: -14.908
+    lon: -70.196
+  - id: PU08
+    place: "Lampa"
+    lat: -15.363
+    lon: -70.366
+  - id: PU09
+    place: "Ayaviri (Melgar)"
+    lat: -14.883
+    lon: -70.590
+  - id: PU10
+    place: "Mazocruz (El Collao, puna)"
+    lat: -16.742
+    lon: -69.715

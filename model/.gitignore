@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+# research outputs: OOS prediction tables are large and reproducible; the small *.json summaries are kept
+research/out/*.csv.gz

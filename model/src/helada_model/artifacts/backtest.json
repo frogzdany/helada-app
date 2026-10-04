@@ -1,0 +1,576 @@
+{
+ "forecast_source": "Open-Meteo `ecmwf_ifs025` day-1 forecast (Previous Runs API), station coordinates",
+ "target": "SMN observed night Tmin (08:00 manual reading), frost = Tmin <= 0 degC (shelter height)",
+ "pofd_note": "recall_at_pofdX = share of frost station-nights caught when each method's alert threshold is set so X% of frost-free station-nights get an alert (ROC-matched, equally fair to raw)",
+ "method": {
+  "station-anchored": "LightGBM(weather + 12 terrain features) + station's learned offset a + b*clear_calm",
+  "terrain-transfer": "mean of LightGBM(weather + elev/lat/lon) and regularised LightGBM(weather + 6 terrain features, leaves >= 3000 nights)"
+ },
+ "known_station": {
+  "n": 5855,
+  "n_frost": 503,
+  "stations": 39,
+  "nights": 182,
+  "seasons": [
+   "2025-26"
+  ],
+  "raw": {
+   "mae": 3.003535439795047,
+   "bias": 2.2013492741246794,
+   "mae_frost_nights": 6.289463220675945,
+   "recall_at_pofd5": 0.24652087475149106,
+   "precision_at_pofd5": 0.2897196261682243,
+   "recall_at_pofd10": 0.36779324055666,
+   "precision_at_pofd10": 0.24214659685863874,
+   "rule_tmin_le0": {
+    "recall": 0.017892644135188866,
+    "pofd": 0.0003736920777279522,
+    "precision": 0.8181818181818182
+   }
+  },
+  "model": {
+   "mae": 1.3993727347694913,
+   "bias": 0.10824040015218307,
+   "mae_frost_nights": 2.3601266055113226,
+   "recall_at_pofd5": 0.5785288270377733,
+   "precision_at_pofd5": 0.521505376344086,
+   "recall_at_pofd10": 0.7693836978131213,
+   "precision_at_pofd10": 0.4197396963123644,
+   "rule_tmin_le0": {
+    "recall": 0.1848906560636183,
+    "pofd": 0.004857997010463378,
+    "precision": 0.7815126050420168
+   }
+  },
+  "delta_mae_ci": [
+   1.497,
+   1.727
+  ],
+  "delta_recall_pofd5_ci": [
+   0.271,
+   0.437
+  ],
+  "delta_recall_pofd10_ci": [
+   0.323,
+   0.496
+  ],
+  "calibration": {
+   "method": "empirical OOS residual distribution by clear-calm tercile x predicted-Tmin bin; cross-fitted by season",
+   "brier_model": 0.0542,
+   "brier_climatology": 0.079,
+   "reliability": [
+    {
+     "bin": [
+      0,
+      0.05
+     ],
+     "n": 3473,
+     "p_mean": 0.009,
+     "obs_freq": 0.007
+    },
+    {
+     "bin": [
+      0.05,
+      0.15
+     ],
+     "n": 938,
+     "p_mean": 0.101,
+     "obs_freq": 0.038
+    },
+    {
+     "bin": [
+      0.15,
+      0.3
+     ],
+     "n": 1013,
+     "p_mean": 0.196,
+     "obs_freq": 0.192
+    },
+    {
+     "bin": [
+      0.3,
+      0.5
+     ],
+     "n": 259,
+     "p_mean": 0.369,
+     "obs_freq": 0.475
+    },
+    {
+     "bin": [
+      0.5,
+      0.7
+     ],
+     "n": 116,
+     "p_mean": 0.597,
+     "obs_freq": 0.655
+    },
+    {
+     "bin": [
+      0.7,
+      1.0
+     ],
+     "n": 56,
+     "p_mean": 0.782,
+     "obs_freq": 0.839
+    }
+   ],
+   "interval80_coverage": 0.868,
+   "interval80_mean_width_c": 5.46
+  },
+  "contract_alert_rule": {
+   "rule": "p_frost >= 0.3 or tmin_lo_c <= 0",
+   "recall": 0.877,
+   "pofd": 0.188,
+   "precision": 0.304,
+   "alerts_per_100_nights": 24.7
+  },
+  "alternative_rules": {
+   "p_frost >= 0.2": {
+    "recall": 0.734,
+    "pofd": 0.089,
+    "alerts_per_100_nights": 14.5
+   },
+   "p_frost >= 0.3": {
+    "recall": 0.489,
+    "pofd": 0.035,
+    "alerts_per_100_nights": 7.4
+   },
+   "p_frost >= 0.5": {
+    "recall": 0.245,
+    "pofd": 0.009,
+    "alerts_per_100_nights": 2.9
+   }
+  },
+  "vs_open_meteo_default": {
+   "n": 5855,
+   "n_frost": 503,
+   "raw_best_match": {
+    "mae": 2.6475491033304865,
+    "bias": 1.5421690862510677,
+    "mae_frost_nights": 5.49065606361829,
+    "recall_at_pofd5": 0.24254473161033796,
+    "precision_at_pofd5": 0.28978622327790976,
+    "recall_at_pofd10": 0.3996023856858847,
+    "precision_at_pofd10": 0.2573623559539053,
+    "rule_tmin_le0": {
+     "recall": 0.019880715705765408,
+     "pofd": 0.0003736920777279522,
+     "precision": 0.8333333333333334
+    }
+   },
+   "model": {
+    "mae": 1.3993727347694913,
+    "bias": 0.10824040015218307,
+    "mae_frost_nights": 2.3601266055113226,
+    "recall_at_pofd5": 0.5785288270377733,
+    "precision_at_pofd5": 0.521505376344086,
+    "recall_at_pofd10": 0.7693836978131213,
+    "precision_at_pofd10": 0.4197396963123644,
+    "rule_tmin_le0": {
+     "recall": 0.1848906560636183,
+     "pofd": 0.004857997010463378,
+     "precision": 0.7815126050420168
+    }
+   },
+   "delta_mae_ci": [
+    1.158,
+    1.35
+   ],
+   "delta_recall_pofd5_ci": [
+    0.257,
+    0.429
+   ],
+   "delta_recall_pofd10_ci": [
+    0.295,
+    0.454
+   ]
+  },
+  "train": "all stations, Feb 2024 - Sep 2025 (strict forward)"
+ },
+ "unseen_site": {
+  "n": 19592,
+  "n_frost": 1977,
+  "stations": 80,
+  "nights": 364,
+  "seasons": [
+   "2024-25",
+   "2025-26"
+  ],
+  "raw": {
+   "mae": 3.1328807676602692,
+   "bias": 2.087066149448755,
+   "mae_frost_nights": 6.431057157309055,
+   "recall_at_pofd5": 0.2336874051593323,
+   "precision_at_pofd5": 0.33945628214548124,
+   "recall_at_pofd10": 0.3859382903388973,
+   "precision_at_pofd10": 0.29654100272055967,
+   "rule_tmin_le0": {
+    "recall": 0.035912999494183105,
+    "pofd": 0.0010786261708770934,
+    "precision": 0.7888888888888889
+   }
+  },
+  "model": {
+   "mae": 2.3219880861164603,
+   "bias": -0.018558639183060124,
+   "mae_frost_nights": 4.332098826560893,
+   "recall_at_pofd5": 0.3242286292362165,
+   "precision_at_pofd5": 0.42143326758711375,
+   "recall_at_pofd10": 0.4815376833586242,
+   "precision_at_pofd10": 0.35090305934389976,
+   "rule_tmin_le0": {
+    "recall": 0.0010116337885685382,
+    "pofd": 0.0,
+    "precision": 1.0
+   }
+  },
+  "delta_mae_ci": [
+   0.753,
+   0.866
+  ],
+  "delta_recall_pofd5_ci": [
+   0.053,
+   0.126
+  ],
+  "delta_recall_pofd10_ci": [
+   0.061,
+   0.129
+  ],
+  "calibration": {
+   "method": "empirical OOS residual distribution by clear-calm tercile x predicted-Tmin bin; cross-fitted by season",
+   "brier_model": 0.0775,
+   "brier_climatology": 0.0907,
+   "reliability": [
+    {
+     "bin": [
+      0,
+      0.05
+     ],
+     "n": 7192,
+     "p_mean": 0.012,
+     "obs_freq": 0.018
+    },
+    {
+     "bin": [
+      0.05,
+      0.15
+     ],
+     "n": 8187,
+     "p_mean": 0.092,
+     "obs_freq": 0.078
+    },
+    {
+     "bin": [
+      0.15,
+      0.3
+     ],
+     "n": 2807,
+     "p_mean": 0.21,
+     "obs_freq": 0.219
+    },
+    {
+     "bin": [
+      0.3,
+      0.5
+     ],
+     "n": 1278,
+     "p_mean": 0.386,
+     "obs_freq": 0.393
+    },
+    {
+     "bin": [
+      0.5,
+      0.7
+     ],
+     "n": 127,
+     "p_mean": 0.562,
+     "obs_freq": 0.669
+    },
+    {
+     "bin": [
+      0.7,
+      1.0
+     ],
+     "n": 1,
+     "p_mean": 0.704,
+     "obs_freq": 1.0
+    }
+   ],
+   "interval80_coverage": 0.764,
+   "interval80_mean_width_c": 6.99
+  },
+  "contract_alert_rule": {
+   "rule": "p_frost >= 0.3 or tmin_lo_c <= 0",
+   "recall": 0.706,
+   "pofd": 0.244,
+   "precision": 0.245,
+   "alerts_per_100_nights": 29.1
+  },
+  "alternative_rules": {
+   "p_frost >= 0.2": {
+    "recall": 0.512,
+    "pofd": 0.11,
+    "alerts_per_100_nights": 15.0
+   },
+   "p_frost >= 0.3": {
+    "recall": 0.297,
+    "pofd": 0.046,
+    "alerts_per_100_nights": 7.2
+   },
+   "p_frost >= 0.5": {
+    "recall": 0.044,
+    "pofd": 0.002,
+    "alerts_per_100_nights": 0.7
+   }
+  },
+  "vs_open_meteo_default": {
+   "n": 19592,
+   "n_frost": 1977,
+   "raw_best_match": {
+    "mae": 2.829149652919559,
+    "bias": 1.616838505512454,
+    "mae_frost_nights": 5.486697015680324,
+    "recall_at_pofd5": 0.32119372787051087,
+    "precision_at_pofd5": 0.40445859872611467,
+    "recall_at_pofd10": 0.4309559939301973,
+    "precision_at_pofd10": 0.3174366616989568,
+    "rule_tmin_le0": {
+     "recall": 0.06170966110268083,
+     "pofd": 0.0021004825432869713,
+     "precision": 0.7672955974842768
+    }
+   },
+   "model": {
+    "mae": 2.3219880861164603,
+    "bias": -0.018558639183060124,
+    "mae_frost_nights": 4.332098826560893,
+    "recall_at_pofd5": 0.3242286292362165,
+    "precision_at_pofd5": 0.42143326758711375,
+    "recall_at_pofd10": 0.4815376833586242,
+    "precision_at_pofd10": 0.35090305934389976,
+    "rule_tmin_le0": {
+     "recall": 0.0010116337885685382,
+     "pofd": 0.0,
+     "precision": 1.0
+    }
+   },
+   "delta_mae_ci": [
+    0.447,
+    0.56
+   ],
+   "delta_recall_pofd5_ci": [
+    -0.024,
+    0.047
+   ],
+   "delta_recall_pofd10_ci": [
+    0.021,
+    0.091
+   ]
+  },
+  "train": "10-fold leave-stations-out; train = other stations, all nights outside the test window",
+  "per_fold": [
+   {
+    "fold": 0,
+    "stations": 9,
+    "n": 2134,
+    "n_frost": 171,
+    "mae_raw": 2.797,
+    "mae_model": 1.897
+   },
+   {
+    "fold": 1,
+    "stations": 9,
+    "n": 1926,
+    "n_frost": 194,
+    "mae_raw": 3.338,
+    "mae_model": 1.786
+   },
+   {
+    "fold": 2,
+    "stations": 8,
+    "n": 1769,
+    "n_frost": 223,
+    "mae_raw": 3.793,
+    "mae_model": 2.35
+   },
+   {
+    "fold": 3,
+    "stations": 8,
+    "n": 1705,
+    "n_frost": 90,
+    "mae_raw": 2.583,
+    "mae_model": 2.164
+   },
+   {
+    "fold": 4,
+    "stations": 7,
+    "n": 1892,
+    "n_frost": 15,
+    "mae_raw": 2.617,
+    "mae_model": 2.517
+   },
+   {
+    "fold": 5,
+    "stations": 8,
+    "n": 1797,
+    "n_frost": 215,
+    "mae_raw": 3.087,
+    "mae_model": 2.497
+   },
+   {
+    "fold": 6,
+    "stations": 7,
+    "n": 2223,
+    "n_frost": 259,
+    "mae_raw": 3.219,
+    "mae_model": 2.808
+   },
+   {
+    "fold": 7,
+    "stations": 8,
+    "n": 2219,
+    "n_frost": 174,
+    "mae_raw": 2.607,
+    "mae_model": 1.905
+   },
+   {
+    "fold": 8,
+    "stations": 8,
+    "n": 1889,
+    "n_frost": 401,
+    "mae_raw": 3.33,
+    "mae_model": 2.475
+   },
+   {
+    "fold": 9,
+    "stations": 8,
+    "n": 2038,
+    "n_frost": 235,
+    "mae_raw": 3.993,
+    "mae_model": 2.828
+   }
+  ],
+  "season_2024-25": {
+   "n": 13737,
+   "stations": 80,
+   "mae_raw": 3.188,
+   "mae_model": 2.409
+  },
+  "season_2025-26": {
+   "n": 5855,
+   "stations": 39,
+   "mae_raw": 3.004,
+   "mae_model": 2.118
+  }
+ },
+ "terrain_research_unseen_pooled": {
+  "raw": {
+   "mae": 3.133,
+   "recall@5": 0.234,
+   "recall@10": 0.386,
+   "auc": 0.745
+  },
+  "global_bias": {
+   "mae": 2.586,
+   "recall@5": 0.231,
+   "recall@10": 0.381,
+   "auc": 0.742
+  },
+  "gbm_wx": {
+   "mae": 2.434,
+   "recall@5": 0.322,
+   "recall@10": 0.447,
+   "auc": 0.795
+  },
+  "gbm_terr": {
+   "mae": 2.627,
+   "recall@5": 0.193,
+   "recall@10": 0.269,
+   "auc": 0.629
+  },
+  "gbm_terr_nolatlon": {
+   "mae": 2.53,
+   "recall@5": 0.189,
+   "recall@10": 0.275,
+   "auc": 0.622
+  },
+  "lin_terr": {
+   "mae": 2.539,
+   "recall@5": 0.211,
+   "recall@10": 0.351,
+   "auc": 0.728
+  },
+  "off_zero": {
+   "mae": 2.545,
+   "recall@5": 0.136,
+   "recall@10": 0.275,
+   "auc": 0.706
+  },
+  "off_nn": {
+   "mae": 2.989,
+   "recall@5": 0.099,
+   "recall@10": 0.219,
+   "auc": 0.66
+  },
+  "off_idw": {
+   "mae": 2.612,
+   "recall@5": 0.159,
+   "recall@10": 0.296,
+   "auc": 0.709
+  },
+  "off_gp": {
+   "mae": 2.545,
+   "recall@5": 0.15,
+   "recall@10": 0.285,
+   "auc": 0.71
+  },
+  "off_terr": {
+   "mae": 2.518,
+   "recall@5": 0.187,
+   "recall@10": 0.324,
+   "auc": 0.729
+  },
+  "off_rk": {
+   "mae": 2.518,
+   "recall@5": 0.192,
+   "recall@10": 0.322,
+   "auc": 0.728
+  },
+  "gbm_wxonly": {
+   "mae": 2.545,
+   "recall@5": 0.136,
+   "recall@10": 0.275,
+   "auc": 0.706
+  },
+  "gbm_terr_reg": {
+   "mae": 2.406,
+   "recall@5": 0.228,
+   "recall@10": 0.346,
+   "auc": 0.752
+  },
+  "gbm_terr_reg_all": {
+   "mae": 2.55,
+   "recall@5": 0.173,
+   "recall@10": 0.223,
+   "auc": 0.664
+  },
+  "gbm_wx_reg": {
+   "mae": 2.517,
+   "recall@5": 0.165,
+   "recall@10": 0.274,
+   "auc": 0.769
+  },
+  "ens_wx_rk": {
+   "mae": 2.401,
+   "recall@5": 0.316,
+   "recall@10": 0.417,
+   "auc": 0.778
+  },
+  "ens_wx_reg": {
+   "mae": 2.335,
+   "recall@5": 0.334,
+   "recall@10": 0.443,
+   "auc": 0.806
+  }
+ }
+}

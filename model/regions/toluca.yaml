@@ -1,0 +1,80 @@
+# Helada region config: Toluca, Ixtlahuaca and Atlacomulco valleys (Estado de Mexico). Rainfed maize frost.
+# This is the region the shipped helada_model was trained and backtested on (model/README.md).
+name: toluca
+display_name: "Valles de Toluca, Ixtlahuaca y Atlacomulco"
+country: MX
+admin: "Estado de Mexico"
+timezone: America/Mexico_City
+hemisphere: north
+bbox:
+  lat: [18.9, 20.1]
+  lon: [-100.3, -99.2]
+
+model:
+  # helada_model: the trained LightGBM product (station-anchored + terrain-transfer regimes), via helada_model.predict().
+  mode: helada_model
+  forecast_source: ecmwf_ifs025
+  forecast_lead: previous_day1
+  reference: "SMN/CONAGUA station Tmin (observations)"
+  precondition: "Parcels further than 1.5 km from an SMN station are terrain-transfer (mostly bias removal). Loggers on ~5 parcels per ejido move them to station-anchored."
+
+data:
+  stations_available: true
+  station_network: "SMN/CONAGUA daily climatology, 186 stations in the domain, no login"
+  station_urls:
+    - "https://smn.conagua.gob.mx/tools/RESOURCES/Normales_Climatologicas/Diarios/mex/dia{ID}.txt"
+  forecast: "Open-Meteo Previous Runs API, ecmwf_ifs025, *_previous_day1 (CC BY 4.0)"
+  reanalysis: "not used by the product"
+
+crops:
+  - id: maiz_temporal
+    name_es: "Maiz de temporal"
+    crit_plant_c: [-2.0, -1.0]
+    crit_note: "FAO: flowering -1/-2 C, grain fill -2/-3 C (S2). See docs/advisory-table.md."
+    alert_air_tmin_c: 0.0
+    alert_air_note: "Shelter Tmin <= 0 C, the frost definition the model is calibrated on (conservative for leaves)."
+    in_field: ["05-15", "11-30"]
+    in_field_note: "Sowing late May-June, physiological maturity Sep-Oct (S4 in docs/advisory-table.md)."
+    src: [S1, S2]
+
+sources:
+  S1: "INIFAP RMCA 2022, heladas maiz valle de Toluca. https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S2007-09342022000200207"
+  S2: "FAO (2010). Proteccion contra las heladas, cap. 4, Tabla 4.5. https://www.fao.org/4/y7223s/y7223s05.pdf"
+
+program:
+  name: "PASACME (Secretaria del Campo, Estado de Mexico)"
+  owner: "Gobierno del Estado de Mexico"
+  covers_frost: true
+  payout: "MX$4,000 per ha, max 3 ha, individuals only, one claim per plot per year"
+  assessment: "The Secretaria del Campo verifies on site; Helada's packet only says complete / missing X."
+  urls:
+    - "docs/pasacme.md"
+  packet_status: "Built (app/): PASACME checklist, never outputs 'eligible'."
+
+languages:
+  spoken:
+    - code: es
+      note: "Spanish text and voice."
+    - code: maz
+      note: "Mazahua is not supported yet (northern municipalities)."
+  asr_claim: "Spanish only"
+  asr_note: "See app/ for the Spanish speech pipeline."
+
+channel:
+  primary: whatsapp
+  notes: "WhatsApp voice notes and text, SMS fallback."
+
+# Demo parcels: real coordinates near SMN stations (see model/tests), synthetic owners.
+parcels:
+  - id: TO01
+    place: "Toluca (SMN 15126)"
+    lat: 19.29111
+    lon: -99.71417
+  - id: TO02
+    place: "Atotonilco (SMN 15010)"
+    lat: 19.46222
+    lon: -99.77556
+  - id: TO03
+    place: "Entre estaciones (norte del valle)"
+    lat: 19.60
+    lon: -99.88

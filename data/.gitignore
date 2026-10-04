@@ -1,0 +1,6 @@
+# Large, reproducible caches (see model/research/01-04_*.py).
+# Kept in git: smn/stations.csv, smn/smn_edomex_stations.csv, terrain_stations.csv, dem/dem_6s.npz
+forecasts/
+nights_*.csv.gz
+smn/obs_daily.csv.gz
+dem/dem_3s.npz
