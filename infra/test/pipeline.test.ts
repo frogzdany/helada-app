@@ -9,7 +9,7 @@ const t = Template.fromStack(
   new PipelineStack(app, 'Pipeline', {
     env: { account: '111111111111', region: 'us-east-1' },
     owner: 'frogzdany',
-    repo: 'helada',
+    repo: 'helada-app',
     branch: 'main',
   }),
 );
@@ -36,7 +36,7 @@ test('each pipeline hands the build a clone of the repository and the stage to d
   for (const stage of ['dev', 'prod']) {
     const [source, deploy] = named(`helada-${stage}`).Stages;
     expect(source.Actions[0].Configuration).toMatchObject({
-      FullRepositoryId: 'frogzdany/helada',
+      FullRepositoryId: 'frogzdany/helada-app',
       BranchName: 'main',
       OutputArtifactFormat: 'CODEBUILD_CLONE_REF',
     });

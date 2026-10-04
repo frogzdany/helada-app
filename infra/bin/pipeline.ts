@@ -11,7 +11,7 @@ new PipelineStack(app, 'Helada-Pipeline', {
   env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: 'us-east-1' },
   description: 'Helada: the pipelines that deploy dev and prod from GitHub',
   owner: 'frogzdany',
-  repo: 'helada',
+  repo: 'helada-app',
   branch: 'main',
 });
 
