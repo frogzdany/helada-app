@@ -1,0 +1,184 @@
+{
+ "cases": [
+  {
+   "name": "si",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "sí"
+   },
+   "expect": {
+    "prerregistro": "si_lo_hizo"
+   }
+  },
+  {
+   "name": "no",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "no"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "si con detalle",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Sí, ya fui a la delegación a registrarme"
+   },
+   "expect": {
+    "prerregistro": "si_lo_hizo"
+   }
+  },
+  {
+   "name": "todavia no he ido",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "todavía no he ido"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "pregunta que es",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "¿Qué es eso del pre-registro?"
+   },
+   "expect": {
+    "prerregistro": "no_queda_claro"
+   }
+  },
+  {
+   "name": "no sabe si la esposa",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Creo que mi esposa lo hizo, no sé"
+   },
+   "expect": {
+    "prerregistro": "no_queda_claro"
+   }
+  },
+  {
+   "name": "lo hizo el hijo",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Ya lo llenó mi hijo en el celular"
+   },
+   "expect": {
+    "prerregistro": "si_lo_hizo"
+   }
+  },
+  {
+   "name": "manana voy",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Mañana voy a ir a hacerlo"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "si y otro dano",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Sí, pero también se me heló la avena"
+   },
+   "expect": {
+    "prerregistro": "si_lo_hizo"
+   }
+  },
+  {
+   "name": "nel",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Nel"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "ya mero",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Ya mero"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "aun no y pregunta",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Aún no, ¿dónde queda la delegación?"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "tema ajeno",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "La foto la mando al rato"
+   },
+   "expect": {
+    "prerregistro": "no_queda_claro"
+   }
+  },
+  {
+   "name": "adv1",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Nel, todavía no, pero ya mero, el lunes voy a la presidencia a hacerlo"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "adv2",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Nomás no me ha llegado el folio, pero ya lo llené desde la semana pasada"
+   },
+   "expect": {
+    "prerregistro": "si_lo_hizo"
+   }
+  },
+  {
+   "name": "adv3",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Fui a la ventanilla pero no me lo quisieron hacer porque me faltaba la CURP"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "adv4",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Mi hermano sí ya lo hizo, yo no"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "adv5",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "No sé si cuenta, el ingeniero del DDR me tomó los datos y dijo que él lo subía"
+   },
+   "expect": {
+    "prerregistro": "no_queda_claro"
+   }
+  }
+ ]
+}

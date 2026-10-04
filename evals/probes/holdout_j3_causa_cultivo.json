@@ -1,0 +1,104 @@
+{
+ "cases": [
+  {
+   "name": "ho1",
+   "state": {
+    "mensaje": "se me quemó la milpa con la helada de anoche"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "ho2",
+   "state": {
+    "mensaje": "nos cayó piedra y me acabó la papa"
+   },
+   "expect": {
+    "causa": "granizo",
+    "cultivo": "papa"
+   }
+  },
+  {
+   "name": "ho3",
+   "state": {
+    "mensaje": "no ha llovido nada y la avena ya se está secando toda"
+   },
+   "expect": {
+    "causa": "sequia",
+    "cultivo": "avena"
+   }
+  },
+  {
+   "name": "ho4",
+   "state": {
+    "mensaje": "se me inundó el terreno del frijol con el aguacero del viernes"
+   },
+   "expect": {
+    "causa": "inundacion",
+    "cultivo": "frijol"
+   }
+  },
+  {
+   "name": "ho5",
+   "state": {
+    "mensaje": "el ventarrón de ayer me tiró el invernadero y se me maltrataron todas las flores"
+   },
+   "expect": {
+    "causa": "viento",
+    "cultivo": "flores"
+   }
+  },
+  {
+   "name": "ho6",
+   "state": {
+    "mensaje": "al vecino le pegó la granizada en su trigo, a mí nomás se me heló la cebada"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "cebada"
+   }
+  },
+  {
+   "name": "ho7",
+   "state": {
+    "mensaje": "pensé que era helada pero el ingeniero dijo que es gallina ciega lo que se comió las raíces del maíz"
+   },
+   "expect": {
+    "causa": "otra",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "ho8",
+   "state": {
+    "mensaje": "cayó una elada fuerte y me dejó el aba negrita"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "haba"
+   }
+  },
+  {
+   "name": "ho9",
+   "state": {
+    "mensaje": "ya se me perdió todo lo que sembré, no quedó nada"
+   },
+   "expect": {
+    "causa": "no_dicha",
+    "cultivo": "no_dicho"
+   }
+  },
+  {
+   "name": "ho10",
+   "state": {
+    "mensaje": "Buenos días, le informo que el jueves cayó nevada en la parte alta del ejido y me echó a perder el chícharo que tenía sembrado"
+   },
+   "expect": {
+    "causa": "nevada",
+    "cultivo": "otro"
+   }
+  }
+ ]
+}

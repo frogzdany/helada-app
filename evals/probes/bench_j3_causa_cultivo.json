@@ -1,0 +1,265 @@
+{
+ "cases": [
+  {
+   "name": "asr c01",
+   "state": {
+    "mensaje": "Se me heló la milpa anoche, como hectárea y media."
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "asr c02",
+   "state": {
+    "mensaje": "Cayó granizo del martes en mi parcela de maíz."
+   },
+   "expect": {
+    "causa": "granizo",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "asr c03",
+   "state": {
+    "mensaje": "Cuando siembro este año."
+   },
+   "expect": {
+    "causa": "no_dicha",
+    "cultivo": "no_dicho"
+   }
+  },
+  {
+   "name": "asr c04",
+   "state": {
+    "mensaje": "Se creó toda la milpa con la helada, fue antier."
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "asr c05",
+   "state": {
+    "mensaje": "Nos cayó una granizada muy fuerte, se perdieron dos hectáreas de maíz."
+   },
+   "expect": {
+    "causa": "granizo",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "asr c06",
+   "state": {
+    "mensaje": "La helada me quemó media hectárea de papa."
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "papa"
+   }
+  },
+  {
+   "name": "asr c07",
+   "state": {
+    "mensaje": "Se me secó la avena porque no ha llovido."
+   },
+   "expect": {
+    "causa": "sequia",
+    "cultivo": "avena"
+   }
+  },
+  {
+   "name": "asr c08",
+   "state": {
+    "mensaje": "Hace tres días cayó, escarcha y daño el agua."
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "haba"
+   }
+  },
+  {
+   "name": "asr c09",
+   "state": {
+    "mensaje": "Buenas tardes, ¿cuánto va a bajar la temperatura esta noche?"
+   },
+   "expect": {
+    "causa": "no_dicha",
+    "cultivo": "no_dicho"
+   }
+  },
+  {
+   "name": "asr c10",
+   "state": {
+    "mensaje": "Se inundó la parcela, se ahogaron como tres hectáreas de maíz."
+   },
+   "expect": {
+    "causa": "inundacion",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "asr c11",
+   "state": {
+    "mensaje": "Un cuarto de hectárea de frijol se heló el lunes."
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "frijol"
+   }
+  },
+  {
+   "name": "asr c12",
+   "state": {
+    "mensaje": "Se me heló la milpa anoche, como hectárea y media."
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "frase 1",
+   "state": {
+    "mensaje": "Sí se quemó la milpa, como una hectárea"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "frase 2",
+   "state": {
+    "mensaje": "Se heló todo el maíz anoche"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "frase 3",
+   "state": {
+    "mensaje": "Nos cayó granizo ayer, media hectárea de milpa"
+   },
+   "expect": {
+    "causa": "granizo"
+   }
+  },
+  {
+   "name": "frase 4",
+   "state": {
+    "mensaje": "Fue una granizada muy fuerte el viernes, se perdieron dos hectáreas"
+   },
+   "expect": {
+    "causa": "granizo"
+   }
+  },
+  {
+   "name": "frase 5",
+   "state": {
+    "mensaje": "La helada del 3 de octubre me quemó hectárea y media de papa"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "papa"
+   }
+  },
+  {
+   "name": "frase 6",
+   "state": {
+    "mensaje": "Se me secó la avena porque no ha llovido"
+   },
+   "expect": {
+    "causa": "sequia",
+    "cultivo": "avena"
+   }
+  },
+  {
+   "name": "frase 7",
+   "state": {
+    "mensaje": "Se inundó la parcela, se ahogaron como 3 has"
+   },
+   "expect": {
+    "causa": "inundacion"
+   }
+  },
+  {
+   "name": "frase 8",
+   "state": {
+    "mensaje": "Una hectárea y media quemada por el frío, antier"
+   },
+   "expect": {
+    "causa": "helada"
+   }
+  },
+  {
+   "name": "frase 9",
+   "state": {
+    "mensaje": "Se perdió toda la parcela con la helada"
+   },
+   "expect": {
+    "causa": "helada"
+   }
+  },
+  {
+   "name": "frase 10",
+   "state": {
+    "mensaje": "un cuarto de hectárea de haba se heló"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "haba"
+   }
+  },
+  {
+   "name": "frase 11",
+   "state": {
+    "mensaje": "Hace 3 días cayó escarcha y dañó la milpa"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "frase 12",
+   "state": {
+    "mensaje": "Se heló 1.5 ha de maíz"
+   },
+   "expect": {
+    "causa": "helada"
+   }
+  },
+  {
+   "name": "frase 13",
+   "state": {
+    "mensaje": "Tres cuartos de hectárea con granizo"
+   },
+   "expect": {
+    "causa": "granizo"
+   }
+  },
+  {
+   "name": "frase 14",
+   "state": {
+    "mensaje": "La mitad de la milpa se quemó con el hielo esta madrugada"
+   },
+   "expect": {
+    "causa": "helada"
+   }
+  },
+  {
+   "name": "frase 15",
+   "state": {
+    "mensaje": "Dos y media hectáreas de maíz, se nos heló el lunes"
+   },
+   "expect": {
+    "causa": "helada"
+   }
+  }
+ ]
+}

@@ -1,0 +1,104 @@
+{
+ "cases": [
+  {
+   "name": "ho1",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "la helada agarró la milpa recién nacida, apenas llevaba dos hojitas"
+   },
+   "expect": {
+    "etapa": "emergencia"
+   }
+  },
+  {
+   "name": "ho2",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "se me quemó el maíz cuando ya estaba espigando"
+   },
+   "expect": {
+    "etapa": "floracion"
+   }
+  },
+  {
+   "name": "ho3",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "la granizada le pegó cuando las mazorcas ya estaban llenando grano, todavía tiernas"
+   },
+   "expect": {
+    "etapa": "llenado_de_grano"
+   }
+  },
+  {
+   "name": "ho4",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "ya estaba la mazorca bien seca nomás esperando pa pizcar y se vino la helada"
+   },
+   "expect": {
+    "etapa": "madurez"
+   }
+  },
+  {
+   "name": "ho5",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "se me heló la milpa, estaba como de un metro, todavía no echaba espiga"
+   },
+   "expect": {
+    "etapa": "crecimiento_vegetativo"
+   }
+  },
+  {
+   "name": "ho6",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "se me heló toda la milpa antier"
+   },
+   "expect": {
+    "etapa": "no_dicha"
+   }
+  },
+  {
+   "name": "ho7",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "el maíz de mi vecino ya estaba espigando, el mío apenas estaba naciendo cuando le pegó la helada"
+   },
+   "expect": {
+    "etapa": "emergencia"
+   }
+  },
+  {
+   "name": "ho8",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "se me eló el maís cuando estaba echando el pelo"
+   },
+   "expect": {
+    "etapa": "floracion"
+   }
+  },
+  {
+   "name": "ho9",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "le cayó granizo al maíz, eso lo cubre el programa?"
+   },
+   "expect": {
+    "etapa": "no_dicha"
+   }
+  },
+  {
+   "name": "ho10",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "cuando cayó la piedra la milpa tenía unas 8 hojas, ahorita ya está espigando pero salió toda rota"
+   },
+   "expect": {
+    "etapa": "crecimiento_vegetativo"
+   }
+  }
+ ]
+}

@@ -1,0 +1,243 @@
+{
+ "_note": "Cases for the deterministic rules (app/backend/intents.py, slots.py), written by the rules' author AFTER the rules were frozen on the other probe sets, and scored once before any fix: 73 of 80 checks. The misses were then fixed with general rules, so this set is no longer held out. Fictional messages.",
+ "j1": [
+  {
+   "name": "L1 hiela o no",
+   "mensaje": "oiga joven, hoy en la noche sí hiela o no?",
+   "pendiente": null,
+   "expect": {
+    "damage": false,
+    "optout": false,
+    "forecast": true,
+    "planting": false,
+    "program": false
+   }
+  },
+  {
+   "name": "L2 papas negras",
+   "mensaje": "Pasó la helada y me dejó las papas todas negras, como dos hectáreas",
+   "pendiente": null,
+   "expect": {
+    "damage": true,
+    "optout": false,
+    "forecast": false,
+    "planting": false,
+    "program": false
+   }
+  },
+  {
+   "name": "L3 no me manden audios",
+   "mensaje": "No me manden más audios porfavor, ya no siembro",
+   "pendiente": null,
+   "expect": {
+    "damage": false,
+    "optout": true,
+    "forecast": false,
+    "planting": false,
+    "program": false
+   }
+  },
+  {
+   "name": "L4 se va a poner fea",
+   "mensaje": "¿Se va a poner fea la helada mañana en la madrugada?",
+   "pendiente": null,
+   "expect": {
+    "damage": false,
+    "optout": false,
+    "forecast": true,
+    "planting": false,
+    "program": false
+   }
+  },
+  {
+   "name": "L5 cuantas fotos",
+   "mensaje": "Tengo una duda, ¿con cuántas fotos me aceptan el reporte del seguro?",
+   "pendiente": null,
+   "expect": {
+    "damage": false,
+    "optout": false,
+    "forecast": false,
+    "planting": false,
+    "program": true
+   }
+  },
+  {
+   "name": "L6 suegro granizo",
+   "mensaje": "A mi suegro le cayó granizo en la cebada, a nosotros no nos tocó",
+   "pendiente": null,
+   "expect": {
+    "damage": false,
+    "optout": false,
+    "forecast": false,
+    "planting": false,
+    "program": false
+   }
+  },
+  {
+   "name": "L7 granizada acabo con el haba",
+   "mensaje": "La semana pasada se vino una granizada y acabó con el haba",
+   "pendiente": null,
+   "expect": {
+    "damage": true,
+    "optout": false,
+    "forecast": false,
+    "planting": false,
+    "program": false
+   }
+  },
+  {
+   "name": "L8 que dias sembrar avena",
+   "mensaje": "Quiero saber qué días conviene sembrar la avena",
+   "pendiente": null,
+   "expect": {
+    "damage": false,
+    "optout": false,
+    "forecast": false,
+    "planting": true,
+    "program": false
+   }
+  },
+  {
+   "name": "L9 manana le cuento",
+   "mensaje": "ya vi que mandaron la alerta, mañana le cuento cómo amaneció la milpa",
+   "pendiente": null,
+   "expect": {
+    "damage": false,
+    "optout": false,
+    "forecast": false,
+    "planting": false,
+    "program": false
+   }
+  },
+  {
+   "name": "L10 sacar de la lista",
+   "mensaje": "Me pueden sacar de la lista de avisos? ya estoy grande y no uso el cel",
+   "pendiente": null,
+   "expect": {
+    "damage": false,
+    "optout": true,
+    "forecast": false,
+    "planting": false,
+    "program": false
+   }
+  },
+  {
+   "name": "L11 donde lo reporto",
+   "mensaje": "Se me heló el trigo el jueves. ¿Dónde lo reporto?",
+   "pendiente": null,
+   "expect": {
+    "damage": true,
+    "optout": false,
+    "forecast": false,
+    "planting": false,
+    "program": true
+   }
+  },
+  {
+   "name": "L12 ok gracias",
+   "mensaje": "Ok gracias",
+   "pendiente": null,
+   "expect": {
+    "damage": false,
+    "optout": false,
+    "forecast": false,
+    "planting": false,
+    "program": false
+   }
+  }
+ ],
+ "optin": [
+  {
+   "name": "O1 vuelvan a mandar",
+   "mensaje": "Ya quiero que me vuelvan a mandar los avisos",
+   "expect": true
+  },
+  {
+   "name": "O2 no quiero avisos",
+   "mensaje": "no quiero avisos",
+   "expect": false
+  }
+ ],
+ "j3": [
+  {
+   "name": "C1 nos granizo",
+   "mensaje": "Nos granizó feo el sábado y la milpa quedó hecha tiras",
+   "expect": {
+    "causa": "granizo",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "C2 no se helo, calor",
+   "mensaje": "No se heló, se secó por el calor, la avena ya no dio",
+   "expect": {
+    "causa": "sequia",
+    "cultivo": "avena"
+   }
+  },
+  {
+   "name": "C3 helada no granizo",
+   "mensaje": "fue la helada de la madrugada, no el granizo, lo que quemó el frijol",
+   "expect": {
+    "causa": "helada",
+    "cultivo": "frijol"
+   }
+  },
+  {
+   "name": "C4 piedritas de hielo",
+   "mensaje": "cayeron unas piedritas de hielo y agujeraron las hojas del haba",
+   "expect": {
+    "causa": "granizo",
+    "cultivo": "haba"
+   }
+  },
+  {
+   "name": "C5 heladota",
+   "mensaje": "Se me pasmó la papa con la heladota de anoche",
+   "expect": {
+    "causa": "helada",
+    "cultivo": "papa"
+   }
+  },
+  {
+   "name": "C6 el agua se llevo",
+   "mensaje": "el agua se llevó la mitad del maíz, el río se salió",
+   "expect": {
+    "causa": "inundacion",
+    "cultivo": "maiz_temporal"
+   }
+  }
+ ],
+ "j2": [
+  {
+   "name": "P1 sip desde abril",
+   "respuesta": "sip, ya quedó desde abril",
+   "expect": "si"
+  },
+  {
+   "name": "P2 no he tenido tiempo",
+   "respuesta": "este... no, no he tenido tiempo",
+   "expect": "no"
+  },
+  {
+   "name": "P3 lo ve mi senora",
+   "respuesta": "quién sabe, eso lo ve mi señora",
+   "expect": "unclear"
+  },
+  {
+   "name": "P4 sin comprobante",
+   "respuesta": "ya lo hice pero no me dieron comprobante",
+   "expect": "si"
+  },
+  {
+   "name": "P5 no, donde se hace",
+   "respuesta": "No, ¿dónde se hace?",
+   "expect": "no"
+  },
+  {
+   "name": "P6 el lunes lo llene",
+   "respuesta": "Pues fíjese que sí, el lunes lo llené en la presidencia",
+   "expect": "si"
+  }
+ ]
+}

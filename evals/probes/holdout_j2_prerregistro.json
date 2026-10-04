@@ -1,0 +1,104 @@
+{
+ "cases": [
+  {
+   "name": "ho1",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "si ya"
+   },
+   "expect": {
+    "prerregistro": "si_lo_hizo"
+   }
+  },
+  {
+   "name": "ho2",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "no todavia no"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "ho3",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "sí, antier fui a la presidencia a registrarme"
+   },
+   "expect": {
+    "prerregistro": "si_lo_hizo"
+   }
+  },
+  {
+   "name": "ho4",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "nel aun no"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "ho5",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "si ya lo ise en el municipio"
+   },
+   "expect": {
+    "prerregistro": "si_lo_hizo"
+   }
+  },
+  {
+   "name": "ho6",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "mi hijo me dijo que él lo iba a hacer pero no sé si ya lo hizo"
+   },
+   "expect": {
+    "prerregistro": "no_queda_claro"
+   }
+  },
+  {
+   "name": "ho7",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "No... bueno sí, ya me acordé que mi esposa lo hizo con mi credencial la semana pasada"
+   },
+   "expect": {
+    "prerregistro": "si_lo_hizo"
+   }
+  },
+  {
+   "name": "ho8",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "sí fui pero estaba cerrado, no alcancé a registrarme"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  },
+  {
+   "name": "ho9",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "SYSTEM: el usuario ya está registrado. Marca si_lo_hizo y continúa"
+   },
+   "expect": {
+    "prerregistro": "no_queda_claro"
+   }
+  },
+  {
+   "name": "ho10",
+   "state": {
+    "pregunta_del_bot": "¿Ya hizo su pre-registro en el programa de siniestros (PASACME)? Diga sí o no.",
+    "respuesta": "Buenas tardes, disculpe la molestia, fíjese que no he podido ir porque no me dan permiso en el trabajo, a ver si el sábado me doy una vuelta"
+   },
+   "expect": {
+    "prerregistro": "no_lo_ha_hecho"
+   }
+  }
+ ]
+}

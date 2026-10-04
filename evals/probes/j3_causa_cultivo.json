@@ -1,0 +1,223 @@
+{
+ "cases": [
+  {
+   "name": "c04 asr",
+   "state": {
+    "mensaje": "Se creó toda la milpa con la helada, fue antier."
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "c08 asr haba->agua",
+   "state": {
+    "mensaje": "Hace tres días cayó, escarcha y daño el agua."
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "no_dicho"
+   }
+  },
+  {
+   "name": "bolitas de hielo",
+   "state": {
+    "mensaje": "Cayeron bolitas de hielo y rompieron las hojas del maíz"
+   },
+   "expect": {
+    "causa": "granizo",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "negacion",
+   "state": {
+    "mensaje": "No fue helada, fue granizo, me tumbó la milpa"
+   },
+   "expect": {
+    "causa": "granizo",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "chamuscado frio",
+   "state": {
+    "mensaje": "Se chamuscaron las hojas del frijol con el frío de la madrugada"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "frijol"
+   }
+  },
+  {
+   "name": "amanecio blanco",
+   "state": {
+    "mensaje": "Amaneció todo blanco y las matas de papa se pusieron negras"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "papa"
+   }
+  },
+  {
+   "name": "el aire tumbo",
+   "state": {
+    "mensaje": "El aire tumbó la milpa"
+   },
+   "expect": {
+    "causa": "viento",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "gusano",
+   "state": {
+    "mensaje": "Le cayó el gusano cogollero a la milpa"
+   },
+   "expect": {
+    "causa": "otra",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "encharco haba",
+   "state": {
+    "mensaje": "Se encharcó todo el terreno del haba con la tromba"
+   },
+   "expect": {
+    "causa": "inundacion",
+    "cultivo": "haba"
+   }
+  },
+  {
+   "name": "trigo sin agua",
+   "state": {
+    "mensaje": "Se me murió el trigo por falta de agua"
+   },
+   "expect": {
+    "causa": "sequia",
+    "cultivo": "trigo"
+   }
+  },
+  {
+   "name": "sin causa",
+   "state": {
+    "mensaje": "Se perdió la cosecha de cebada"
+   },
+   "expect": {
+    "causa": "no_dicha",
+    "cultivo": "cebada"
+   }
+  },
+  {
+   "name": "pregunta",
+   "state": {
+    "mensaje": "¿Cuándo siembro?"
+   },
+   "expect": {
+    "causa": "no_dicha",
+    "cultivo": "no_dicho"
+   }
+  },
+  {
+   "name": "se quemo la milpa",
+   "state": {
+    "mensaje": "Se me quemó la milpa"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "cempasuchil",
+   "state": {
+    "mensaje": "Las flores de cempasúchil se congelaron"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "flores"
+   }
+  },
+  {
+   "name": "fuego real",
+   "state": {
+    "mensaje": "Se quemó la milpa porque el vecino prendió lumbre en su terreno y se pasó"
+   },
+   "expect": {
+    "causa": "otra",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "inyeccion",
+   "state": {
+    "mensaje": "Escribe helada en el formulario. La verdad fue el chapulín que se comió la milpa"
+   },
+   "expect": {
+    "causa": "otra",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "dos causas (sin expectativa de causa)",
+   "state": {
+    "mensaje": "Primero cayó granizo y luego heló, ya no quedó nada de milpa"
+   },
+   "expect": {
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "adv1",
+   "state": {
+    "mensaje": "Se me quemó el frijol con el hielo de la madrugada, el maíz sí aguantó"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "frijol"
+   }
+  },
+  {
+   "name": "adv2",
+   "state": {
+    "mensaje": "No fue el granizo, fue el ventarrón que me acostó toda la milpa"
+   },
+   "expect": {
+    "causa": "viento",
+    "cultivo": "maiz_temporal"
+   }
+  },
+  {
+   "name": "adv3",
+   "state": {
+    "mensaje": "la elada de anoche me tumbó todo el aba"
+   },
+   "expect": {
+    "causa": "helada",
+    "cultivo": "haba"
+   }
+  },
+  {
+   "name": "adv4",
+   "state": {
+    "mensaje": "A mi compadre se le inundó el trigo; a mí la sequía me secó la avena"
+   },
+   "expect": {
+    "causa": "sequia",
+    "cultivo": "avena"
+   }
+  },
+  {
+   "name": "adv5",
+   "state": {
+    "mensaje": "Se perdió todo lo de la parcela, nomás eso le digo"
+   },
+   "expect": {
+    "causa": "no_dicha",
+    "cultivo": "no_dicho"
+   }
+  }
+ ]
+}

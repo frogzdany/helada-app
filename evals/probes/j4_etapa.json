@@ -1,0 +1,154 @@
+{
+ "cases": [
+  {
+   "name": "jiloteando",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "La milpa ya estaba jiloteando cuando cayó la helada"
+   },
+   "expect": {
+    "etapa": "floracion"
+   }
+  },
+  {
+   "name": "dos hojitas",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Apenas estaba saliendo la milpa, tenía dos hojitas"
+   },
+   "expect": {
+    "etapa": "emergencia"
+   }
+  },
+  {
+   "name": "a la rodilla",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Ya estaba a la rodilla la milpa y se heló"
+   },
+   "expect": {
+    "etapa": "crecimiento_vegetativo"
+   }
+  },
+  {
+   "name": "elotes tiernos",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Ya tenía elotes tiernos y se quemaron con el hielo"
+   },
+   "expect": {
+    "etapa": "llenado_de_grano"
+   }
+  },
+  {
+   "name": "espigando",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Ya estaba espigando el maíz"
+   },
+   "expect": {
+    "etapa": "floracion"
+   }
+  },
+  {
+   "name": "mazorca maciza",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "La mazorca ya estaba macicita, casi para pizcar"
+   },
+   "expect": {
+    "etapa": "madurez"
+   }
+  },
+  {
+   "name": "sin etapa",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Se me heló la milpa, como una hectárea"
+   },
+   "expect": {
+    "etapa": "no_dicha"
+   }
+  },
+  {
+   "name": "grandecita sin espiga",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "La planta ya estaba grandecita pero todavía sin espiga"
+   },
+   "expect": {
+    "etapa": "crecimiento_vegetativo"
+   }
+  },
+  {
+   "name": "pelo del jilote",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Ya le había salido el pelo al jilote"
+   },
+   "expect": {
+    "etapa": "floracion"
+   }
+  },
+  {
+   "name": "cortando elotes",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Ya le estábamos cortando elotes para vender"
+   },
+   "expect": {
+    "etapa": "llenado_de_grano"
+   }
+  },
+  {
+   "name": "adv1",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Se heló cuando apenas le iba saliendo el jilote"
+   },
+   "expect": {
+    "etapa": "floracion"
+   }
+  },
+  {
+   "name": "adv2",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Ya estaba en elote cuando cayó la helada, ni lo pudimos comer"
+   },
+   "expect": {
+    "etapa": "llenado_de_grano"
+   }
+  },
+  {
+   "name": "adv3",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Iba como a la rodilla, todavía no espigaba cuando se quemó"
+   },
+   "expect": {
+    "etapa": "crecimiento_vegetativo"
+   }
+  },
+  {
+   "name": "adv4",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Ya lo iba a pizcar, nomás estaba secándose en la mata cuando cayó la helada"
+   },
+   "expect": {
+    "etapa": "madurez"
+   }
+  },
+  {
+   "name": "adv5",
+   "state": {
+    "cultivo": "maíz",
+    "mensaje": "Se quemó igual que el año pasado, que ese sí fue en elote, pero esta vez no le sé decir en qué iba"
+   },
+   "expect": {
+    "etapa": "no_dicha"
+   }
+  }
+ ]
+}
