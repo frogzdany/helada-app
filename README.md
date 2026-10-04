@@ -53,6 +53,7 @@ Built for smallholders who grow rainfed maize in Mexico's Toluca valley.
 - [Responsible AI](#responsible-ai)
 - [Limits and next step](#limits-and-next-step)
 - [Documentation](#documentation)
+- [Team](#team)
 - [License and attribution](#license-and-attribution)
 
 ## The problem and the user
@@ -312,6 +313,12 @@ Full account, with what is built and what is missing: [`docs/responsible-ai.md`]
 | Interfaces and fixed rules | [`docs/interfaces.md`](docs/interfaces.md) |
 | AWS architecture and deployment | [`docs/aws-architecture.md`](docs/aws-architecture.md), [`infra/README.md`](infra/README.md) |
 | App: demo steps, settings, how it works | [`app/README.md`](app/README.md) |
+
+## Team
+
+<img src="docs/img/team.jpg" alt="The four members of Team SysCallOx4 at the Tecnológico de Monterrey Campus Toluca hub, during the hackathon" width="640">
+
+Team SysCallOx4, at the Tecnológico de Monterrey Campus Toluca hub.
 
 ## License and attribution
 
